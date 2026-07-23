@@ -73,9 +73,11 @@
   .quote.g{border-left:4px solid var(--good)}
   .quote.b{border-left:4px solid var(--bad)}
 
-  .chartbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow)}
+  .chartbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow);position:relative;height:340px}
   .chart-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  canvas{max-height:290px}
+  canvas{display:block;width:100%!important;height:100%!important}
+  .catgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:10px}
+  @media(max-width:900px){.catgrid{grid-template-columns:1fr}}
 
   table{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);font-size:13px}
   th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line)}
@@ -88,7 +90,7 @@
   .srcgrid a:hover{border-color:var(--accent);background:var(--accent-bg)}
   .srcgrid a b{display:block;font-size:12px;color:var(--accent);margin-bottom:2px}
   footer{margin-top:40px;text-align:center;color:#98a2b3;font-size:12px}
-  @media(max-width:760px){.cards{grid-template-columns:repeat(2,1fr)}.grid2,.chart-grid{grid-template-columns:1fr}}
+  @media(max-width:760px){.cards{grid-template-columns:repeat(2,1fr)}.chart-grid{grid-template-columns:1fr}}
 
   /* HR 建议 */
   .hr-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);margin-bottom:10px}
@@ -158,11 +160,10 @@
   <!-- 好评 vs 差评 -->
   <section>
     <h2><span class="bar" style="background:var(--good)"></span>三、好评与差评分类展示</h2>
-    <p class="lead">按维度整理，左列为正面体验（好评），右列为负面体验（差评）。</p>
-    <div class="grid2">
-      <!-- 好评 -->
-      <div class="panel">
-        <h3><span class="pill g">好评 · 员工认可</span></h3>
+    <p class="lead">好评与差评分别成行展示：上行为正面体验（好评），下行为负面体验（差评）。</p>
+    <div class="block">
+      <h3><span class="pill g">好评 · 员工认可</span></h3>
+      <div class="catgrid">
 
         <div class="item g"><div class="t">💰 入职门槛低、来钱快</div><div class="d">无经验也可申请、公司提供培训；一线时薪 $19–24，加班 1.5 倍，司机周薪约 $1,000+，被评价为"快速赚现金"的机会。</div><div class="src">来源：Indeed "Quick Money"、华人招聘网、Glassdoor 招聘帖</div></div>
 
@@ -174,10 +175,11 @@
 
         <div class="item g"><div class="t">🌐 多元包容 + Visa 担保</div><div class="d">团队来自多国背景、强调平等包容；对优秀员工提供工作签证担保（H1B 等），对留学生有吸引力。</div><div class="src">来源：官方招聘页 Careers at GOFO</div></div>
       </div>
+    </div>
 
-      <!-- 差评 -->
-      <div class="panel">
-        <h3><span class="pill b">差评 · 员工吐槽</span></h3>
+    <div class="block">
+      <h3><span class="pill b">差评 · 员工吐槽</span></h3>
+      <div class="catgrid">
 
         <div class="item b"><div class="t">👔 管理粗放、主管不专业</div><div class="d">大量新晋主管缺乏培训，面试问不当私人问题；被形容为"有毒的工作环境"，员工间恶性竞争，缺乏基本劳动权益意识。</div><div class="src">来源：Indeed（Vernon CA 1★ "Toxic Working Environment"）</div></div>
 
@@ -204,25 +206,17 @@
     </div>
 
       <!-- 小红书专题汇总（并入好评/差评） -->
-      <h3 style="font-size:16px;font-weight:800;margin:22px 0 12px;display:flex;align-items:center;gap:8px;color:#FF2442"><span style="width:5px;height:18px;border-radius:3px;background:#FF2442;display:inline-block"></span>小红书平台 GOFO 话题汇总（10 条笔记）</h3>
-      <p class="lead" style="margin-bottom:12px">以下为小红书搜索「GOFO / 高链科技 / gofo 美国」获取到的全部相关笔记（2026-07-23 扫描），以「问题类别 · 内容 · 对应平台」汇总。</p>
+      <h3 style="font-size:16px;font-weight:800;margin:22px 0 12px;display:flex;align-items:center;gap:8px;color:#FF2442"><span style="width:5px;height:18px;border-radius:3px;background:#FF2442;display:inline-block"></span>小红书平台 GOFO 话题 · 负面 / 正面精选（2 条）</h3>
+      <p class="lead" style="margin-bottom:12px">以下为小红书搜索「GOFO / 高链科技 / gofo 美国」获取到的全部相关笔记（2026-07-23 扫描），按需求仅展示<b>负面与正面</b>笔记，招聘 / 展会 / 官方宣传类不在此呈现。</p>
       <table>
         <thead><tr><th>问题类别</th><th>内容</th><th>对应平台</th></tr></thead>
         <tbody>
           <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">员工体验·负面(高互动)</span></td><td><b>GOFO我谢谢你一辈子🌹</b>（omom · 173赞）— 标题反讽，暗示强烈负面工作体验，为话题最高互动笔记</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">员工体验·正面</span></td><td><b>GOFO上班真快乐！</b>（火龙果🐶）— 福利 / 端午节 / 生日会 / 团建，正面评价</td><td>小红书</td></tr>
           <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">员工福利·正面</span></td><td><b>Gofo的纪念品小礼物</b>（华南D记PM · 16赞）— 公司文化周边 / 员工关怀</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fff4e0;color:#d98a00">招聘·扩张</span></td><td><b>GOFO来啦！持续开仓中，好多hc</b>（GOFO全球招聘 · 22赞）</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fff4e0;color:#d98a00">招聘·HR直招</span></td><td><b>Gofo持续开仓中 好多好多hc</b>（GOFO HR · 7赞）</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">品牌·官方</span></td><td><b>广州跨境电商展 CCEF</b>（GOFO官方）— 官方参展展示</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">行业活动</span></td><td><b>SubSummit 2026 Gofo</b>（德州小助手 · 2赞）</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">生活记录</span></td><td><b>楠大大人美国冒险</b>（楠大大 · 9赞）</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">商务合作</span></td><td><b>GOFO致中国合作伙伴的一封信</b>（GOFO商务开发）</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">服务商动态</span></td><td><b>美国尾程商派</b>（美国尾程服务商 · 最新发布）</td><td>小红书</td></tr>
         </tbody>
       </table>
       <div style="background:#fff7e6;border:1px solid #ffd591;border-radius:8px;padding:12px 16px;margin-top:12px;font-size:12.5px">
-        📌 小红书共 <b>10 条</b> GOFO 相关笔记：<b>正面 3 条</b>（火龙果福利、纪念品礼物）/ <b>负面 1 条</b>（omom「谢谢你一辈子」173赞高热度）/ <b>中性·官方 6 条</b>（招聘 / 品牌 / 行业 / 商务）。笔记正文需登录 App 才能完整查看（Web 端仅卡片级信息）。最高互动的 omom 笔记强烈暗示负面体验，建议 HR 重点关注。
+        📌 小红书 2026-07-23 扫描共 <b>10 条</b> GOFO 相关笔记；按需求仅展示 <b>负面 1 条</b>（omom「谢谢你一辈子」173赞高热度）+ <b>正面 1 条</b>（「Gofo的纪念品小礼物」员工关怀），招聘 / 展会 / 官方宣传类不在此呈现。笔记正文需登录 App 才能完整查看（Web 端仅卡片级信息），最高互动的 omom 笔记强烈暗示负面体验，建议 HR 重点关注。
       </div>
   </section>
 
@@ -386,10 +380,10 @@ new Chart(document.getElementById('radar'),{
     datasets:[{label:'GOFO 各维度评分（/5）',data:[2.2,2.0,2.0,1.8,1.9],
       backgroundColor:'rgba(226,59,59,.15)',borderColor:'#e23b3b',borderWidth:2,
       pointBackgroundColor:'#e23b3b',pointRadius:4}]},
-  options:{responsive:true,plugins:{legend:{labels:{color:ink,font:{size:12}}},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:ink,font:{size:12}}},
     title:{display:true,text:'Indeed 各维度评分（满分 5，越低越差）',color:ink,font:{size:13,weight:'bold'}}},
     scales:{r:{min:0,max:5,ticks:{stepSize:1,color:sub,backdropColor:'transparent'},
-      grid:{color:grid},angleLines:{color:grid},pointLabels:{color:ink,font:{size:12}}}}}
+      grid:{color:grid},angleLines:{color:grid},pointLabels:{color:ink,font:{size:11}}}}}
 });
 // 柱状图 — 负面反馈主题频次
 new Chart(document.getElementById('bar'),{
@@ -397,7 +391,7 @@ new Chart(document.getElementById('bar'),{
   data:{labels:['管理/主管问题','克扣工时/工资','工作强度高','流动率高','仓库环境差','司机压价/成本','涨薪难','假妥投/偷件','客服无人工'],
     datasets:[{label:'负面反馈提及热度',data:[9,8,7,7,6,8,5,9,7],
       backgroundColor:'#1f9d63',borderRadius:6,barThickness:22}]},
-  options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
     title:{display:true,text:'差评主题分布（提及热度）',color:ink,font:{size:13,weight:'bold'}}},
     scales:{x:{beginAtZero:true,max:10,ticks:{color:sub},grid:{color:grid}},
       y:{ticks:{color:ink,font:{size:12}},grid:{display:false}}}}
@@ -409,7 +403,7 @@ new Chart(document.getElementById('platBar'),{
   data:{labels:['BBB','Yelp','Trustpilot','PissedConsumer','Indeed(Gofo Inc)','App Store','小红书'],
     datasets:[{label:'综合评分 / 情绪指数（满分 5，越低越差）',data:[1.65,1.5,1.5,1.7,2.1,2.7,3.0],
       backgroundColor:['#e23b3b','#e23b3b','#e23b3b','#e23b3b','#d98a00','#1f9d63','#722ed1'],borderRadius:6,barThickness:20}]},
-  options:{responsive:true,plugins:{legend:{display:false},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
     title:{display:true,text:'各平台综合评分对比（小红书为 10 条笔记情绪估算）',color:ink,font:{size:12,weight:'bold'}}},
     scales:{x:{ticks:{color:ink,font:{size:11}},grid:{display:false}},
       y:{beginAtZero:true,max:5,ticks:{color:sub},grid:{color:grid}}}}
