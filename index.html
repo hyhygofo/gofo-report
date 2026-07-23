@@ -72,6 +72,9 @@
   .quote .who{color:var(--sub);font-size:12px;margin-top:5px}
   .quote.g{border-left:4px solid var(--good)}
   .quote.b{border-left:4px solid var(--bad)}
+  .qrow{display:flex;flex-wrap:wrap;gap:10px}
+  .qrow .quote{margin-bottom:0;flex:1 1 230px;min-width:200px}
+  .q-label{font-size:13px;font-weight:800;margin:4px 0 8px}
 
   .chartbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow);position:relative;height:340px}
   .chart-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -239,20 +242,19 @@
   <section>
     <h2><span class="bar" style="background:var(--accent)"></span>四、代表性原声摘录</h2>
     <p class="lead">保留原始语气的典型评价，便于领导直观感受口碑温度。</p>
-    <div class="grid2">
-      <div>
-        <div class="quote g"><div class="stars" style="color:var(--good)">★★★★★</div>"一家不错的公司，办公室氛围友好。"<div class="who">— 站点运营员，Vernon CA · Indeed 2025-12</div></div>
-        <div class="quote g"><div class="stars" style="color:var(--good)">★★★★★</div>"老板很好，是一家让人感觉踏实的公司。"<div class="who">— Manager，New Jersey · Indeed 2026-03</div></div>
-        <div class="quote g"><div class="stars" style="color:var(--good)">★★★☆☆</div>"来钱快。（虽然）仓库很乱、不够专业。"<div class="who">— 司机/仓库工，Houston TX · Indeed 2025-09</div></div>
-      </div>
-      <div>
-        <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"糟糕的公司，别来。管理混乱、薪资低于市场、气氛压抑，他们会篡改你的工时，还雇用非法劳工。"<div class="who">— 匿名员工 · Indeed 2025-10</div></div>
-        <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"以罚款名义扣掉你一半的支票……管理层很无礼，把你当小孩一样训。"<div class="who">— 司机，New Jersey · Indeed 2026-01</div></div>
-        <div class="quote b"><div class="stars" style="color:var(--bad)">💬</div>"早上 5、6 点到仓库分货装车 2–5 小时完全没薪水；单价从 2.4 压到 1.7……还在送的要么是习惯了，要么就是烂人了。"<div class="who">— 华人司机亲历长文 · Stage1st 论坛 2026-06</div></div>
-
-        <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"显示已送达，但司机根本没到过现场，我怀疑这是一家欺诈公司。"<div class="who">— Jennifer G · BBB 2026-06</div></div>
-        <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"Terrible Fraudulent Scam Company — 司机毫无监管，客服外包国外假名，最后包裹被偷走。"<div class="who">— Tabitha · Trustpilot 2025-12</div></div>
-      </div>
+    <div class="q-label" style="color:var(--good)">正面原声</div>
+    <div class="qrow">
+      <div class="quote g"><div class="stars" style="color:var(--good)">★★★★★</div>"一家不错的公司，办公室氛围友好。"<div class="who">— 站点运营员，Vernon CA · Indeed 2025-12</div></div>
+      <div class="quote g"><div class="stars" style="color:var(--good)">★★★★★</div>"老板很好，是一家让人感觉踏实的公司。"<div class="who">— Manager，New Jersey · Indeed 2026-03</div></div>
+      <div class="quote g"><div class="stars" style="color:var(--good)">★★★☆☆</div>"来钱快。（虽然）仓库很乱、不够专业。"<div class="who">— 司机/仓库工，Houston TX · Indeed 2025-09</div></div>
+    </div>
+    <div class="q-label" style="color:var(--bad);margin-top:14px">负面原声</div>
+    <div class="qrow">
+      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"糟糕的公司，别来。管理混乱、薪资低于市场、气氛压抑，他们会篡改你的工时，还雇用非法劳工。"<div class="who">— 匿名员工 · Indeed 2025-10</div></div>
+      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"以罚款名义扣掉你一半的支票……管理层很无礼，把你当小孩一样训。"<div class="who">— 司机，New Jersey · Indeed 2026-01</div></div>
+      <div class="quote b"><div class="stars" style="color:var(--bad)">💬</div>"早上 5、6 点到仓库分货装车 2–5 小时完全没薪水；单价从 2.4 压到 1.7……还在送的要么是习惯了，要么就是烂人了。"<div class="who">— 华人司机亲历长文 · Stage1st 论坛 2026-06</div></div>
+      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"显示已送达，但司机根本没到过现场，我怀疑这是一家欺诈公司。"<div class="who">— Jennifer G · BBB 2026-06</div></div>
+      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"Terrible Fraudulent Scam Company — 司机毫无监管，客服外包国外假名，最后包裹被偷走。"<div class="who">— Tabitha · Trustpilot 2025-12</div></div>
     </div>
   </section>
 
@@ -327,15 +329,6 @@
         <li><b>升级阈值</b>：单期新增 ≥ 3 条负面，或出现「诉讼 / 劳工局 / 媒体曝光」类异常主题时，升级为<b>高危预警</b>，抄送 HR 负责人 + 合规。</li>
         <li><b>周期汇总</b>：每周自动生成《GOFO 舆情周报》（汇总时间线各时段条目），供管理层阅知。</li>
         <li><b>专项跟进</b>：对反复出现的主题（工资 &gt; 管理 &gt; 司机压价）形成专项改善 / 应对清单。</li>
-      </ul>
-    </div>
-
-    <div class="hr-card">
-      <h4>5. 给领导的汇报口径建议</h4>
-      <ul>
-        <li><b>结论先行</b>：GOFO 机会与风险并存，整体口碑偏负、两极分化。</li>
-        <li><b>数据支撑</b>：评分（Indeed 2.1/5）、流动率（&lt; 3 个月）、典型原声（见第四节）。</li>
-        <li><b>行动建议</b>：如需合作 → 先合规自查；如为对标 → 取其成长 / 雇主品牌之长，避其管理 / 薪酬之短。</li>
       </ul>
     </div>
   </section>
