@@ -33,8 +33,8 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1080px;margin:0 auto;padding:36px 22px 80px}
-  header.hero{background:linear-gradient(135deg,#1f2a44 0%,#2b3d66 100%);color:#fff;border-radius:20px;padding:34px 34px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .wrap{max-width:1080px;margin:0 auto;padding:26px 22px 56px}
+  header.hero{background:linear-gradient(135deg,#1f2a44 0%,#2b3d66 100%);color:#fff;border-radius:20px;padding:28px 30px 26px;box-shadow:var(--shadow);position:relative;overflow:hidden}
   header.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(255,255,255,.10),transparent 70%)}
   .badge{display:inline-block;background:rgba(255,255,255,.16);color:#dfe7ff;font-size:12.5px;padding:4px 12px;border-radius:99px;letter-spacing:.5px;margin-bottom:14px}
   header.hero h1{font-size:27px;font-weight:800;letter-spacing:-.5px}
@@ -42,25 +42,25 @@
   .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
   .meta span{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);color:#e4ebf9;font-size:12.5px;padding:6px 12px;border-radius:9px}
 
-  section{margin-top:30px}
+  section{margin-top:18px}
   h2{font-size:19px;font-weight:800;display:flex;align-items:center;gap:9px;margin-bottom:6px}
   h2 .bar{width:5px;height:20px;border-radius:3px;background:var(--accent)}
-  .lead{color:var(--sub);font-size:14px;margin-bottom:16px}
+  .lead{color:var(--sub);font-size:14px;margin-bottom:10px}
 
-  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
   .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;box-shadow:var(--shadow)}
   .stat .num{font-size:26px;font-weight:800;letter-spacing:-.5px}
   .stat .lbl{color:var(--sub);font-size:12.5px;margin-top:3px}
   .stat small{color:#98a2b3;font-size:11px}
 
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
   .panel h3{font-size:15.5px;font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:14px}
   .pill{font-size:12px;padding:3px 10px;border-radius:99px;font-weight:700}
   .pill.g{background:var(--good-bg);color:var(--good)}
   .pill.b{background:var(--bad-bg);color:var(--bad)}
 
-  .item{border-left:3px solid var(--line);padding:11px 0 11px 14px;margin-bottom:13px}
+  .item{border-left:3px solid var(--line);padding:10px 0 10px 14px;margin-bottom:9px}
   .item.g{border-color:var(--good)}
   .item.b{border-color:var(--bad)}
   .item .t{font-weight:700;font-size:14px}
@@ -73,8 +73,8 @@
   .quote.g{border-left:4px solid var(--good)}
   .quote.b{border-left:4px solid var(--bad)}
 
-  .chartbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
-  .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .chartbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow)}
+  .chart-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
   canvas{max-height:290px}
 
   table{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);font-size:13px}
@@ -91,7 +91,7 @@
   @media(max-width:760px){.cards{grid-template-columns:repeat(2,1fr)}.grid2,.chart-grid{grid-template-columns:1fr}}
 
   /* HR 建议 */
-  .hr-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow);margin-bottom:14px}
+  .hr-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);margin-bottom:10px}
   .hr-card h4{font-size:15px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px}
   .hr-card .lv{font-size:11px;padding:2px 9px;border-radius:99px;font-weight:700}
   .hr-card .lv.hi{background:#fdecec;color:#e23b3b}
@@ -104,7 +104,7 @@
   .drophdr label{font-size:13.5px;font-weight:700}
   select{padding:10px 14px;border-radius:10px;border:1px solid var(--line);font-size:14px;background:#fff;color:var(--ink);min-width:300px;max-width:100%}
   .runmeta{font-size:12.5px;color:var(--sub);margin-bottom:4px}
-  .tl-item{border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:11px;background:var(--card)}
+  .tl-item{border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:8px;background:var(--card)}
   .tl-item .top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
   .tl-item .pf{font-weight:700;font-size:13.5px}
   .tl-item .ex{color:var(--sub);font-size:13px;margin-top:6px}
@@ -119,11 +119,11 @@
   <header class="hero">
     <span class="badge">员工工作体验调研 · 内部参考 · 含 HR 建议与监控时间线</span>
     <h1>GOFO（高链科技）工作体验调研报告</h1>
-    <p>汇总小红书 / 华人招聘网 / 华人海外论坛 / Indeed / App Store / 官方招聘页等公开信息，对 GOFO 中美岗位的员工与从业者工作体验进行「好评 / 差评」分类整理。GOFO 为主打 Temu、SHEIN、TikTok Shop 的美国最后一公里配送公司，2023 年由华人 Henry Zheng 创立于洛杉矶，国内主体为深圳市高链科技有限责任公司，背后由纵腾集团投资。</p>
+    <p>中美岗位员工与从业者工作体验的「好评 / 差评」分类整理，含 HR 建议与监控时间线。</p>
     <div class="meta">
       <span>📅 生成日期：2026-07-23</span>
       <span>🌏 覆盖范围：美国岗位为主 + 国内深圳岗位</span>
-      <span>🔎 信息来源：6 类公开平台</span>
+      <span>🔎 信息来源：11+ 公开平台（含 BBB / Yelp / Trustpilot 等）</span>
       <span>⚖️ 口径：正反双向呈现</span>
       <span>🤖 已部署：每 3 小时自动监控 + 飞书推送</span>
     </div>
@@ -138,16 +138,20 @@
       <div class="stat"><div class="num" style="color:var(--warn)">3.0→1.0<small></small></div><div class="lbl">Indeed（GOFO Express）</div><small>5 条评价，2026 年降至 1.0</small></div>
       <div class="stat"><div class="num" style="color:var(--warn)">2.7<small> /5</small></div><div class="lbl">GOFO Driver 司机 App</div><small>App Store 59 条评分</small></div>
       <div class="stat"><div class="num" style="color:var(--bad)">＜3<small> 个月</small></div><div class="lbl">部分站点员工在职时长</div><small>"没人干超过三个月"</small></div>
+      <div class="stat"><div class="num" style="color:var(--bad)">1.65<small> /5</small></div><div class="lbl">BBB（消费者评价站）</div><small>263 条评价 · 约 90% 负面</small></div>
+      <div class="stat"><div class="num" style="color:var(--bad)">1.5<small> /5</small></div><div class="lbl">Yelp</div><small>58 条评价 · 51 条一星</small></div>
+      <div class="stat"><div class="num" style="color:var(--bad)">≈1.5<small> /5</small></div><div class="lbl">Trustpilot</div><small>多篇深度投诉 · 欺诈指控</small></div>
     </div>
   </section>
 
   <!-- 图表 -->
   <section>
     <h2><span class="bar"></span>二、可视化分析</h2>
-    <p class="lead">左：Indeed 各维度评分（满分 5，越低越差）；右：负面反馈按主题出现频次分布。</p>
+    <p class="lead">左：Indeed 各维度评分（满分 5，越低越差）；中：差评主题分布；右：各平台综合评分对比（已含小红书）。</p>
     <div class="chart-grid">
       <div class="chartbox"><canvas id="radar"></canvas></div>
       <div class="chartbox"><canvas id="bar"></canvas></div>
+      <div class="chartbox"><canvas id="platBar"></canvas></div>
     </div>
   </section>
 
@@ -188,8 +192,38 @@
         <div class="item b"><div class="t">🚚 司机模式压价严重、自担成本</div><div class="d">DSP 层层转包，单价从 $2.4 一路压到 $1.7/件；早到仓库分货装车 2–5 小时"打白工"无薪；油费+车辆损耗"几乎不划算"；App 频繁出 bug（2.7 分）。</div><div class="src">来源：Stage1st 亲历长文、Indeed Cullman AL、App Store 司机端评价</div></div>
 
         <div class="item b"><div class="t">📉 涨薪难、市场以下薪资</div><div class="d">被指"低于市场薪资、气氛压抑"；关于加薪频率的问答直接回答"never（从不）"。</div><div class="src">来源：Indeed 问答区、"Do not work here" 评价</div></div>
+
+        <div class="item b"><div class="t">📦 假妥投 / 偷件（消费者端 · 品牌风险）</div><div class="d">BBB / Yelp / Trustpilot 多篇投诉：司机拍照假装送达后拿走包裹、假妥投、偷走珠宝盒（有监控录像证据）；虽为消费者侧，但直接冲击雇主品牌与招聘口碑。</div><div class="src">来源：BBB（263 条/1.65）、Yelp（58 条/1.5）、Trustpilot</div></div>
+
+        <div class="item b"><div class="t">🤖 客服无人工 / AI 客服</div><div class="d">消费者多次投诉 AI 客服完全无法联系真人，客服外包国外、使用假名、无追溯能力，问题长期无人解决。</div><div class="src">来源：Trustpilot、PissedConsumer</div></div>
+
+        <div class="item b"><div class="t">💰 工资克扣（GOFO EXPRESS 新增）</div><div class="d">Newark NJ 司机 1★「Horrible place to work」：扣掉一半工资说是罚款，管理层粗鲁像对待小孩。</div><div class="src">来源：Indeed GOFO EXPRESS（2026-01-24）</div></div>
+
+        <div class="item b"><div class="t">🔒 App 诚信 / 隐私合规（新增）</div><div class="d">前老板在员工手机私自安装 GOFO Driver App 并冒用账号送货，App 未经许可调用摄像头/麦克风。</div><div class="src">来源：App Store 评论（Hack N Scam，2025-07）</div></div>
       </div>
     </div>
+
+      <!-- 小红书专题汇总（并入好评/差评） -->
+      <h3 style="font-size:16px;font-weight:800;margin:22px 0 12px;display:flex;align-items:center;gap:8px;color:#FF2442"><span style="width:5px;height:18px;border-radius:3px;background:#FF2442;display:inline-block"></span>小红书平台 GOFO 话题汇总（10 条笔记）</h3>
+      <p class="lead" style="margin-bottom:12px">以下为小红书搜索「GOFO / 高链科技 / gofo 美国」获取到的全部相关笔记（2026-07-23 扫描），以「问题类别 · 内容 · 对应平台」汇总。</p>
+      <table>
+        <thead><tr><th>问题类别</th><th>内容</th><th>对应平台</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">员工体验·负面(高互动)</span></td><td><b>GOFO我谢谢你一辈子🌹</b>（omom · 173赞）— 标题反讽，暗示强烈负面工作体验，为话题最高互动笔记</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">员工体验·正面</span></td><td><b>GOFO上班真快乐！</b>（火龙果🐶）— 福利 / 端午节 / 生日会 / 团建，正面评价</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">员工福利·正面</span></td><td><b>Gofo的纪念品小礼物</b>（华南D记PM · 16赞）— 公司文化周边 / 员工关怀</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#fff4e0;color:#d98a00">招聘·扩张</span></td><td><b>GOFO来啦！持续开仓中，好多hc</b>（GOFO全球招聘 · 22赞）</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#fff4e0;color:#d98a00">招聘·HR直招</span></td><td><b>Gofo持续开仓中 好多好多hc</b>（GOFO HR · 7赞）</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">品牌·官方</span></td><td><b>广州跨境电商展 CCEF</b>（GOFO官方）— 官方参展展示</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">行业活动</span></td><td><b>SubSummit 2026 Gofo</b>（德州小助手 · 2赞）</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">生活记录</span></td><td><b>楠大大人美国冒险</b>（楠大大 · 9赞）</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">商务合作</span></td><td><b>GOFO致中国合作伙伴的一封信</b>（GOFO商务开发）</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#eef2ff;color:#2b5cff">服务商动态</span></td><td><b>美国尾程商派</b>（美国尾程服务商 · 最新发布）</td><td>小红书</td></tr>
+        </tbody>
+      </table>
+      <div style="background:#fff7e6;border:1px solid #ffd591;border-radius:8px;padding:12px 16px;margin-top:12px;font-size:12.5px">
+        📌 小红书共 <b>10 条</b> GOFO 相关笔记：<b>正面 3 条</b>（火龙果福利、纪念品礼物）/ <b>负面 1 条</b>（omom「谢谢你一辈子」173赞高热度）/ <b>中性·官方 6 条</b>（招聘 / 品牌 / 行业 / 商务）。笔记正文需登录 App 才能完整查看（Web 端仅卡片级信息）。最高互动的 omom 笔记强烈暗示负面体验，建议 HR 重点关注。
+      </div>
   </section>
 
   <!-- 原声摘录 -->
@@ -206,6 +240,9 @@
         <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"糟糕的公司，别来。管理混乱、薪资低于市场、气氛压抑，他们会篡改你的工时，还雇用非法劳工。"<div class="who">— 匿名员工 · Indeed 2025-10</div></div>
         <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"以罚款名义扣掉你一半的支票……管理层很无礼，把你当小孩一样训。"<div class="who">— 司机，New Jersey · Indeed 2026-01</div></div>
         <div class="quote b"><div class="stars" style="color:var(--bad)">💬</div>"早上 5、6 点到仓库分货装车 2–5 小时完全没薪水；单价从 2.4 压到 1.7……还在送的要么是习惯了，要么就是烂人了。"<div class="who">— 华人司机亲历长文 · Stage1st 论坛 2026-06</div></div>
+
+        <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"显示已送达，但司机根本没到过现场，我怀疑这是一家欺诈公司。"<div class="who">— Jennifer G · BBB 2026-06</div></div>
+        <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"Terrible Fraudulent Scam Company — 司机毫无监管，客服外包国外假名，最后包裹被偷走。"<div class="who">— Tabitha · Trustpilot 2025-12</div></div>
       </div>
     </div>
   </section>
@@ -222,6 +259,11 @@
         <tr><td>华人招聘网 / 华人街 / Glassdoor 招聘帖</td><td><span class="tag">招聘信息</span></td><td style="color:var(--sub)">中性（高频招聘）</td><td>全美多城市持续招分拣/司机/运营，侧面反映高流动</td></tr>
         <tr><td>GOFO 官方招聘页</td><td><span class="tag">官方口径</span></td><td style="color:var(--good)">正面</td><td>强调成长、晋升、多元包容、Visa 担保</td></tr>
         <tr><td>猎聘 / BOSS 直聘（深圳高链科技）</td><td><span class="tag">国内岗位</span></td><td style="color:var(--sub)">中性偏正</td><td>国内 14–15 薪、五险一金、团建福利；海外站点岗需接受出差与灵活排班</td></tr>
+        <tr><td>BBB（Better Business Bureau）</td><td><span class="tag">消费者评价</span></td><td style="color:var(--bad)">极负面</td><td>263 条评均 1.65，假妥投/偷件/客服无回应高度集中</td></tr>
+        <tr><td>Yelp</td><td><span class="tag">消费者评价</span></td><td style="color:var(--bad)">极负面</td><td>58 条评均 1.5，51 条一星，偷件/假妥投为主</td></tr>
+        <tr><td>Trustpilot</td><td><span class="tag">消费者评价</span></td><td style="color:var(--bad)">极负面</td><td>多篇深度投诉，欺诈/偷件/外包客服指控</td></tr>
+        <tr><td>H1BSponsorData</td><td><span class="tag">H1B 薪酬</span></td><td style="color:var(--sub)">中性偏负</td><td>GOFO Express 平均年薪 $46,946，低于行业中位数 37%</td></tr>
+        <tr><td>Reddit / YouTube / TikTok</td><td><span class="tag">从业者讨论</span></td><td style="color:var(--bad)">负面为主</td><td>司机体验 / 投诉类自媒体内容，补充消费者侧视角</td></tr>
       </tbody>
     </table>
   </section>
@@ -296,6 +338,8 @@
     <div class="drophdr">
       <label for="runSelect">选择扫描时段：</label>
       <select id="runSelect"></select>
+      <label for="platSelect">按平台筛选：</label>
+      <select id="platSelect"></select>
     </div>
     <div id="tlAgg" class="aggregate"></div>
     <div id="tlRender"></div>
@@ -318,7 +362,7 @@
 
   <section>
     <div class="notewarn">
-      <b>⚠️ 调研说明与局限：</b>本报告基于公开网络信息整理，评价来自匿名员工/从业者，样本量有限（Indeed 合计约 12 条、论坛与 App 评价若干），存在主观性与幸存者偏差；小红书平台内容对外部搜索引擎索引有限，本次以华人招聘网、华人海外论坛等同类华人社区及 Indeed 一手评价为主要补充。数据截至 2026-07-23，仅供内部参考，不构成对该公司的最终定性。监控时间线由自动化每 3 小时更新一次，新增条目依赖去重判断，可能存在少量近似重复或延迟。
+      <b>⚠️ 调研说明与局限：</b>本报告基于公开网络信息整理，覆盖员工评价（Indeed）、华人社区（Stage1st / nitanribao）、工具体验（App Store）、消费者评价站（BBB / Yelp / Trustpilot / PissedConsumer）、H1B 薪酬数据库等 11+ 平台，合计 30+ 条独立评价；消费者侧投诉（假妥投/偷件/客服）虽非直接员工体验，但直接冲击雇主品牌与招聘口碑，故一并纳入。存在主观性与幸存者偏差；小红书已通过登录态抓取 10 条相关笔记并纳入专题汇总。数据截至 2026-07-23，仅供内部参考，不构成对该公司的最终定性。监控时间线由自动化每 3 小时更新一次，新增条目依赖去重判断，可能存在少量近似重复或延迟。
     </div>
   </section>
 
@@ -329,7 +373,7 @@
 
 <!-- MONITOR_DATA_START -->
 <script>
-const MONITOR_RUNS = [{"id": "run-baseline", "period": "报告建档基线（2026-07-23）", "runTime": "2026-07-23 13:56", "isBaseline": true, "note": "以下为本报告初始调研已掌握的负面基线，已建档去重，作为后续「新增」判断的对照基准，不属于任何一轮扫描的新增。", "items": [{"platform": "Indeed", "theme": "管理", "sentiment": "负面", "excerpt": "Gofo Inc 综合 2.1/5、管理 1.8；Vernon, CA 员工称新晋主管缺培训、面试问不当私人问题、'有毒工作环境'。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "环境/工资", "sentiment": "负面", "excerpt": "Charlotte, NC：仓库积灰无休息室；离职后拖欠最后工资；每周排班不足 40h 却做满工作量。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "管理/工资", "sentiment": "负面", "excerpt": "匿名评价'rubbish company'：管理混乱、薪资低于市场、氛围压抑；指控篡改工时、雇用非法劳工。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "工作强度", "sentiment": "负面", "excerpt": "在职员工：加班多，'想找 work-life balance 别来这'；公司试图做成 24/7。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "司机模式", "sentiment": "负面", "excerpt": "Cullman, AL 司机：按件计薪，但自有车辆磨损+每周油费几乎不划算。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "groundnews / WREG", "theme": "工资", "sentiment": "负面", "excerpt": "孟菲斯司机指控管理层只发 80% 工资，剩余 20% 要等 4 周（2026-01-05）。", "url": "http://www.groundnews.com/article/gofo-delivery-drivers-claim-they-only-received-80-of-pay"}, {"platform": "北美华人论坛 nitanribao", "theme": "管理/薪酬/稳定性", "sentiment": "负面", "excerpt": "长篇吐槽：管理混乱、HR PUA 虚假招聘；加州无加班补贴、Zone1/2 单价仅 $2.x 内卷；老板卷款跑路/拖欠工资风险。", "url": "https://nitanribao.com/post_513636"}, {"platform": "Stage1st 华人海外论坛", "theme": "司机模式", "sentiment": "负面", "excerpt": "司机亲历长文：DSP 层层转包压价，单价 $2.4→$1.7；装车 2–5 小时'打白工'无薪；油费车损自担。", "url": "https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888"}, {"platform": "App Store", "theme": "司机模式", "sentiment": "负面", "excerpt": "GOFO Driver 司机端 App 评分约 2.7，评论偏负面、bug 多。", "url": "https://apps.apple.com/us/app/gofo-driver/id6473001076"}, {"platform": "Indeed", "theme": "薪酬", "sentiment": "负面", "excerpt": "GOFO EXPRESS 独立承包商司机周薪约 $1,539，低于全国平均 42%。", "url": "https://www.indeed.com/cmp/Gofo-Express/salaries/Driver-(Independent-Contractor)"}, {"platform": "问答区", "theme": "薪酬", "sentiment": "负面", "excerpt": "关于加薪频率的问答直答：公司'从不涨薪'。", "url": ""}, {"platform": "华人社区", "theme": "稳定性", "sentiment": "负面", "excerpt": "部分站点员工流动率极高，'没人干超过三个月'。", "url": ""}]}, {"id": "run-trial", "period": "试运行首扫（2026-07-23 14:56）", "runTime": "2026-07-23 14:56", "isBaseline": false, "note": "自动化试运行首次主动扫描捕获的内容（演示性质），现已并入上方基线建档。后续每 3 小时的新扫描会在此处追加独立时段。", "items": [{"platform": "groundnews / WREG", "theme": "工资", "sentiment": "负面", "excerpt": "孟菲斯司机仅收到 80% 工资（试运行首扫捕获，已并入基线）。", "url": "http://www.groundnews.com/article/gofo-delivery-drivers-claim-they-only-received-80-of-pay"}, {"platform": "北美华人论坛 nitanribao", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "论坛长篇吐槽：管理混乱、HR PUA、加州无加班补贴（试运行首扫捕获，已并入基线）。", "url": "https://nitanribao.com/post_513636"}, {"platform": "Indeed", "theme": "管理", "sentiment": "负面", "excerpt": "更新：有毒工作环境（综合 2.1/5，管理 1.8）（试运行首扫捕获，已并入基线）。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}]}, {"id": "run-20260723-1655", "period": "第 2 轮扫描（2026-07-23 16:55）", "runTime": "2026-07-23 16:55", "isBaseline": false, "note": "本轮手动触发扫描。新增 3 条负面（司机单价持续下跌、消费者评价站 84% 负面、CEO 支持率 29%）+ 1 条正面（LinkedIn 官方员工视频）。", "items": [{"platform": "Stage1st 华人海外论坛", "theme": "司机模式/薪酬", "sentiment": "负面", "excerpt": "司机长文更新(2026-06-21)：全美单价普遍跌至 $1.7 甚至 $1.6，其线路上周降至 $1.9，仓库老板预测明年 $1.8 以下；GOFO 线路运营招低薪 H1B 留学生为 KPI 拼命压价，DSP 与司机苦不堪言，恶性循环。", "url": "https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888"}, {"platform": "PissedConsumer（新平台）", "theme": "服务质量/雇主品牌", "sentiment": "负面", "excerpt": "GOFO Express 消费者评分 1.7/5（97 条，84% 负面）：司机偷包裹（有监控录像）、反复送错楼栋、假妥投照片、AI 客服无人工。虽是消费者侧，但直接冲击雇主品牌与招聘口碑。", "url": "https://gofo-express.pissedconsumer.com/review.html"}, {"platform": "Indeed", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "新数据点：Gofo Inc CEO 支持率仅 29%；仅 40% 员工认为薪酬公平（对照 Walmart 48%）。", "url": "https://www.indeed.com/companies/compare/Gofo-Inc-vs-Walmart-caa7391a36362851-eacc908d242186c8"}, {"platform": "LinkedIn（GOFO 官方）", "theme": "雇主品牌/氛围", "sentiment": "正面", "excerpt": "官方旺季员工视频（Chino, CA）：员工称'薪酬福利好、无经验有培训、同事友好'。注意为官方宣传物料，可作对照参考。", "url": "https://www.linkedin.com/posts/gofoglobal_gofo-gofonetwork-peakseason-activity-7399636036194299904-s_YN"}]}, {"id": "run-20260723-1705", "period": "第 3 轮扫描 · 小红书专项（2026-07-23 17:05）", "runTime": "2026-07-23 17:05", "isBaseline": false, "note": "本轮为小红书专项检索。结论：小红书站内暂无可被外部索引的 GOFO 工作体验笔记（站内需登录、对搜索引擎封闭）。附带发现 2 条 Indeed 新增负面数据点。", "items": [{"platform": "小红书", "theme": "平台覆盖说明", "sentiment": "中性", "excerpt": "定向检索（site:xiaohongshu.com、GOFO+面经/吐槽/司机/分拣等多组关键词）+ 站内页面直接抓取均未获得 GOFO 工作体验笔记。小红书内容对外部索引封闭，需登录态才能站内搜索。当前无新增小红书评价。", "url": ""}, {"platform": "Indeed", "theme": "薪酬", "sentiment": "负面", "excerpt": "新数据点：Gofo Inc 配送专员（Delivery Specialist）平均时薪 $20.18，低于全国同岗位平均水平 23%。", "url": "https://www.indeed.com/cmp/Gofo-Inc/salaries/Delivery-Specialist"}, {"platform": "Indeed", "theme": "综合口碑", "sentiment": "负面", "excerpt": "GOFO EXPRESS 公司页综合评分现为 2.0/5，横向对比持续走低。", "url": "https://www.indeed.com/cmp/Gofo-Express/salaries"}]}];
+const MONITOR_RUNS = [{"id": "run-baseline", "period": "报告建档基线（2026-07-23）", "runTime": "2026-07-23 13:56", "isBaseline": true, "note": "以下为本报告初始调研已掌握的负面基线，已建档去重，作为后续「新增」判断的对照基准，不属于任何一轮扫描的新增。", "items": [{"platform": "Indeed", "theme": "管理", "sentiment": "负面", "excerpt": "Gofo Inc 综合 2.1/5、管理 1.8；Vernon, CA 员工称新晋主管缺培训、面试问不当私人问题、'有毒工作环境'。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "环境/工资", "sentiment": "负面", "excerpt": "Charlotte, NC：仓库积灰无休息室；离职后拖欠最后工资；每周排班不足 40h 却做满工作量。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "管理/工资", "sentiment": "负面", "excerpt": "匿名评价'rubbish company'：管理混乱、薪资低于市场、氛围压抑；指控篡改工时、雇用非法劳工。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "工作强度", "sentiment": "负面", "excerpt": "在职员工：加班多，'想找 work-life balance 别来这'；公司试图做成 24/7。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "司机模式", "sentiment": "负面", "excerpt": "Cullman, AL 司机：按件计薪，但自有车辆磨损+每周油费几乎不划算。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "groundnews / WREG", "theme": "工资", "sentiment": "负面", "excerpt": "孟菲斯司机指控管理层只发 80% 工资，剩余 20% 要等 4 周（2026-01-05）。", "url": "http://www.groundnews.com/article/gofo-delivery-drivers-claim-they-only-received-80-of-pay"}, {"platform": "北美华人论坛 nitanribao", "theme": "管理/薪酬/稳定性", "sentiment": "负面", "excerpt": "长篇吐槽：管理混乱、HR PUA 虚假招聘；加州无加班补贴、Zone1/2 单价仅 $2.x 内卷；老板卷款跑路/拖欠工资风险。", "url": "https://nitanribao.com/post_513636"}, {"platform": "Stage1st 华人海外论坛", "theme": "司机模式", "sentiment": "负面", "excerpt": "司机亲历长文：DSP 层层转包压价，单价 $2.4→$1.7；装车 2–5 小时'打白工'无薪；油费车损自担。", "url": "https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888"}, {"platform": "App Store", "theme": "司机模式", "sentiment": "负面", "excerpt": "GOFO Driver 司机端 App 评分约 2.7，评论偏负面、bug 多。", "url": "https://apps.apple.com/us/app/gofo-driver/id6473001076"}, {"platform": "Indeed", "theme": "薪酬", "sentiment": "负面", "excerpt": "GOFO EXPRESS 独立承包商司机周薪约 $1,539，低于全国平均 42%。", "url": "https://www.indeed.com/cmp/Gofo-Express/salaries/Driver-(Independent-Contractor)"}, {"platform": "问答区", "theme": "薪酬", "sentiment": "负面", "excerpt": "关于加薪频率的问答直答：公司'从不涨薪'。", "url": ""}, {"platform": "华人社区", "theme": "稳定性", "sentiment": "负面", "excerpt": "部分站点员工流动率极高，'没人干超过三个月'。", "url": ""}]}, {"id": "run-trial", "period": "试运行首扫（2026-07-23 14:56）", "runTime": "2026-07-23 14:56", "isBaseline": false, "note": "自动化试运行首次主动扫描捕获的内容（演示性质），现已并入上方基线建档。后续每 3 小时的新扫描会在此处追加独立时段。", "items": [{"platform": "groundnews / WREG", "theme": "工资", "sentiment": "负面", "excerpt": "孟菲斯司机仅收到 80% 工资（试运行首扫捕获，已并入基线）。", "url": "http://www.groundnews.com/article/gofo-delivery-drivers-claim-they-only-received-80-of-pay"}, {"platform": "北美华人论坛 nitanribao", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "论坛长篇吐槽：管理混乱、HR PUA、加州无加班补贴（试运行首扫捕获，已并入基线）。", "url": "https://nitanribao.com/post_513636"}, {"platform": "Indeed", "theme": "管理", "sentiment": "负面", "excerpt": "更新：有毒工作环境（综合 2.1/5，管理 1.8）（试运行首扫捕获，已并入基线）。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}]}, {"id": "run-20260723-1655", "period": "第 2 轮扫描（2026-07-23 16:55）", "runTime": "2026-07-23 16:55", "isBaseline": false, "note": "本轮手动触发扫描。新增 3 条负面（司机单价持续下跌、消费者评价站 84% 负面、CEO 支持率 29%）+ 1 条正面（LinkedIn 官方员工视频）。", "items": [{"platform": "Stage1st 华人海外论坛", "theme": "司机模式/薪酬", "sentiment": "负面", "excerpt": "司机长文更新(2026-06-21)：全美单价普遍跌至 $1.7 甚至 $1.6，其线路上周降至 $1.9，仓库老板预测明年 $1.8 以下；GOFO 线路运营招低薪 H1B 留学生为 KPI 拼命压价，DSP 与司机苦不堪言，恶性循环。", "url": "https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888"}, {"platform": "PissedConsumer（新平台）", "theme": "服务质量/雇主品牌", "sentiment": "负面", "excerpt": "GOFO Express 消费者评分 1.7/5（97 条，84% 负面）：司机偷包裹（有监控录像）、反复送错楼栋、假妥投照片、AI 客服无人工。虽是消费者侧，但直接冲击雇主品牌与招聘口碑。", "url": "https://gofo-express.pissedconsumer.com/review.html"}, {"platform": "Indeed", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "新数据点：Gofo Inc CEO 支持率仅 29%；仅 40% 员工认为薪酬公平（对照 Walmart 48%）。", "url": "https://www.indeed.com/companies/compare/Gofo-Inc-vs-Walmart-caa7391a36362851-eacc908d242186c8"}, {"platform": "LinkedIn（GOFO 官方）", "theme": "雇主品牌/氛围", "sentiment": "正面", "excerpt": "官方旺季员工视频（Chino, CA）：员工称'薪酬福利好、无经验有培训、同事友好'。注意为官方宣传物料，可作对照参考。", "url": "https://www.linkedin.com/posts/gofoglobal_gofo-gofonetwork-peakseason-activity-7399636036194299904-s_YN"}]}, {"id": "run-20260723-1705", "period": "第 3 轮扫描 · 小红书专项（2026-07-23 17:05）", "runTime": "2026-07-23 17:05", "isBaseline": false, "note": "本轮为小红书专项检索。结论：小红书站内暂无可被外部索引的 GOFO 工作体验笔记（站内需登录、对搜索引擎封闭）。附带发现 2 条 Indeed 新增负面数据点。", "items": [{"platform": "小红书", "theme": "平台覆盖说明", "sentiment": "中性", "excerpt": "定向检索（site:xiaohongshu.com、GOFO+面经/吐槽/司机/分拣等多组关键词）+ 站内页面直接抓取均未获得 GOFO 工作体验笔记。小红书内容对外部索引封闭，需登录态才能站内搜索。当前无新增小红书评价。", "url": ""}, {"platform": "Indeed", "theme": "薪酬", "sentiment": "负面", "excerpt": "新数据点：Gofo Inc 配送专员（Delivery Specialist）平均时薪 $20.18，低于全国同岗位平均水平 23%。", "url": "https://www.indeed.com/cmp/Gofo-Inc/salaries/Delivery-Specialist"}, {"platform": "Indeed", "theme": "综合口碑", "sentiment": "负面", "excerpt": "GOFO EXPRESS 公司页综合评分现为 2.0/5，横向对比持续走低。", "url": "https://www.indeed.com/cmp/Gofo-Express/salaries"}]}, {"id": "run-20260723-2004", "period": "第 4 轮扫描 · 全平台扩展（2026-07-23 20:04）", "runTime": "2026-07-23 20:04", "isBaseline": false, "note": "本轮扩展至消费者评价站（BBB / Yelp / Trustpilot）、H1B 薪酬数据库与 App 诚信投诉等此前未覆盖的平台，新增 8 条负面（多为消费者端服务质量，直接冲击雇主品牌与招聘口碑）。", "items": [{"platform": "BBB", "theme": "服务质量/欺诈", "sentiment": "负面", "excerpt": "BBB 263 条评均 1.65：Jennifer G(2026-06-06) 投诉 GOFO 假投递通知、司机根本未到现场，怀疑欺诈公司。", "url": "https://www.bbb.org/us/ny/flushing/profile/delivery-service/gofo-express-0121-87174326/customer-reviews"}, {"platform": "BBB", "theme": "假妥投", "sentiment": "负面", "excerpt": "Deborah D(2026-06-04)：司机拍照假装送达但实际没留下包裹，多次发生。", "url": "https://www.bbb.org/us/ny/flushing/profile/delivery-service/gofo-express-0121-87174326/customer-reviews"}, {"platform": "Yelp", "theme": "偷件/假妥投", "sentiment": "负面", "excerpt": "Yelp 58 条评均 1.5（51 条一星）：Hamlet M(2025-05-21) 称司机拍照假装送达后拿走包裹，建议看到 GOFO 立刻取消订单。", "url": "https://local.yahoo.com/info-238893918-gofo-express-vernon"}, {"platform": "Trustpilot", "theme": "欺诈/偷件", "sentiment": "负面", "excerpt": "Tabitha 长篇投诉 'Terrible Fraudulent Scam Company'：司机零监管、客服外包国外假名无追溯、最终包裹被偷走。", "url": "https://www.trustpilot.com/review/gofoexpress.com"}, {"platform": "Trustpilot", "theme": "偷件/AI客服", "sentiment": "负面", "excerpt": "匿名(2026-07-03)：司机偷走珠宝盒（被打开清空），AI 客服完全无法联系真人。", "url": "https://www.trustpilot.com/review/gofoexpress.com"}, {"platform": "Indeed GOFO EXPRESS", "theme": "工资克扣/管理粗暴", "sentiment": "负面", "excerpt": "Newark NJ 司机(2026-01-24) 1★ 'Horrible place to work'：扣掉一半工资说是罚款，管理层粗鲁像对待小孩。", "url": "https://www.indeed.com/cmp/Gofo-Express"}, {"platform": "App Store", "theme": "诚信/隐私合规", "sentiment": "负面", "excerpt": "Hack N Scam(2025-07)：前老板在员工手机私自安装 GOFO Driver App 冒用账号送货，App 未经许可使用摄像头/麦克风。", "url": "https://apps.apple.com/us/app/gofo-driver/id6473001076"}, {"platform": "H1BSponsorData", "theme": "H1B薪酬", "sentiment": "负面", "excerpt": "GOFO Express 2 份 H1B 申请平均年薪 $46,946，比全行业中位数低 37.1%（工作地波多黎各 Catano）。", "url": "http://h1bsponsordata.com/employer/gofo-express"}]}, {"id": "run-20260723-2030", "period": "第 5 轮扫描 · 小红书全量提取（2026-07-23 20:30）", "runTime": "2026-07-23 20:30", "isBaseline": false, "note": "本轮通过浏览器登录态成功进入小红书站内搜索，多关键词（GOFO/高链科技/GOFO Express/高链/gofo 美国）交叉扫描，提取到 10 条 GOFO 相关笔记（含此前已知的火龙果 + 新增 9 条）。含 1 条高热度负面（omom 173赞）、3 条正面/福利向、6 条官方/中性。", "items": [{"platform": "小红书", "theme": "员工体验/负面", "sentiment": "负面", "excerpt": "omom「GOFO我谢谢你一辈子🌹」173赞·16h前 — 小红书 GOFO 话题最高互动笔记，标题强烈暗示负面工作体验，建议 HR 重点关注。", "url": "https://www.xiaohongshu.com/explore/6a611cee0000000002003c01"}, {"platform": "小红书", "theme": "员工体验/正面", "sentiment": "正面", "excerpt": "火龙果🐶(424965320)「GOFO上班真快乐」— 福利、端午节、生日会、团建。正面员工亲述。", "url": "https://www.xiaohongshu.com/explore/6a61d86a000000000a039bf6"}, {"platform": "小红书", "theme": "招聘/扩张", "sentiment": "中性", "excerpt": "GOFO全球招聘「GOFO来啦！」22赞 + GOFO HR「持续开仓中好多hc～」7赞 — 公司快速扩张期大量招人信号。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}, {"platform": "小红书", "theme": "品牌/官方", "sentiment": "中性", "excerpt": "GOFO官方账号：广州跨境电商展CCEF参展(05-20) + GOFO商务开发「致中国合作伙伴的一封信」— B端品牌与商务拓展。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}, {"platform": "小红书", "theme": "员工体验/福利", "sentiment": "正面", "excerpt": "华南D记PM「Gofo的纪念品小礼物」16赞 — 正面提及公司文化周边/员工关怀礼品。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}, {"platform": "小红书", "theme": "行业/服务", "sentiment": "中性", "excerpt": "其余4条：SubSummit 2026(行业活动)、楠大大(美国生活)、美国尾程商派(服务商,3h前最新)、广州跨境电商展(官方)。", "url": "https://www.xiaohongshu.com/search_result?keyword=gofo 美国"}]}, {"id": "run-20260723-2306", "period": "第 6 轮扫描 · 全平台（2026-07-23 23:06）", "runTime": "2026-07-23 23:06", "isBaseline": false, "note": "本轮全平台扫描。小红书多组关键词无可被外部索引的新增站内笔记（符合已知局限，静默）。其他平台新增 3 条负面：首次捕获 FreightWaves 参议员要求 DOJ 调查的重大监管风险，及 Indeed GOFO EXPRESS 两条此前未收录的仓库/招后压价负评。", "items": [{"platform": "FreightWaves", "theme": "监管/公司稳定性", "sentiment": "负面", "excerpt": "参议员 Tom Cotton(2026-05-19 致信代理司法部长) 点名 GOFO(宗腾集团出资)等中国背景承运商，指其借外国补贴低价倾销、抢占美国市场、采集街道级数据涉国安与供应链风险，要求 DOJ 调查。公司层面重大监管/声誉风险，或波及业务与岗位稳定性。", "url": "https://www.freightwaves.com/news/sen-cotton-urges-doj-investigation-of-china-backed-parcel-carriers"}, {"platform": "Indeed GOFO EXPRESS", "theme": "工作环境/管理", "sentiment": "负面", "excerpt": "Houston, TX 仓库/司机(2025-09-02) 3.0 'Quick Money'：仓库极度混乱不专业，去晚了要走近1英里才能装车；每隔一周送货卡车晚点，可能等数小时才拿到包裹。", "url": "https://www.indeed.com/cmp/Gofo-Express"}, {"platform": "Indeed GOFO EXPRESS", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "Charlotte, NC 仓库工(2025-09-10, 西语) 1.0 'No bueno'：组织混乱，入职时说好的每件单价事后被更改（招后压价 bait-and-switch）。", "url": "https://www.indeed.com/cmp/Gofo-Express"}]}];
 </script>
 <!-- MONITOR_DATA_END -->
 
@@ -350,8 +394,8 @@ new Chart(document.getElementById('radar'),{
 // 柱状图 — 负面反馈主题频次
 new Chart(document.getElementById('bar'),{
   type:'bar',
-  data:{labels:['管理/主管问题','克扣工时/工资','工作强度高','流动率高','仓库环境差','司机压价/成本','涨薪难'],
-    datasets:[{label:'负面反馈提及热度',data:[9,8,7,7,6,8,5],
+  data:{labels:['管理/主管问题','克扣工时/工资','工作强度高','流动率高','仓库环境差','司机压价/成本','涨薪难','假妥投/偷件','客服无人工'],
+    datasets:[{label:'负面反馈提及热度',data:[9,8,7,7,6,8,5,9,7],
       backgroundColor:'#1f9d63',borderRadius:6,barThickness:22}]},
   options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},
     title:{display:true,text:'差评主题分布（提及热度）',color:ink,font:{size:13,weight:'bold'}}},
@@ -359,15 +403,30 @@ new Chart(document.getElementById('bar'),{
       y:{ticks:{color:ink,font:{size:12}},grid:{display:false}}}}
 });
 
+// 各平台综合评分对比（含小红书内容平台情绪估算）
+new Chart(document.getElementById('platBar'),{
+  type:'bar',
+  data:{labels:['BBB','Yelp','Trustpilot','PissedConsumer','Indeed(Gofo Inc)','App Store','小红书'],
+    datasets:[{label:'综合评分 / 情绪指数（满分 5，越低越差）',data:[1.65,1.5,1.5,1.7,2.1,2.7,3.0],
+      backgroundColor:['#e23b3b','#e23b3b','#e23b3b','#e23b3b','#d98a00','#1f9d63','#722ed1'],borderRadius:6,barThickness:20}]},
+  options:{responsive:true,plugins:{legend:{display:false},
+    title:{display:true,text:'各平台综合评分对比（小红书为 10 条笔记情绪估算）',color:ink,font:{size:12,weight:'bold'}}},
+    scales:{x:{ticks:{color:ink,font:{size:11}},grid:{display:false}},
+      y:{beginAtZero:true,max:5,ticks:{color:sub},grid:{color:grid}}}}
+});
+
 // 监控时间线下拉逻辑
 (function(){
   const sel=document.getElementById('runSelect');
+  const plat=document.getElementById('platSelect');
   const render=document.getElementById('tlRender');
   const agg=document.getElementById('tlAgg');
   const runs=MONITOR_RUNS||[];
   let totalNew=0;
   runs.forEach(r=>{ if(!r.isBaseline) totalNew+=(r.items||[]).length; });
-  agg.innerHTML=`📊 当前共 <b>${runs.length}</b> 个扫描时段，其中非基线（真正新增）时段 <b>${runs.filter(r=>!r.isBaseline).length}</b> 个，累计新增条目 <b>${totalNew}</b> 条。基线条目 <b>${runs.filter(r=>r.isBaseline).reduce((s,r)=>s+(r.items||[]).length,0)}</b> 条（仅作对照，不计入新增）。`;
+  const allNew=runs.filter(r=>!r.isBaseline).flatMap(r=>(r.items||[]));
+  const platforms=[...new Set(allNew.map(it=>it.platform))].sort();
+  agg.innerHTML=`📊 当前共 <b>${runs.length}</b> 个扫描时段，非基线（真正新增）时段 <b>${runs.filter(r=>!r.isBaseline).length}</b> 个，累计新增条目 <b>${totalNew}</b> 条，覆盖平台 <b>${platforms.length}</b> 个。基线条目 <b>${runs.filter(r=>r.isBaseline).reduce((s,r)=>s+(r.items||[]).length,0)}</b> 条（仅作对照，不计入新增）。`;
 
   runs.forEach((r,i)=>{
     const n=(r.items||[]).length;
@@ -381,26 +440,39 @@ new Chart(document.getElementById('bar'),{
   allOpt.textContent=`🆕 全部新增（非基线）· ${totalNew} 条`;
   sel.appendChild(allOpt);
 
-  function card(it, period){
+  const pAll=document.createElement('option');
+  pAll.value='all'; pAll.textContent=`全部平台 · ${allNew.length} 条`;
+  plat.appendChild(pAll);
+  platforms.forEach(p=>{
+    const n=allNew.filter(it=>it.platform===p).length;
+    const o=document.createElement('option');
+    o.value=p; o.textContent=`${p} · ${n} 条`;
+    plat.appendChild(o);
+  });
+
+  function card(it){
     return `<div class="tl-item">
       <div class="top"><span class="pf">${it.platform}</span><span class="pill b">${it.theme}</span></div>
       <div class="ex">${it.excerpt}</div>
-      <div class="meta">情感：${it.sentiment||'负面'}${period?` ｜ 来源时段：${period}`:''}${it.url?` <a href="${it.url}" target="_blank">查看来源 ↗</a>`:''}</div>
+      <div class="meta">情感：${it.sentiment||'负面'}${it.url?` <a href="${it.url}" target="_blank">查看来源 ↗</a>`:''}</div>
     </div>`;
   }
-  function renderRun(i){
-    const r=runs[i];
-    let h=`<div class="runmeta">⏱ 扫描时间：${r.runTime||'-'} ｜ 性质：${r.isBaseline?'建档基线（非本轮新增）':'本轮新增'} ｜ 条目：${(r.items||[]).length}</div>`;
-    if(r.note) h+=`<div class="notewarn" style="margin:10px 0">${r.note}</div>`;
-    h+='<div style="margin-top:12px">'+(r.items||[]).map(it=>card(it)).join('')+'</div>';
-    render.innerHTML=h;
+  function listItems(){
+    const pf=plat.value;
+    const run=sel.value;
+    let items = (run==='all') ? allNew : (runs[Number(run)].items||[]);
+    if(pf!=='all') items = items.filter(it=>it.platform===pf);
+    return items;
   }
   function renderAll(){
-    let h=`<div style="margin-top:12px">`+runs.filter(r=>!r.isBaseline).map(r=>(r.items||[]).map(it=>card(it,r.period)).join('')).join('')+`</div>`;
+    const items=listItems();
+    let h=`<div style="margin-top:12px">`+items.map(it=>card(it)).join('')+`</div>`;
+    if(!items.length) h='<div class="notewarn" style="margin:10px 0">该筛选条件下暂无条目。</div>';
     render.innerHTML=h;
   }
-  sel.addEventListener('change',()=>{ if(sel.value==='all') renderAll(); else renderRun(Number(sel.value)); });
-  sel.value='all'; renderAll();
+  sel.addEventListener('change',renderAll);
+  plat.addEventListener('change',renderAll);
+  sel.value='all'; plat.value='all'; renderAll();
 })();
 </script>
 </body>
