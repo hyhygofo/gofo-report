@@ -87,6 +87,16 @@
   th{background:#f0f2f6;font-weight:700;font-size:12.5px}
   td .tag{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-weight:700}
 
+  /* HR 六大模块 3列汇总 */
+  table.hr3 td,table.hr3 th{vertical-align:top;line-height:1.6}
+  table.hr3 td .mod{font-weight:800;font-size:14px;color:var(--ink)}
+  table.hr3 td .en{display:block;color:#98a2b3;font-size:11px;font-weight:400;margin-top:1px}
+  table.hr3 td .core b{color:var(--bad)}
+  table.hr3 td.links a{display:block;margin:3px 0;color:var(--accent);text-decoration:none;font-size:12.5px;word-break:break-all}
+  table.hr3 td.links a:hover{text-decoration:underline;color:#1a47d6}
+  table.hr3 td.links a b{color:var(--bad);font-weight:700}
+  .muted{color:#98a2b3;font-size:11.5px}
+
   .notewarn{background:#fff8ea;border:1px solid #f3e2b8;border-radius:12px;padding:15px 18px;font-size:13px;color:#7a5b00}
   .srcgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .srcgrid a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 14px;color:var(--ink);text-decoration:none;font-size:13px;transition:.15s}
@@ -142,144 +152,91 @@
 
   <!-- 好评 vs 差评 -->
   <section>
-    <h2><span class="bar" style="background:var(--good)"></span>一、好评与差评分类汇总</h2>
-    <p class="lead">按「平台评价」与「小红书专项」两大类做<b>分类汇总</b>呈现（已剔除广告/商务宣传与招聘展会内容，且不再逐条罗列原始语录）。每条均附<b>可打开的来源 / 帖子链接</b>。</p>
-
-    <h3 style="font-size:15px;font-weight:800;margin:18px 0 10px;color:#333">1. 综合平台分类汇总（Indeed / PissedConsumer / Trustpilot / BBB / Yelp / App Store / Stage1st）</h3>
-      <table>
-        <thead><tr><th>问题类别</th><th>倾向</th><th>概要</th><th>来源链接</th></tr></thead>
-        <tbody>
-          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">入职门槛低、来钱快</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>无经验可申请、公司提供培训；一线时薪 $19–24、加班 1.5 倍，司机周薪约 $1,000+</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">成长快、晋升与轮岗多</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>高速扩张，内部晋升/跨部门轮岗，官方称每年 1–2 次调薪/晋升评审</td><td style="white-space:nowrap"><a href="https://www.gofoexpress.com/" target="_blank">官方招聘 ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">部分站点氛围融洽、领导好</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>有站点运营员 5★「办公室氛围友好」；NJ 管理者/司机评「老板很好」</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">转正后有正规福利</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>转正后提供医疗/牙科/眼科保险、401(k)、PTO、员工推荐奖励</td><td style="white-space:nowrap"><a href="https://www.glassdoor.com/" target="_blank">Glassdoor ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">多元包容 + Visa 担保</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>多国团队，对优秀员工提供 H1B 等工作签证担保</td><td style="white-space:nowrap"><a href="https://www.gofoexpress.com/" target="_blank">官方招聘 ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">管理粗放、主管不专业</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>新晋主管缺培训、面试问不当私人问题；被称「有毒的工作环境」、恶性竞争</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">克扣工时/工资、拖欠尾款</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>篡改工时、离职迟迟不发尾款、「以罚款名义扣掉一半支票」</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">强度大、几乎无 WLB</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>「加班很多，想找 work-life balance 别来」；旺季极高压</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">流动率极高、稳定性差</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>「没人干超过三个月」；站点/DSP 频繁换人换血</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed / Stage1st ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">仓库环境差、现场混乱</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>仓库积灰无休息室；到晚走近一公里装车，司机常等数小时</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">司机模式压价、自担成本</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>DSP 层层转包，单价 $2.4→$1.7/件；早到装车 2–5h「打白工」、油费自担</td><td style="white-space:nowrap"><a href="https://apps.apple.com/us/app/gofo-driver/id6473001076" target="_blank">Stage1st / App Store ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">涨薪难、市场以下薪资</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>被指低于市场薪资、气氛压抑；加薪频率问答答「never」</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">假妥投 / 偷件（品牌风险）</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>司机假送达偷件、偷珠宝盒（有监控证据），直冲雇主品牌与招聘口碑</td><td style="white-space:nowrap"><a href="https://www.trustpilot.com/review/gofoexpress.com" target="_blank">BBB / Yelp / Trustpilot ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">客服无人工 / AI 客服</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>消费者投诉无法联系真人，客服外包国外、使用假名</td><td style="white-space:nowrap"><a href="https://www.pissedconsumer.com/gofo-express.html" target="_blank">Trustpilot / PissedConsumer ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">工资克扣（GOFO EXPRESS）</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>Newark NJ 司机 1★：扣半薪称罚款，管理层粗鲁</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Express/reviews" target="_blank">Indeed GOFO EXPRESS ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">App 诚信 / 隐私合规</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>前老板私自装 GOFO Driver App、冒用账号，未经许可调用摄像头/麦克风</td><td style="white-space:nowrap"><a href="https://apps.apple.com/us/app/gofo-driver/id6473001076" target="_blank">App Store ↗</a></td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">司机行为失范（2026 新增）</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>大麻异味 / 偷走内容物 / 送错地址 / 空包裹等多起消费者投诉</td><td style="white-space:nowrap"><a href="https://www.pissedconsumer.com/gofo-express.html" target="_blank">PissedConsumer 2026 ↗</a></td></tr>
-        </tbody>
-      </table>
-
-      <!-- 小红书专题汇总 -->
-      <h3 style="font-size:15px;font-weight:800;margin:22px 0 10px;display:flex;align-items:center;gap:8px;color:#FF2442"><span style="width:5px;height:18px;border-radius:3px;background:#FF2442;display:inline-block"></span>2. 小红书平台 GOFO 话题 · 专项舆情扫描（2026-07-25 更新）</h3>
-      <p class="lead" style="margin-bottom:12px">以 <b>GOFO / gofo / Gofo / 高链科技 / GOFO Express / GOFO快递 / gofo集运 / GOFO工作 / gofo面试 / gofo美国 / GOFO尾程</b> 等 <b>15 个关键词</b>检索，本轮通过登录态 Chrome 实例去重后共抓取 <b>282 条</b>相关笔记；其中品牌直接相关约 <b>50 条</b>。品牌相关笔记中 <b>30+ 条来自 GOFO 官方/商务代理账号的渠道推广与招商内容</b>，已按需求<b>全部剔除广告</b>。下方仅汇总可获取的负面与劳动者视角信号（含本轮新增），并附帖子链接。</p>
-      <h4 style="font-size:14px;font-weight:800;margin:16px 0 8px;color:#e23b3b">① 负面 / 风险笔记分类汇总（小红书）</h4>
-      <table>
-        <thead><tr><th>笔记（作者 · 点赞）</th><th>内容概要</th><th>帖子链接</th></tr></thead>
-        <tbody>
-          <tr><td><b>避雷 gofo｜美国送快递讨薪有多难❗️💔</b><br><span style="color:#888;font-size:12px">ideal 车匠 · 121赞</span></td><td>承包/司机方控诉 GOFO 拖欠费用、讨薪困难，直指合作方收款与劳工权益风险</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6811bcc0000000000900c299" target="_blank">精确帖子 ↗</a></td></tr>
-          <tr><td><b>GOFO我谢谢你一辈子🌹</b><br><span style="color:#888;font-size:12px">omom · 173赞</span></td><td>标题反讽，本话题最高互动笔记，强烈暗示负面工作/合作体验</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GOFO%E6%88%91%E8%B0%A2%E8%B0%A2%E4%BD%A0%E4%B8%80%E8%BE%88%E5%AD%90" target="_blank">搜索该帖 ↗</a></td></tr>
-          <tr><td><b>GOFO尾程效率低得离谱</b><br><span style="color:#888;font-size:12px">KUIBEIDUO · 18赞</span></td><td>质疑末端配送时效与履约能力</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GOFO%E5%B0%BE%E7%A8%8B%E6%95%88%E7%8E%87%E4%BD%8E" target="_blank">搜索该帖 ↗</a></td></tr>
-          <tr><td><b>【TK野播】GOFO快递真垃圾啊</b><br><span style="color:#888;font-size:12px">momo 跨境版 · 3赞</span></td><td>直白差评，指向终端服务质量</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GOFO%E5%BF%AB%E9%80%92%E7%9C%9F%E5%9E%83%E5%9C%BE" target="_blank">搜索该帖 ↗</a></td></tr>
-          <tr><td><b>希音gofo预扫出问题了</b><br><span style="color:#888;font-size:12px">小彬跨境 · —赞</span></td><td>预上网/扫描异常风险</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=%E5%B8%8C%E9%9F%B3gofo%E9%A2%84%E6%89%AB" target="_blank">搜索该帖 ↗</a></td></tr>
-          <tr><td><b>希音直邮大坑！GOFO、UNI扫描直接封店</b><br><span style="color:#888;font-size:12px">美通达 · 2赞</span></td><td>预上网/扫描异常导致卖家封店风险</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a5f59f5000000000100347f" target="_blank">精确帖子 ↗</a></td></tr>
-          <tr><td><b>这个Temu的Gofo面单……来大家吐吐槽</b><br><span style="color:#888;font-size:12px">老雷Leo的美国仓 · 33赞</span></td><td>邀请同行吐槽 GOFO 面单/系统问题，互动较高</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=Temu%E7%9A%84Gofo%E9%9D%A2%E5%8D%95" target="_blank">搜索该帖 ↗</a></td></tr>
-          <tr><td><b>GOFO花洒避坑</b><br><span style="color:#888;font-size:12px">小小螃蟹横着走 · 10赞</span></td><td>产品/合作避坑提示</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GOFO%E8%8A%B1%E6%B4%92%E9%81%BF%E5%9D%91" target="_blank">搜索该帖 ↗</a></td></tr>
-          <tr><td><b>gofo又是最后一个来我家仓库提货</b><br><span style="color:#888;font-size:12px">JZ solution美国LA海外仓 · 6赞</span></td><td>海外仓侧吐槽 GOFO 提货排到最末，尾程协同与时效问题</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a33444f00000000070101ce" target="_blank">精确帖子 ↗</a></td></tr>
-          <tr><td><b>GOFO快递价格大跳水😱</b><br><span style="color:#888;font-size:12px">小红薯欧美账号 · 6赞</span></td><td>渠道价格剧烈波动，卖家对合作稳定性与账期存疑</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a1695bd0000000035020d65" target="_blank">精确帖子 ↗</a></td></tr>
-          <tr><td><b>gofo 偷拉布布原来不止我一个</b><br><span style="color:#888;font-size:12px">fafa花花花 balenciaga · 53赞</span></td><td>控诉 GOFO 物流致潮玩丢失/被偷，合作履约风险高互动</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6869cdb6000000001203c16b" target="_blank">精确帖子 ↗</a></td></tr>
-        </tbody>
-      </table>
-      <h4 style="font-size:14px;font-weight:800;margin:16px 0 8px;color:#2b5cff">② 正面 / 求职者视角（已剔除招聘 / 展会宣传类）</h4>
-      <table>
-        <thead><tr><th>笔记（作者 · 点赞）</th><th>内容概要</th><th>帖子链接</th></tr></thead>
-        <tbody>
-          <tr><td><b>Gofo的纪念品小礼物</b><br><span style="color:#888;font-size:12px">华南D记PM · 16赞</span></td><td>公司文化周边/员工关怀，正面雇主品牌信号</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=Gofo%E7%BA%AA%E5%BF%B5%E5%93%81%E5%B0%8F%E7%A4%BC%E7%89%A9" target="_blank">搜索该帖 ↗</a></td></tr>
-          <tr><td><b>深圳易可达（gofo）ssc劳务报账专员面试记录</b><br><span style="color:#888;font-size:12px">找到工作就改名 · 36赞</span></td><td>真实应聘者视角的 GOFO 关联岗位面试记录</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=%E6%B7%B1%E5%9C%B3%E6%98%93%E5%8F%AF%E8%BE%BEgofo" target="_blank">搜索该帖 ↗</a></td></tr>
-          <tr><td><b>全美招人！GofoExpress有人来嘛</b><br><span style="color:#888;font-size:12px">国际人才招聘站 · 13赞</span></td><td>求职者询问 GOFO 是否值得去，反映招聘口碑关注度</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GofoExpress%E6%9C%89%E4%BA%BA%E6%9D%A5%E5%98%9B" target="_blank">搜索该帖 ↗</a></td></tr>
-        </tbody>
-      </table>
-      <div style="background:#fff7e6;border:1px solid #ffd591;border-radius:8px;padding:12px 16px;margin-top:12px;font-size:12.5px">
-        📌 <b>评论区提取说明（2026-07-25 本轮）：</b>本轮已通过<b>登录态 Chrome 实例</b>进入小红书站内搜索（15 关键词，去重 282 条），搜索与卡片级数据可正常获取；但<b>笔记详情页与评论区仍受 App 扫码墙限制</b>——直接打开笔记详情显示「当前笔记暂时无法浏览 / 请打开小红书App扫码查看」，自动化无法进入评论区，因此<b>评论级内容仍未能提取</b>。以上为<b>卡片级（标题 / 作者 / 点赞 / 预览）</b>摘取，已剔除全部官方/商务推广广告。帖子链接分两类：标「精确帖子 ↗」为可直达的笔记页；标「搜索该帖 ↗」为按标题检索的结果页（因平台算法轮换，部分高热笔记未稳定出现在自动化结果中，点击搜索即可定位）。
-      </div>
-  </section>
-
-
-
-
-  <!-- 来源与口碑对照表 -->
+<h2><span class="bar" style="background:var(--good)"></span>一、人力资源六大模块舆情汇总<span style="font-size:12px;font-weight:400;color:#888;margin-left:8px">（美国 · 渠道：小红书 / 领英 / Indeed / 本地华人网）</span></h2>
+<p class="lead">按<b>人力资源六大模块</b>，对 4 个渠道（小红书、领英、Indeed、本地华人网）中<b>美国地区、与 HR 相关</b>的言论做<b>分类汇总</b>：左列为模块分类，中列为提炼的核心发现，右列为可点击查看的<b>负面原生帖 / 评价链接</b>。<b>已剔除全部业务 / 物流 / 产品类内容及非美国信息。</b></p>
+<table class="hr3">
+  <thead><tr><th style="width:17%">人力资源模块（分类）</th><th style="width:49%">核心发现（提炼）</th><th style="width:34%">负面原生链接（点击直达）</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><span class="mod">① 人力资源规划<span class="en">HR Planning</span></span></td>
+      <td class="core">美国网络高速扩张（领英：47 州 300+ 站点），但<b>一线流动率极高</b>——Indeed 评价「没人干超过三个月」、站点 / DSP 频繁换血；人力编制与稳定性是突出短板。</td>
+      <td class="links"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank"><b>Indeed</b>：高流动率评价 ↗</a><a href="https://www.linkedin.com/company/gofoglobal" target="_blank"><b>领英</b>：GOFO 公司页 ↗</a></td>
+    </tr>
+    <tr>
+      <td><span class="mod">② 招聘与配置<span class="en">Recruiting</span></span></td>
+      <td class="core">全美持续高密度招聘司机 / 分拣 / 运营：本地华人网密集发布（时薪 $40+、周薪 $2000+ 等），领英强调 Visa 担保与晋升通道；但求职者社群对「是否值得去」存疑（小红书「全美招人！有人来嘛」）。</td>
+      <td class="links"><a href="https://huarenzhaopin.com/t/topic/17496" target="_blank"><b>华人招聘网</b>：高薪急聘司机 ↗</a><a href="https://www.linkedin.com/company/gofoglobal" target="_blank"><b>领英</b>：GOFO 招聘页 ↗</a><a href="https://www.xiaohongshu.com/search_result?keyword=GofoExpress%E6%9C%89%E4%BA%BA%E6%9D%A5%E5%98%9B" target="_blank"><b>小红书</b>：全美招人讨论 ↗</a></td>
+    </tr>
+    <tr>
+      <td><span class="mod">③ 培训与开发<span class="en">Training</span></span></td>
+      <td class="core">官方称有 in-app 培训模块、轮岗与每年 1–2 次晋升评审（领英 Careers）；但一线司机岗实际「无需复杂培训、教了就会」，培训投入薄弱、主要靠自学，新人上手靠经验。</td>
+      <td class="links"><a href="https://gofo.com/us/Careers" target="_blank"><b>领英 / 官网</b>：培训与晋升 ↗</a><a href="https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888" target="_blank"><b>本地华人网</b>：司机亲历（无培训）↗</a></td>
+    </tr>
+    <tr>
+      <td><span class="mod">④ 绩效管理<span class="en">Performance</span></span></td>
+      <td class="core">KPI / 压价导向明显：本地华人网亲历指 GOFO 线路运营（多为低薪 H1B 留学生）为冲 KPI 拼命压价，形成「换人换 DSP」恶性循环；Indeed 亦指管理粗放、恶性竞争，缺乏合理交付质量考核。</td>
+      <td class="links"><a href="https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888" target="_blank"><b>本地华人网</b>：KPI 压价长文 ↗</a><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank"><b>Indeed</b>：管理粗放评价 ↗</a></td>
+    </tr>
+    <tr>
+      <td><span class="mod">⑤ 薪酬福利管理<span class="en">Comp &amp; Benefits</span></span></td>
+      <td class="core">薪酬两极：招聘宣称时薪 $40+、周薪 $2000+（本地华人网）；但司机端单价从 $2.4 压到 $1.7/件、早到装车 2–5h「打白工」、油费自担（本地华人网）；Indeed 薪资福利仅 2.0★、多起扣薪 / 讨薪——小红书「避雷 gofo 美国送快递讨薪」121 赞、Newark 扣半薪。</td>
+      <td class="links"><a href="https://www.xiaohongshu.com/explore/6811bcc0000000000900c299" target="_blank"><b>小红书</b>：美国讨薪帖（121赞）↗</a><a href="https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888" target="_blank"><b>本地华人网</b>：打白工 / 压价 ↗</a><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank"><b>Indeed</b>：薪资福利 2.0★ ↗</a></td>
+    </tr>
+    <tr>
+      <td><span class="mod">⑥ 劳动关系管理<span class="en">Labor Relations</span></span></td>
+      <td class="core">劳动关系紧张：Indeed「Toxic Working Environment」1★（Vernon CA）、仓库环境差、主管不专业；小红书高互动反讽帖「GOFO我谢谢你一辈子🌹」173 赞；本地华人网司机直指 GOFO 为「烂公司」、DSP–司机劳资矛盾突出。</td>
+      <td class="links"><a href="https://www.xiaohongshu.com/search_result?keyword=GOFO%E6%88%91%E8%B0%A2%E8%B0%A2%E4%BD%A0%E4%B8%80%E8%BE%88%E5%AD%90" target="_blank"><b>小红书</b>：反讽帖（173赞）↗</a><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank"><b>Indeed</b>：有毒环境评价 ↗</a><a href="https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888" target="_blank"><b>本地华人网</b>：劳资矛盾 ↗</a></td>
+    </tr>
+  </tbody>
+</table>
+<div style="background:#fff7e6;border:1px solid #ffd591;border-radius:8px;padding:12px 16px;margin-top:14px;font-size:12.5px">
+  📌 <b>说明：</b>① 仅覆盖<b>小红书 / 领英 / Indeed / 本地华人网</b> 4 个渠道，且只取<b>美国地区、与人力资源六大模块相关</b>的内容；业务 / 物流 / 产品类（如尾程时效、价格、丢件、面单等）已剔除。② 小红书评论区受 App 扫码墙限制无法提取，链接多为「按标题检索的结果页」（点击即可定位该帖）；领英公开页以官方正面口径为主，负面多来自员工评价站与华人论坛。③ 数据截至 2026-07-25。
+</div>
+</section>
+<!-- 来源与口碑对照表 -->
   <section>
-    <h2><span class="bar" style="background:var(--warn)"></span>二、信息来源与口碑对照</h2>
-    <table>
-      <thead><tr><th>平台 / 来源</th><th>性质</th><th>主要口碑倾向</th><th>关键信息</th></tr></thead>
-      <tbody>
-        <tr><td>Indeed（Gofo Inc / GOFO Express）</td><td><span class="tag">员工评价</span></td><td style="color:var(--bad)">偏负面</td><td>综合 2.1–3.0 分，管理/文化最低，负面评价集中在管理与克扣</td></tr>
-        <tr><td>Stage1st 华人海外论坛</td><td><span class="tag">从业者亲历</span></td><td style="color:var(--bad)">负面为主</td><td>详述 DSP 转包、压价、白工、宿舍差等司机生态</td></tr>
-        <tr><td>App Store（GOFO Driver）</td><td><span class="tag">工具体验</span></td><td style="color:var(--bad)">偏负面</td><td>2.7 分，司机端 App bug 多、体验差</td></tr>
-        <tr><td>华人招聘网 / 华人街 / Glassdoor 招聘帖</td><td><span class="tag">招聘信息</span></td><td style="color:var(--sub)">中性（高频招聘）</td><td>全美多城市持续招分拣/司机/运营，侧面反映高流动</td></tr>
-        <tr><td>GOFO 官方招聘页</td><td><span class="tag">官方口径</span></td><td style="color:var(--good)">正面</td><td>强调成长、晋升、多元包容、Visa 担保</td></tr>
-        <tr><td>猎聘 / BOSS 直聘（深圳高链科技）</td><td><span class="tag">国内岗位</span></td><td style="color:var(--sub)">中性偏正</td><td>国内 14–15 薪、五险一金、团建福利；海外站点岗需接受出差与灵活排班</td></tr>
-        <tr><td>BBB（Better Business Bureau）</td><td><span class="tag">消费者评价</span></td><td style="color:var(--bad)">极负面</td><td>263 条评均 1.65，假妥投/偷件/客服无回应高度集中</td></tr>
-        <tr><td>Yelp</td><td><span class="tag">消费者评价</span></td><td style="color:var(--bad)">极负面</td><td>58 条评均 1.5，51 条一星，偷件/假妥投为主</td></tr>
-        <tr><td>Trustpilot</td><td><span class="tag">消费者评价</span></td><td style="color:var(--bad)">极负面</td><td>多篇深度投诉，欺诈/偷件/外包客服指控</td></tr>
-        <tr><td>H1BSponsorData</td><td><span class="tag">H1B 薪酬</span></td><td style="color:var(--sub)">中性偏负</td><td>GOFO Express 平均年薪 $46,946，低于行业中位数 37%</td></tr>
-        <tr><td>Reddit / YouTube / TikTok</td><td><span class="tag">从业者讨论</span></td><td style="color:var(--bad)">负面为主</td><td>司机体验 / 投诉类自媒体内容，补充消费者侧视角</td></tr>
-      </tbody>
-    </table>
-  </section>
+  <h2><span class="bar" style="background:var(--warn)"></span>二、信息来源与口碑对照</h2>
+  <table>
+    <thead><tr><th>渠道 / 来源</th><th>性质</th><th>主要口碑倾向（HR 视角）</th><th>关键信息</th></tr></thead>
+    <tbody>
+      <tr><td>小红书（Xiaohongshu）</td><td><span class="tag">员工 / 劳动者视角</span></td><td style="color:var(--bad)">负面为主</td><td>美国司机 / 合作方笔记：讨薪（121 赞）、反讽工作体验（173 赞）、求职者讨论；官方 / 商务推广广告已剔除</td></tr>
+      <tr><td>领英（LinkedIn）</td><td><span class="tag">官方公司页 / 招聘</span></td><td style="color:var(--good)">正面口径</td><td>GOFO 官方强调福利（医疗 / 401k）、晋升通道、Visa 担保、多元包容；公开负面员工帖少（登录墙限制）</td></tr>
+      <tr><td>Indeed（Gofo Inc / GOFO Express）</td><td><span class="tag">员工评价</span></td><td style="color:var(--bad)">偏负面</td><td>综合 2.1★，薪资福利 2.0★、管理 1.8★、文化 1.8★；负面集中管理粗放与克扣；Vernon CA「有毒工作环境」1★</td></tr>
+      <tr><td>本地华人网（Stage1st / 华人招聘网 / 华人街 / 华人贴）</td><td><span class="tag">从业者亲历 + 招聘</span></td><td style="color:var(--bad)">负面亲历 + 中性招聘</td><td>司机亲历长文：打白工、单价 $2.4→$1.7 压价、KPI 恶性循环；华人招聘网密集发布全美司机 / 运营岗</td></tr>
+    </tbody>
+  </table>
+</section>
 
   <!-- 结论 -->
   <section>
-    <h2><span class="bar" style="background:var(--good)"></span>三、结论与建议</h2>
+  <h2><span class="bar" style="background:var(--good)"></span>三、结论与建议（HR 视角）</h2>
+  <div class="panel">
+    <p style="font-size:14px"><b>一句话结论：</b>GOFO 在美国<b style="color:var(--good)">扩张快、门槛低、机会多、招聘活跃</b>，但<b style="color:var(--bad)">管理粗放、一线薪酬被压价、流动率极高、劳动关系紧张</b>，HR 侧风险突出，需优先治理薪酬透明度与一线保留。</p>
+  </div>
+  <div class="grid2">
     <div class="panel">
-      <p style="font-size:14px"><b>一句话结论：</b>GOFO 是一家高速扩张中的华人背景物流公司，<b style="color:var(--good)">机会多、门槛低、来钱快、成长快</b>，但<b style="color:var(--bad)">管理粗放、强度高、稳定性差、司机端压价严重</b>，整体口碑偏负面、两极分化明显。</p>
-      <ul style="margin:14px 0 0 20px;font-size:13.5px;color:var(--sub);line-height:2">
-        <li><b style="color:var(--ink)">适合人群：</b>想快速上手赚现金、需要 Visa 担保或求职过渡、能接受高强度与不稳定的求职者。</li>
-        <li><b style="color:var(--ink)">需谨慎：</b>看重管理规范、工作生活平衡、长期稳定与规范薪酬发放的求职者。</li>
-        <li><b style="color:var(--ink)">重点风险：</b>工时/工资克扣、离职尾款拖欠、DSP 层层转包压价、司机自担油费车损。</li>
-        <li><b style="color:var(--ink)">建议核实：</b>入职前书面确认排班工时、加班费、发薪周期与试用期福利生效时间；司机岗位算清单价、油费与装车无薪时长后的实际时薪。</li>
-      </ul>
+      <h3>✅ 相对优势（可强化）</h3>
+      <div class="item g"><div class="t">招聘供给充足</div><div class="d">全美高密度招聘、华人渠道响应快，领英提供 Visa 担保与晋升通道，雇主吸引力在「机会多、成长快」。</div></div>
+      <div class="item g"><div class="t">官方福利框架完整</div><div class="d">领英 / 官网宣称医疗、401(k)、轮岗与年度晋升评审，框架具备，但一线落地存疑。</div></div>
     </div>
-  </section>
+    <div class="panel">
+      <h3>⚠️ 主要风险（需治理）</h3>
+      <div class="item b"><div class="t">薪酬压价与克扣</div><div class="d">单价 $2.4→$1.7/件、打白工、扣半薪、讨薪帖（小红书 121 赞），Indeed 薪资福利仅 2.0★。</div></div>
+      <div class="item b"><div class="t">流动率与劳动关系</div><div class="d">「没人干超过三个月」、Vernon CA 有毒环境 1★、小红书反讽帖 173 赞，DSP–司机劳资矛盾突出。</div></div>
+    </div>
+  </div>
+</section>
 
   <!-- HR 举措建议 -->
   <section>
-    <h2><span class="bar" style="background:var(--accent)"></span>四、HR 举措建议（面向 HR / 招聘负责人）</h2>
-    <p class="lead">以下建议基于「GOFO 员工体验公开舆情监测」这一情报视角，无论贵司与 GOFO 是<b>招聘合作/渠道、人才竞争、候选人体验对标还是用工合规对标</b>，均可参考落地。</p>
-
-    <div class="hr-card">
-      <h4>1. 风险预警与合规红线 <span class="lv hi">最高优先级</span></h4>
-      <ul>
-        <li><b>工资/工时争议信号</b>（孟菲斯仅发 80%、篡改工时、离职拖欠尾款）属重大雇主声誉与潜在法律风险。若贵司与 GOFO 存在用工/外包合作，立即发起合规自查：发薪周期、工时记录、离职结算是否规范，并要求对方提供书面发薪与工时政策。</li>
-        <li><b>司机 DSP 转包 / 装车无薪 / 单价压价</b>涉及劳动关系与最低工时合规。如贵司涉及类似众包/承包商模式，复核自身模式是否存在同类风险敞口，必要时请法务介入。</li>
-      </ul>
-    </div>
-
-    <div class="hr-card">
-      <h4>2. 候选人体验与雇主品牌对标</h4>
-      <ul>
-        <li><b>GOFO 的「负面教材」</b>：管理粗放、主管无培训、面试不当提问、氛围「有毒」——这些是雇主品牌高压线。建议内部 audit 一遍：新晋主管是否有管理培训？面试问题是否合规（避免私人/歧视性问题）？</li>
-        <li><b>GOFO 的「正面可学」</b>：门槛低、来钱快、成长快、晋升轮岗多、签证担保。若贵司面向相似人群（留学生、过渡期求职者），可借鉴其「快速上手 + 可见成长路径」的卖点。</li>
-      </ul>
-    </div>
-
-    <div class="hr-card">
-      <h4>3. 招聘 / 渠道决策建议</h4>
-      <ul>
-        <li>若考虑将 GOFO 作为<b>招聘渠道或人才来源</b>：对来自 GOFO 的候选人做结构化背调，关注其离职原因是否与上述风险点相关；谨慎把 GOFO 岗位推荐给看重稳定性 / WLB 的候选人。</li>
-        <li>建立<b>「渠道风险看板」</b>：把 GOFO 舆情纳入渠道质量评估，负面密度高时下调推荐优先级，并保留书面评估记录。</li>
-      </ul>
-    </div>
-
-    <div class="hr-card">
-      <h4>4. 舆情监控运营 SOP（贴合当前自动化）</h4>
-      <ul>
-        <li>已部署：每 <b>3 小时</b>自动扫描 GOFO 各平台评价，新增负面经<b>飞书推送</b>，并归档进下方「监控时间线」。</li>
-        <li><b>升级阈值</b>：单期新增 ≥ 3 条负面，或出现「诉讼 / 劳工局 / 媒体曝光」类异常主题时，升级为<b>高危预警</b>，抄送 HR 负责人 + 合规。</li>
-        <li><b>周期汇总</b>：每周自动生成《GOFO 舆情周报》（汇总时间线各时段条目），供管理层阅知。</li>
-        <li><b>专项跟进</b>：对反复出现的主题（工资 &gt; 管理 &gt; 司机压价）形成专项改善 / 应对清单。</li>
-      </ul>
-    </div>
-  </section>
+  <h2><span class="bar" style="background:var(--accent)"></span>四、HR 举措建议（面向 HR / 招聘负责人）</h2>
+  <div class="hr-card"><h4>① 薪酬与结算透明化<span class="muted">（薪酬福利管理）</span></h4><p>针对小红书讨薪帖、本地华人网打白工 / 压价、Indeed 扣半薪：统一计价与结算规则，杜绝「打白工」与随意扣款，建立工资争议快速响应通道。</p></div>
+  <div class="hr-card"><h4>② 招聘与入职体验<span class="muted">（招聘与配置）</span></h4><p>针对华人网高密度招聘与求职者「是否值得去」存疑：规范招聘话术与预期管理，强化领英 Visa 担保卖点，提升入职第一周体验与留存。</p></div>
+  <div class="hr-card"><h4>③ 一线培训体系<span class="muted">（培训与开发）</span></h4><p>针对 Stage1st「司机无培训、教了就会」：将官网宣称的 in-app 培训模块落到实处，建立新手带教与安全检查清单，降低事故与流失。</p></div>
+  <div class="hr-card"><h4>④ 绩效与 KPI 合理性<span class="muted">（绩效管理）</span></h4><p>针对华人网 KPI 压价恶性循环、Indeed 管理粗放：重新审视一线 KPI 设计，避免「为冲量拼命压价」损害质量与劳动关系，明确管理者考核责任。</p></div>
+  <div class="hr-card"><h4>⑤ 劳动关系与沟通<span class="muted">（劳动关系管理）</span></h4><p>针对 Indeed 有毒环境、仓库环境差、小红书反讽帖：改善仓库现场与主管管理培训，建立匿名反馈与申诉通道，遏制劳资矛盾升级。</p></div>
+  <div class="hr-card"><h4>⑥ 人力规划与保留<span class="muted">（人力资源规划）</span></h4><p>针对「没人干超过三个月」的高流动：完善编制与排班稳定性，设计一线 retention 激励（全勤 / 旺季补贴 / 服务奖），降低 DSP 频繁换血成本。</p></div>
+</section>
 
   <!-- 监控时间线 -->
   <section>
@@ -296,24 +253,7 @@
   </section>
 
   <!-- 来源链接 -->
-  <section>
-    <h2><span class="bar"></span>六、参考来源链接</h2>
-    <div class="srcgrid">
-      <a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank"><b>Indeed</b>Gofo Inc 员工评价（2.1/5）</a>
-      <a href="https://www.indeed.com/cmp/Gofo-Express" target="_blank"><b>Indeed</b>GOFO EXPRESS 评价与问答</a>
-      <a href="https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888" target="_blank"><b>Stage1st 论坛</b>华人快递真相 · 司机亲历长文</a>
-      <a href="https://apps.apple.com/us/app/gofo-driver/id6473001076" target="_blank"><b>App Store</b>GOFO Driver 司机端评分（2.7）</a>
-      <a href="https://huarenzhaopin.com/t/topic/491" target="_blank"><b>华人招聘网</b>GOFO 仓库/调度招聘帖</a>
-      <a href="https://www.usahuarenjie.com/information-id-239770.html" target="_blank"><b>华人街生活网</b>GOFO 多岗位招聘</a>
-      <a href="https://gofo.com/us/Careers" target="_blank"><b>GOFO 官网</b>Careers 官方员工故事</a>
-      <a href="https://thelowdown.momentum.asia/gofo-express-has-daily-order-volume-surpassing-2-5mil/" target="_blank"><b>Momentum Works</b>GOFO 公司背景与商业模式</a>
-      <a href="https://www.xiaohongshu.com/search_result?keyword=GOFO" target="_blank"><b>小红书</b>GOFO / 高链科技 话题检索（15 关键词 · 282 条笔记·2026-07-25）</a>
-      <a href="https://gofo-express.pissedconsumer.com/review.html" target="_blank"><b>PissedConsumer</b>GOFO Express 消费者投诉（2026 司机行为失范）</a>
-      <a href="http://www.groundnews.com/article/gofo-delivery-drivers-claim-they-only-received-80-of-pay" target="_blank"><b>WREG 孟菲斯</b>司机称仅收到 80% 工资（2026-01-05）</a>
-    </div>
-  </section>
-
-  <section>
+    <section>
     <div class="notewarn">
       <b>⚠️ 调研说明与局限：</b>本报告基于公开网络信息整理，覆盖员工评价（Indeed）、华人社区（Stage1st / nitanribao）、工具体验（App Store）、消费者评价站（BBB / Yelp / Trustpilot / PissedConsumer）、地方媒体（WREG 孟菲斯）、H1B 薪酬数据库等 11+ 平台，合计 30+ 条独立评价；消费者侧投诉（假妥投/偷件/客服）虽非直接员工体验，但直接冲击雇主品牌与招聘口碑，故一并纳入。存在主观性与幸存者偏差；小红书以<b>登录态 Chrome 实例 + 15 关键词</b>检索，2026-07-25 本轮去重后共 <b>282 条</b>相关笔记（品牌直接相关约 50 条：明确负面/风险 10 条、求职者/员工视角 3 条、官方/商务推广 30+ 条、品牌提及若干），已按需求<b>剔除全部广告/商务推广</b>，按「问题类别 / 内容 / 对应平台」分类纳入第三章专题汇总。受平台 App 登录墙限制，笔记详情页与评论区仍无法直接提取（打开详情显示「请打开小红书App扫码查看」），故评论级内容未能完整获取（已注明），以上为卡片级（标题/作者/点赞/预览）摘取。数据截至 2026-07-25（小红书专项为 2026-07-25 扫描），仅供内部参考，不构成对该公司的最终定性。监控时间线由自动化每 3 小时更新一次，新增条目依赖去重判断，可能存在少量近似重复或延迟。
     </div>
@@ -326,7 +266,7 @@
 
 <!-- MONITOR_DATA_START -->
 <script>
-const MONITOR_RUNS = [{"id": "run-20260724-1635", "period": "第 10 轮扫描 · 全平台（2026-07-24 16:35）", "runTime": "2026-07-24 16:35", "isBaseline": false, "note": "本轮多组关键词交叉检索小红书与其他平台。小红书无新增可被外部索引的站内笔记（符合平台封闭的已知局限），规则 A 静默。其他平台（规则 B）新增 1 条负面：App Store 司机端 App 出现罚款压薪 + 无法删除个人信息/账号的隐私合规指控（首现该维度）。已飞书通知 Eva 并自动发布。", "items": [{"platform": "App Store（GOFO Driver）", "theme": "司机薪酬/罚款机制/数据隐私", "sentiment": "负面", "excerpt": "1 星评论「Don't Do It… You Were Warned!!!」（$parc，2025-12-30）：公司想方设法不付司机钱、不告知对司机不利的细则；一边收客户钱一边通过各种罚款从司机身上赚钱；且无法删除个人信息或账号（'You'll be stuck, trust me!'）。首次出现司机数据/账号无法删除的隐私合规指控，叠加此前 App 未经许可调用摄像头/麦克风的评论，司机端 App 合规风险维度累积。", "url": "https://apps.apple.com/us/app/gofo-driver/id6473001076"}]}, {"id": "run-20260724-1338", "period": "第 9 轮扫描 · 全平台（2026-07-24 13:38）", "runTime": "2026-07-24 13:38", "isBaseline": false, "note": "本轮多组关键词交叉检索小红书与其他平台。小红书无新增可被外部索引的站内笔记（符合平台封闭的已知局限），规则 A 静默。其他平台（规则 B）新增 3 条负面：Indeed 问答区确认零福利、荷兰 klacht.nl 首条欧洲市场服务负面、PissedConsumer 首现司机涉大麻指控。已飞书通知 Eva 并自动发布。", "items": [{"platform": "Indeed 问答区", "theme": "福利", "sentiment": "负面", "excerpt": "「GOFO EXPRESS 提供什么福利？」（2026-07-18 最新回答）6 个员工回答一致为 Nothing；牙科保险 No；假期政策 Nothing。与官网宣传的 Health/vision/dental + 401(k) 直接矛盾。", "url": "https://www.indeed.com/cmp/Gofo-Express"}, {"platform": "klacht.nl（荷兰）", "theme": "服务质量/欧洲市场", "sentiment": "负面", "excerpt": "荷兰消费者投诉（2026-04-28）：配送员把包裹扔进垃圾桶，投诉后再犯又扔进厨余回收桶（gft），满意度 1/10；投诉平台两次在 Twitter 公开点名 GOFO 未处理。首条被捕获的欧洲市场负面，与 GOFO 高调参展 DELIVER Europe 2026 形成反差。", "url": "https://www.klacht.nl/onprofessionele-bezorging-van-mijn-pakket"}, {"platform": "PissedConsumer", "theme": "司机管理/安全合规", "sentiment": "负面", "excerpt": "Charlotte NC 消费者（2026-04-19）：包裹有大麻味，指控司机送货时吸食大麻。首次出现涉毒品的司机管理/合规风险指控。", "url": "https://gofo-express.pissedconsumer.com/review.html"}]}, {"id": "run-20260724-0745", "period": "第 7 轮扫描 · 全平台（2026-07-24 07:45）", "runTime": "2026-07-24 07:45", "isBaseline": false, "note": "本轮多组关键词交叉检索小红书与其他平台。小红书无新增可被外部索引的站内笔记（符合平台封闭的已知局限），规则 A 静默。其他平台（规则 B）新增 2 条负面（均来自 Indeed），已飞书通知 Eva 并自动发布。", "items": [{"platform": "Indeed GOFO EXPRESS", "theme": "司机模式/薪酬/稳定性", "sentiment": "负面", "excerpt": "Delivery Driver (Ayden, NC) 1.0 (2026-07-10) 'Avoid if possible'：号称 1099 独立承包商实则像没扣税的 W2；管理层会很快把你辞退；相比其他地区单价偏低；付款拖延很久，作者警告 be warned。", "url": "https://www.indeed.com/cmp/Gofo-Express"}, {"platform": "Indeed", "theme": "薪酬/综合口碑", "sentiment": "负面", "excerpt": "Work Happiness 调查中仅 33% 员工认为薪酬公平（此前基线 40%，持续下滑）；GOFO EXPRESS 公司页 2026 年新评价整体已跌至 1.0/5（2025 年为 3.0）。", "url": "https://www.indeed.com/cmp/Gofo-Inc/salaries?job_category=hr"}]}, {"id": "run-baseline", "period": "报告建档基线（2026-07-23）", "runTime": "2026-07-23 13:56", "isBaseline": true, "note": "以下为本报告初始调研已掌握的负面基线，已建档去重，作为后续「新增」判断的对照基准，不属于任何一轮扫描的新增。", "items": [{"platform": "Indeed", "theme": "管理", "sentiment": "负面", "excerpt": "Gofo Inc 综合 2.1/5、管理 1.8；Vernon, CA 员工称新晋主管缺培训、面试问不当私人问题、'有毒工作环境'。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "环境/工资", "sentiment": "负面", "excerpt": "Charlotte, NC：仓库积灰无休息室；离职后拖欠最后工资；每周排班不足 40h 却做满工作量。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "管理/工资", "sentiment": "负面", "excerpt": "匿名评价'rubbish company'：管理混乱、薪资低于市场、氛围压抑；指控篡改工时、雇用非法劳工。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "工作强度", "sentiment": "负面", "excerpt": "在职员工：加班多，'想找 work-life balance 别来这'；公司试图做成 24/7。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "司机模式", "sentiment": "负面", "excerpt": "Cullman, AL 司机：按件计薪，但自有车辆磨损+每周油费几乎不划算。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "groundnews / WREG", "theme": "工资", "sentiment": "负面", "excerpt": "孟菲斯司机指控管理层只发 80% 工资，剩余 20% 要等 4 周（2026-01-05）。", "url": "http://www.groundnews.com/article/gofo-delivery-drivers-claim-they-only-received-80-of-pay"}, {"platform": "北美华人论坛 nitanribao", "theme": "管理/薪酬/稳定性", "sentiment": "负面", "excerpt": "长篇吐槽：管理混乱、HR PUA 虚假招聘；加州无加班补贴、Zone1/2 单价仅 $2.x 内卷；老板卷款跑路/拖欠工资风险。", "url": "https://nitanribao.com/post_513636"}, {"platform": "Stage1st 华人海外论坛", "theme": "司机模式", "sentiment": "负面", "excerpt": "司机亲历长文：DSP 层层转包压价，单价 $2.4→$1.7；装车 2–5 小时'打白工'无薪；油费车损自担。", "url": "https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888"}, {"platform": "App Store", "theme": "司机模式", "sentiment": "负面", "excerpt": "GOFO Driver 司机端 App 评分约 2.7，评论偏负面、bug 多。", "url": "https://apps.apple.com/us/app/gofo-driver/id6473001076"}, {"platform": "Indeed", "theme": "薪酬", "sentiment": "负面", "excerpt": "GOFO EXPRESS 独立承包商司机周薪约 $1,539，低于全国平均 42%。", "url": "https://www.indeed.com/cmp/Gofo-Express/salaries/Driver-(Independent-Contractor)"}, {"platform": "问答区", "theme": "薪酬", "sentiment": "负面", "excerpt": "关于加薪频率的问答直答：公司'从不涨薪'。", "url": ""}, {"platform": "华人社区", "theme": "稳定性", "sentiment": "负面", "excerpt": "部分站点员工流动率极高，'没人干超过三个月'。", "url": ""}]}, {"id": "run-trial", "period": "试运行首扫（2026-07-23 14:56）", "runTime": "2026-07-23 14:56", "isBaseline": false, "note": "自动化试运行首次主动扫描捕获的内容（演示性质），现已并入上方基线建档。后续每 3 小时的新扫描会在此处追加独立时段。", "items": [{"platform": "groundnews / WREG", "theme": "工资", "sentiment": "负面", "excerpt": "孟菲斯司机仅收到 80% 工资（试运行首扫捕获，已并入基线）。", "url": "http://www.groundnews.com/article/gofo-delivery-drivers-claim-they-only-received-80-of-pay"}, {"platform": "北美华人论坛 nitanribao", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "论坛长篇吐槽：管理混乱、HR PUA、加州无加班补贴（试运行首扫捕获，已并入基线）。", "url": "https://nitanribao.com/post_513636"}, {"platform": "Indeed", "theme": "管理", "sentiment": "负面", "excerpt": "更新：有毒工作环境（综合 2.1/5，管理 1.8）（试运行首扫捕获，已并入基线）。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}]}, {"id": "run-20260723-1655", "period": "第 2 轮扫描（2026-07-23 16:55）", "runTime": "2026-07-23 16:55", "isBaseline": false, "note": "本轮手动触发扫描。新增 3 条负面（司机单价持续下跌、消费者评价站 84% 负面、CEO 支持率 29%）+ 1 条正面（LinkedIn 官方员工视频）。", "items": [{"platform": "Stage1st 华人海外论坛", "theme": "司机模式/薪酬", "sentiment": "负面", "excerpt": "司机长文更新(2026-06-21)：全美单价普遍跌至 $1.7 甚至 $1.6，其线路上周降至 $1.9，仓库老板预测明年 $1.8 以下；GOFO 线路运营招低薪 H1B 留学生为 KPI 拼命压价，DSP 与司机苦不堪言，恶性循环。", "url": "https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888"}, {"platform": "PissedConsumer（新平台）", "theme": "服务质量/雇主品牌", "sentiment": "负面", "excerpt": "GOFO Express 消费者评分 1.7/5（97 条，84% 负面）：司机偷包裹（有监控录像）、反复送错楼栋、假妥投照片、AI 客服无人工。虽是消费者侧，但直接冲击雇主品牌与招聘口碑。", "url": "https://gofo-express.pissedconsumer.com/review.html"}, {"platform": "Indeed", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "新数据点：Gofo Inc CEO 支持率仅 29%；仅 40% 员工认为薪酬公平（对照 Walmart 48%）。", "url": "https://www.indeed.com/companies/compare/Gofo-Inc-vs-Walmart-caa7391a36362851-eacc908d242186c8"}, {"platform": "LinkedIn（GOFO 官方）", "theme": "雇主品牌/氛围", "sentiment": "正面", "excerpt": "官方旺季员工视频（Chino, CA）：员工称'薪酬福利好、无经验有培训、同事友好'。注意为官方宣传物料，可作对照参考。", "url": "https://www.linkedin.com/posts/gofoglobal_gofo-gofonetwork-peakseason-activity-7399636036194299904-s_YN"}]}, {"id": "run-20260723-1705", "period": "第 3 轮扫描 · 小红书专项（2026-07-23 17:05）", "runTime": "2026-07-23 17:05", "isBaseline": false, "note": "本轮通过浏览器登录态进入小红书站内搜索，多关键词交叉扫描提取 GOFO 笔记。按口径仅保留负面与正面评价（已剔除招聘/展会宣传类内容）：1 条高热度负面（omom 173赞）、1 条正面（员工关怀礼品）。", "items": [{"platform": "Indeed", "theme": "薪酬", "sentiment": "负面", "excerpt": "新数据点：Gofo Inc 配送专员（Delivery Specialist）平均时薪 $20.18，低于全国同岗位平均水平 23%。", "url": "https://www.indeed.com/cmp/Gofo-Inc/salaries/Delivery-Specialist"}, {"platform": "Indeed", "theme": "综合口碑", "sentiment": "负面", "excerpt": "GOFO EXPRESS 公司页综合评分现为 2.0/5，横向对比持续走低。", "url": "https://www.indeed.com/cmp/Gofo-Express/salaries"}]}, {"id": "run-20260723-2004", "period": "第 4 轮扫描 · 全平台扩展（2026-07-23 20:04）", "runTime": "2026-07-23 20:04", "isBaseline": false, "note": "本轮扩展至消费者评价站（BBB / Yelp / Trustpilot）、H1B 薪酬数据库与 App 诚信投诉等此前未覆盖的平台，新增 8 条负面（多为消费者端服务质量，直接冲击雇主品牌与招聘口碑）。", "items": [{"platform": "BBB", "theme": "服务质量/欺诈", "sentiment": "负面", "excerpt": "BBB 263 条评均 1.65：Jennifer G(2026-06-06) 投诉 GOFO 假投递通知、司机根本未到现场，怀疑欺诈公司。", "url": "https://www.bbb.org/us/ny/flushing/profile/delivery-service/gofo-express-0121-87174326/customer-reviews"}, {"platform": "BBB", "theme": "假妥投", "sentiment": "负面", "excerpt": "Deborah D(2026-06-04)：司机拍照假装送达但实际没留下包裹，多次发生。", "url": "https://www.bbb.org/us/ny/flushing/profile/delivery-service/gofo-express-0121-87174326/customer-reviews"}, {"platform": "Yelp", "theme": "偷件/假妥投", "sentiment": "负面", "excerpt": "Yelp 58 条评均 1.5（51 条一星）：Hamlet M(2025-05-21) 称司机拍照假装送达后拿走包裹，建议看到 GOFO 立刻取消订单。", "url": "https://local.yahoo.com/info-238893918-gofo-express-vernon"}, {"platform": "Trustpilot", "theme": "欺诈/偷件", "sentiment": "负面", "excerpt": "Tabitha 长篇投诉 'Terrible Fraudulent Scam Company'：司机零监管、客服外包国外假名无追溯、最终包裹被偷走。", "url": "https://www.trustpilot.com/review/gofoexpress.com"}, {"platform": "Trustpilot", "theme": "偷件/AI客服", "sentiment": "负面", "excerpt": "匿名(2026-07-03)：司机偷走珠宝盒（被打开清空），AI 客服完全无法联系真人。", "url": "https://www.trustpilot.com/review/gofoexpress.com"}, {"platform": "Indeed GOFO EXPRESS", "theme": "工资克扣/管理粗暴", "sentiment": "负面", "excerpt": "Newark NJ 司机(2026-01-24) 1★ 'Horrible place to work'：扣掉一半工资说是罚款，管理层粗鲁像对待小孩。", "url": "https://www.indeed.com/cmp/Gofo-Express"}, {"platform": "App Store", "theme": "诚信/隐私合规", "sentiment": "负面", "excerpt": "Hack N Scam(2025-07)：前老板在员工手机私自安装 GOFO Driver App 冒用账号送货，App 未经许可使用摄像头/麦克风。", "url": "https://apps.apple.com/us/app/gofo-driver/id6473001076"}, {"platform": "H1BSponsorData", "theme": "H1B薪酬", "sentiment": "负面", "excerpt": "GOFO Express 2 份 H1B 申请平均年薪 $46,946，比全行业中位数低 37.1%（工作地波多黎各 Catano）。", "url": "http://h1bsponsordata.com/employer/gofo-express"}]}, {"id": "run-20260723-2030", "period": "第 5 轮扫描 · 小红书全量提取（2026-07-23 20:30）", "runTime": "2026-07-23 20:30", "isBaseline": false, "note": "本轮通过浏览器登录态进入小红书站内搜索，多关键词交叉扫描提取 GOFO 笔记。按口径仅保留负面与正面评价（已剔除招聘/展会宣传类内容）：1 条高热度负面（omom 173赞）、1 条正面（员工关怀礼品）。", "items": [{"platform": "小红书", "theme": "员工体验/负面", "sentiment": "负面", "excerpt": "omom「GOFO我谢谢你一辈子🌹」173赞·16h前 — 小红书 GOFO 话题最高互动笔记，标题强烈暗示负面工作体验，建议 HR 重点关注。", "url": "https://www.xiaohongshu.com/explore/6a611cee0000000002003c01"}, {"platform": "小红书", "theme": "员工体验/福利", "sentiment": "正面", "excerpt": "华南D记PM「Gofo的纪念品小礼物」16赞 — 正面提及公司文化周边/员工关怀礼品。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}]}, {"id": "run-20260723-2306", "period": "第 6 轮扫描 · 全平台（2026-07-23 23:06）", "runTime": "2026-07-23 23:06", "isBaseline": false, "note": "本轮通过浏览器登录态进入小红书站内搜索，多关键词交叉扫描提取 GOFO 笔记。按口径仅保留负面与正面评价（已剔除招聘/展会宣传类内容）：1 条高热度负面（omom 173赞）、1 条正面（员工关怀礼品）。", "items": [{"platform": "FreightWaves", "theme": "监管/公司稳定性", "sentiment": "负面", "excerpt": "参议员 Tom Cotton(2026-05-19 致信代理司法部长) 点名 GOFO(宗腾集团出资)等中国背景承运商，指其借外国补贴低价倾销、抢占美国市场、采集街道级数据涉国安与供应链风险，要求 DOJ 调查。公司层面重大监管/声誉风险，或波及业务与岗位稳定性。", "url": "https://www.freightwaves.com/news/sen-cotton-urges-doj-investigation-of-china-backed-parcel-carriers"}, {"platform": "Indeed GOFO EXPRESS", "theme": "工作环境/管理", "sentiment": "负面", "excerpt": "Houston, TX 仓库/司机(2025-09-02) 3.0 'Quick Money'：仓库极度混乱不专业，去晚了要走近1英里才能装车；每隔一周送货卡车晚点，可能等数小时才拿到包裹。", "url": "https://www.indeed.com/cmp/Gofo-Express"}, {"platform": "Indeed GOFO EXPRESS", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "Charlotte, NC 仓库工(2025-09-10, 西语) 1.0 'No bueno'：组织混乱，入职时说好的每件单价事后被更改（招后压价 bait-and-switch）。", "url": "https://www.indeed.com/cmp/Gofo-Express"}]}, {"id": "run-20260725-2049", "period": "第 11 轮扫描 · 小红书+全平台（2026-07-25 20:49）", "runTime": "2026-07-25 20:49", "isBaseline": false, "note": "本轮通过登录态 Chrome 实例进入小红书站内搜索（15 关键词，去重 282 条），并刷新 Indeed / PissedConsumer / WREG 孟菲斯等平台。小红书按需求剔除全部官方/商务推广广告后，新增 3 条负面/风险笔记（Labubu 被偷 53赞、提货排末 6赞、价格大跳水 6赞）。全平台新增：PissedConsumer 2026 司机行为失范（大麻异味/偷窃内容物/送错地址）、Stage1st 司机亲历长文（压价至 1.7/件、打白工）持续发酵、孟菲斯 WREG 报道司机仅收到 80% 工资。评论区受 App 扫码墙限制仍无法提取。", "items": [{"platform": "小红书", "theme": "产品/合作风险", "sentiment": "负面", "excerpt": "gofo 偷拉布布原来不止我一个（fafa花花花 balenciaga · 53赞）— 控诉 GOFO 物流致 Labubu 等潮玩丢失/被偷，合作履约风险高互动。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}, {"platform": "小红书", "theme": "尾程效率", "sentiment": "负面", "excerpt": "gofo又是最后一个来我家仓库提货（JZ solution美国LA海外仓 · 6赞）— 海外仓侧吐槽提货排末，尾程协同与时效问题。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}, {"platform": "小红书", "theme": "价格/合作风险", "sentiment": "负面", "excerpt": "GOFO快递价格大跳水（小红薯欧美账号 · 6赞）— 渠道价格剧烈波动，卖家对合作稳定性与账期存疑。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}, {"platform": "PissedConsumer", "theme": "司机管理/安全合规", "sentiment": "负面", "excerpt": "2026 多起司机行为失范：包裹大麻异味(4-19)、拆空/偷走内容物(3-28)、送错地址损失$112(3-28)、空包裹(4-09)。", "url": "https://gofo-express.pissedconsumer.com/review.html"}, {"platform": "WREG 孟菲斯（地方媒体）", "theme": "工资克扣/美国本地新闻", "sentiment": "负面", "excerpt": "Gofo delivery drivers claim they only received 80% of pay — 孟菲斯司机控诉经理称只发 80%、剩余 20% 等四周（2026-01-05）。", "url": "http://www.groundnews.com/article/gofo-delivery-drivers-claim-they-only-received-80-of-pay"}]}];
+const MONITOR_RUNS = [{"id": "run-20260724-1338", "period": "第 9 轮扫描 · 全平台（2026-07-24 13:38）", "runTime": "2026-07-24 13:38", "isBaseline": false, "note": "本轮多组关键词交叉检索小红书与其他平台。小红书无新增可被外部索引的站内笔记（符合平台封闭的已知局限），规则 A 静默。其他平台（规则 B）新增 3 条负面：Indeed 问答区确认零福利、荷兰 klacht.nl 首条欧洲市场服务负面、PissedConsumer 首现司机涉大麻指控。已飞书通知 Eva 并自动发布。", "items": [{"platform": "Indeed 问答区", "theme": "福利", "sentiment": "负面", "excerpt": "「GOFO EXPRESS 提供什么福利？」（2026-07-18 最新回答）6 个员工回答一致为 Nothing；牙科保险 No；假期政策 Nothing。与官网宣传的 Health/vision/dental + 401(k) 直接矛盾。", "url": "https://www.indeed.com/cmp/Gofo-Express"}]}, {"id": "run-20260724-0745", "period": "第 7 轮扫描 · 全平台（2026-07-24 07:45）", "runTime": "2026-07-24 07:45", "isBaseline": false, "note": "本轮多组关键词交叉检索小红书与其他平台。小红书无新增可被外部索引的站内笔记（符合平台封闭的已知局限），规则 A 静默。其他平台（规则 B）新增 2 条负面（均来自 Indeed），已飞书通知 Eva 并自动发布。", "items": [{"platform": "Indeed GOFO EXPRESS", "theme": "司机模式/薪酬/稳定性", "sentiment": "负面", "excerpt": "Delivery Driver (Ayden, NC) 1.0 (2026-07-10) 'Avoid if possible'：号称 1099 独立承包商实则像没扣税的 W2；管理层会很快把你辞退；相比其他地区单价偏低；付款拖延很久，作者警告 be warned。", "url": "https://www.indeed.com/cmp/Gofo-Express"}, {"platform": "Indeed", "theme": "薪酬/综合口碑", "sentiment": "负面", "excerpt": "Work Happiness 调查中仅 33% 员工认为薪酬公平（此前基线 40%，持续下滑）；GOFO EXPRESS 公司页 2026 年新评价整体已跌至 1.0/5（2025 年为 3.0）。", "url": "https://www.indeed.com/cmp/Gofo-Inc/salaries?job_category=hr"}]}, {"id": "run-baseline", "period": "报告建档基线（2026-07-23）", "runTime": "2026-07-23 13:56", "isBaseline": true, "note": "以下为本报告初始调研已掌握的负面基线，已建档去重，作为后续「新增」判断的对照基准，不属于任何一轮扫描的新增。", "items": [{"platform": "Indeed", "theme": "管理", "sentiment": "负面", "excerpt": "Gofo Inc 综合 2.1/5、管理 1.8；Vernon, CA 员工称新晋主管缺培训、面试问不当私人问题、'有毒工作环境'。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "环境/工资", "sentiment": "负面", "excerpt": "Charlotte, NC：仓库积灰无休息室；离职后拖欠最后工资；每周排班不足 40h 却做满工作量。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "管理/工资", "sentiment": "负面", "excerpt": "匿名评价'rubbish company'：管理混乱、薪资低于市场、氛围压抑；指控篡改工时、雇用非法劳工。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "工作强度", "sentiment": "负面", "excerpt": "在职员工：加班多，'想找 work-life balance 别来这'；公司试图做成 24/7。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "Indeed", "theme": "司机模式", "sentiment": "负面", "excerpt": "Cullman, AL 司机：按件计薪，但自有车辆磨损+每周油费几乎不划算。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}, {"platform": "北美华人论坛 nitanribao", "theme": "管理/薪酬/稳定性", "sentiment": "负面", "excerpt": "长篇吐槽：管理混乱、HR PUA 虚假招聘；加州无加班补贴、Zone1/2 单价仅 $2.x 内卷；老板卷款跑路/拖欠工资风险。", "url": "https://nitanribao.com/post_513636"}, {"platform": "Stage1st 华人海外论坛", "theme": "司机模式", "sentiment": "负面", "excerpt": "司机亲历长文：DSP 层层转包压价，单价 $2.4→$1.7；装车 2–5 小时'打白工'无薪；油费车损自担。", "url": "https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888"}, {"platform": "Indeed", "theme": "薪酬", "sentiment": "负面", "excerpt": "GOFO EXPRESS 独立承包商司机周薪约 $1,539，低于全国平均 42%。", "url": "https://www.indeed.com/cmp/Gofo-Express/salaries/Driver-(Independent-Contractor)"}, {"platform": "华人社区", "theme": "稳定性", "sentiment": "负面", "excerpt": "部分站点员工流动率极高，'没人干超过三个月'。", "url": ""}]}, {"id": "run-trial", "period": "试运行首扫（2026-07-23 14:56）", "runTime": "2026-07-23 14:56", "isBaseline": false, "note": "自动化试运行首次主动扫描捕获的内容（演示性质），现已并入上方基线建档。后续每 3 小时的新扫描会在此处追加独立时段。", "items": [{"platform": "北美华人论坛 nitanribao", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "论坛长篇吐槽：管理混乱、HR PUA、加州无加班补贴（试运行首扫捕获，已并入基线）。", "url": "https://nitanribao.com/post_513636"}, {"platform": "Indeed", "theme": "管理", "sentiment": "负面", "excerpt": "更新：有毒工作环境（综合 2.1/5，管理 1.8）（试运行首扫捕获，已并入基线）。", "url": "https://www.indeed.com/cmp/Gofo-Inc/reviews"}]}, {"id": "run-20260723-1655", "period": "第 2 轮扫描（2026-07-23 16:55）", "runTime": "2026-07-23 16:55", "isBaseline": false, "note": "本轮手动触发扫描。新增 3 条负面（司机单价持续下跌、消费者评价站 84% 负面、CEO 支持率 29%）+ 1 条正面（LinkedIn 官方员工视频）。", "items": [{"platform": "Stage1st 华人海外论坛", "theme": "司机模式/薪酬", "sentiment": "负面", "excerpt": "司机长文更新(2026-06-21)：全美单价普遍跌至 $1.7 甚至 $1.6，其线路上周降至 $1.9，仓库老板预测明年 $1.8 以下；GOFO 线路运营招低薪 H1B 留学生为 KPI 拼命压价，DSP 与司机苦不堪言，恶性循环。", "url": "https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888"}, {"platform": "Indeed", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "新数据点：Gofo Inc CEO 支持率仅 29%；仅 40% 员工认为薪酬公平（对照 Walmart 48%）。", "url": "https://www.indeed.com/companies/compare/Gofo-Inc-vs-Walmart-caa7391a36362851-eacc908d242186c8"}, {"platform": "LinkedIn（GOFO 官方）", "theme": "雇主品牌/氛围", "sentiment": "正面", "excerpt": "官方旺季员工视频（Chino, CA）：员工称'薪酬福利好、无经验有培训、同事友好'。注意为官方宣传物料，可作对照参考。", "url": "https://www.linkedin.com/posts/gofoglobal_gofo-gofonetwork-peakseason-activity-7399636036194299904-s_YN"}]}, {"id": "run-20260723-1705", "period": "第 3 轮扫描 · 小红书专项（2026-07-23 17:05）", "runTime": "2026-07-23 17:05", "isBaseline": false, "note": "本轮通过浏览器登录态进入小红书站内搜索，多关键词交叉扫描提取 GOFO 笔记。按口径仅保留负面与正面评价（已剔除招聘/展会宣传类内容）：1 条高热度负面（omom 173赞）、1 条正面（员工关怀礼品）。", "items": [{"platform": "Indeed", "theme": "薪酬", "sentiment": "负面", "excerpt": "新数据点：Gofo Inc 配送专员（Delivery Specialist）平均时薪 $20.18，低于全国同岗位平均水平 23%。", "url": "https://www.indeed.com/cmp/Gofo-Inc/salaries/Delivery-Specialist"}, {"platform": "Indeed", "theme": "综合口碑", "sentiment": "负面", "excerpt": "GOFO EXPRESS 公司页综合评分现为 2.0/5，横向对比持续走低。", "url": "https://www.indeed.com/cmp/Gofo-Express/salaries"}]}, {"id": "run-20260723-2004", "period": "第 4 轮扫描 · 全平台扩展（2026-07-23 20:04）", "runTime": "2026-07-23 20:04", "isBaseline": false, "note": "本轮扩展至消费者评价站（BBB / Yelp / Trustpilot）、H1B 薪酬数据库与 App 诚信投诉等此前未覆盖的平台，新增 8 条负面（多为消费者端服务质量，直接冲击雇主品牌与招聘口碑）。", "items": [{"platform": "Indeed GOFO EXPRESS", "theme": "工资克扣/管理粗暴", "sentiment": "负面", "excerpt": "Newark NJ 司机(2026-01-24) 1★ 'Horrible place to work'：扣掉一半工资说是罚款，管理层粗鲁像对待小孩。", "url": "https://www.indeed.com/cmp/Gofo-Express"}]}, {"id": "run-20260723-2030", "period": "第 5 轮扫描 · 小红书全量提取（2026-07-23 20:30）", "runTime": "2026-07-23 20:30", "isBaseline": false, "note": "本轮通过浏览器登录态进入小红书站内搜索，多关键词交叉扫描提取 GOFO 笔记。按口径仅保留负面与正面评价（已剔除招聘/展会宣传类内容）：1 条高热度负面（omom 173赞）、1 条正面（员工关怀礼品）。", "items": [{"platform": "小红书", "theme": "员工体验/负面", "sentiment": "负面", "excerpt": "omom「GOFO我谢谢你一辈子🌹」173赞·16h前 — 小红书 GOFO 话题最高互动笔记，标题强烈暗示负面工作体验，建议 HR 重点关注。", "url": "https://www.xiaohongshu.com/explore/6a611cee0000000002003c01"}, {"platform": "小红书", "theme": "员工体验/福利", "sentiment": "正面", "excerpt": "华南D记PM「Gofo的纪念品小礼物」16赞 — 正面提及公司文化周边/员工关怀礼品。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}]}, {"id": "run-20260723-2306", "period": "第 6 轮扫描 · 全平台（2026-07-23 23:06）", "runTime": "2026-07-23 23:06", "isBaseline": false, "note": "本轮通过浏览器登录态进入小红书站内搜索，多关键词交叉扫描提取 GOFO 笔记。按口径仅保留负面与正面评价（已剔除招聘/展会宣传类内容）：1 条高热度负面（omom 173赞）、1 条正面（员工关怀礼品）。", "items": [{"platform": "Indeed GOFO EXPRESS", "theme": "工作环境/管理", "sentiment": "负面", "excerpt": "Houston, TX 仓库/司机(2025-09-02) 3.0 'Quick Money'：仓库极度混乱不专业，去晚了要走近1英里才能装车；每隔一周送货卡车晚点，可能等数小时才拿到包裹。", "url": "https://www.indeed.com/cmp/Gofo-Express"}, {"platform": "Indeed GOFO EXPRESS", "theme": "管理/薪酬", "sentiment": "负面", "excerpt": "Charlotte, NC 仓库工(2025-09-10, 西语) 1.0 'No bueno'：组织混乱，入职时说好的每件单价事后被更改（招后压价 bait-and-switch）。", "url": "https://www.indeed.com/cmp/Gofo-Express"}]}, {"id": "run-20260725-2049", "period": "第 11 轮扫描 · 小红书+全平台（2026-07-25 20:49）", "runTime": "2026-07-25 20:49", "isBaseline": false, "note": "本轮通过登录态 Chrome 实例进入小红书站内搜索（15 关键词，去重 282 条），并刷新 Indeed / PissedConsumer / WREG 孟菲斯等平台。小红书按需求剔除全部官方/商务推广广告后，新增 3 条负面/风险笔记（Labubu 被偷 53赞、提货排末 6赞、价格大跳水 6赞）。全平台新增：PissedConsumer 2026 司机行为失范（大麻异味/偷窃内容物/送错地址）、Stage1st 司机亲历长文（压价至 1.7/件、打白工）持续发酵、孟菲斯 WREG 报道司机仅收到 80% 工资。评论区受 App 扫码墙限制仍无法提取。", "items": [{"platform": "小红书", "theme": "产品/合作风险", "sentiment": "负面", "excerpt": "gofo 偷拉布布原来不止我一个（fafa花花花 balenciaga · 53赞）— 控诉 GOFO 物流致 Labubu 等潮玩丢失/被偷，合作履约风险高互动。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}, {"platform": "小红书", "theme": "尾程效率", "sentiment": "负面", "excerpt": "gofo又是最后一个来我家仓库提货（JZ solution美国LA海外仓 · 6赞）— 海外仓侧吐槽提货排末，尾程协同与时效问题。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}, {"platform": "小红书", "theme": "价格/合作风险", "sentiment": "负面", "excerpt": "GOFO快递价格大跳水（小红薯欧美账号 · 6赞）— 渠道价格剧烈波动，卖家对合作稳定性与账期存疑。", "url": "https://www.xiaohongshu.com/search_result?keyword=GOFO"}]}];
 </script>
 <!-- MONITOR_DATA_END -->
 
