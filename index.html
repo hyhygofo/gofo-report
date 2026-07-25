@@ -136,139 +136,79 @@
 
   <!-- 概览数据 -->
   <section>
-    <h2><span class="bar"></span>一、总体印象概览</h2>
-    <p class="lead">多平台评分普遍偏低，口碑呈现「机会多、成长快、进入门槛低」与「管理粗放、强度高、稳定性差」的两极分化。</p>
-    <div class="cards">
-      <div class="stat"><div class="num" style="color:var(--warn)">2.1<small> /5</small></div><div class="lbl">Indeed（Gofo Inc）</div><small>基于 7 条评价</small></div>
-      <div class="stat"><div class="num" style="color:var(--warn)">3.0→1.0<small></small></div><div class="lbl">Indeed（GOFO Express）</div><small>5 条评价，2026 年降至 1.0</small></div>
-      <div class="stat"><div class="num" style="color:var(--warn)">2.7<small> /5</small></div><div class="lbl">GOFO Driver 司机 App</div><small>App Store 59 条评分</small></div>
-      <div class="stat"><div class="num" style="color:var(--bad)">＜3<small> 个月</small></div><div class="lbl">部分站点员工在职时长</div><small>"没人干超过三个月"</small></div>
-      <div class="stat"><div class="num" style="color:var(--bad)">1.65<small> /5</small></div><div class="lbl">BBB（消费者评价站）</div><small>263 条评价 · 约 90% 负面</small></div>
-      <div class="stat"><div class="num" style="color:var(--bad)">1.5<small> /5</small></div><div class="lbl">Yelp</div><small>58 条评价 · 51 条一星</small></div>
-      <div class="stat"><div class="num" style="color:var(--bad)">≈1.5<small> /5</small></div><div class="lbl">Trustpilot</div><small>多篇深度投诉 · 欺诈指控</small></div>
-    </div>
-  </section>
 
-  <!-- 图表 -->
-  <section>
-    <h2><span class="bar"></span>二、可视化分析</h2>
-    <p class="lead">左：Indeed 各维度评分（满分 5，越低越差）；中：差评主题分布；右：各平台综合评分对比（已含小红书）。</p>
-    <div class="chart-grid">
-      <div class="chartbox"><canvas id="radar"></canvas></div>
-      <div class="chartbox"><canvas id="bar"></canvas></div>
-      <div class="chartbox"><canvas id="platBar"></canvas></div>
-    </div>
-  </section>
+
+
 
   <!-- 好评 vs 差评 -->
   <section>
-    <h2><span class="bar" style="background:var(--good)"></span>三、好评与差评分类展示</h2>
-    <p class="lead">好评与差评分别成行展示：上行为正面体验（好评），下行为负面体验（差评）。</p>
-    <div class="block">
-      <h3><span class="pill g">好评 · 员工认可</span></h3>
-      <div class="catgrid">
+    <h2><span class="bar" style="background:var(--good)"></span>一、好评与差评分类汇总</h2>
+    <p class="lead">按「平台评价」与「小红书专项」两大类做<b>分类汇总</b>呈现（已剔除广告/商务宣传与招聘展会内容，且不再逐条罗列原始语录）。每条均附<b>可打开的来源 / 帖子链接</b>。</p>
 
-        <div class="item g"><div class="t">💰 入职门槛低、来钱快</div><div class="d">无经验也可申请、公司提供培训；一线时薪 $19–24，加班 1.5 倍，司机周薪约 $1,000+，被评价为"快速赚现金"的机会。</div><div class="src">来源：Indeed "Quick Money"、华人招聘网、Glassdoor 招聘帖</div></div>
-
-        <div class="item g"><div class="t">📈 成长快、晋升与轮岗机会多</div><div class="d">公司高速扩张，内部晋升、跨部门轮岗机会多，官方称每年 1–2 次调薪/晋升评审；管培生可轮岗学习仓储、调度、运营。</div><div class="src">来源：官方招聘页、华人街招聘帖</div></div>
-
-        <div class="item g"><div class="t">🤝 部分站点氛围融洽、领导好</div><div class="d">有站点运营员给出 5 星："一家不错的公司，办公室氛围友好"；NJ 管理者/司机评价"老板很好""只要有路线就是稳定的好工作"。</div><div class="src">来源：Indeed（Vernon CA 5★、Newark NJ 5★、NJ Manager 5★）</div></div>
-
-        <div class="item g"><div class="t">🏥 转正后有正规福利</div><div class="d">试用期（约 3 个月）后提供医疗、牙科、眼科保险及 401(k)、带薪休假 PTO、员工推荐奖励等。</div><div class="src">来源：华人招聘网、Glassdoor、官方招聘页</div></div>
-
-        <div class="item g"><div class="t">🌐 多元包容 + Visa 担保</div><div class="d">团队来自多国背景、强调平等包容；对优秀员工提供工作签证担保（H1B 等），对留学生有吸引力。</div><div class="src">来源：官方招聘页 Careers at GOFO</div></div>
-      </div>
-    </div>
-
-    <div class="block">
-      <h3><span class="pill b">差评 · 员工吐槽</span></h3>
-      <div class="catgrid">
-
-        <div class="item b"><div class="t">👔 管理粗放、主管不专业</div><div class="d">大量新晋主管缺乏培训，面试问不当私人问题；被形容为"有毒的工作环境"，员工间恶性竞争，缺乏基本劳动权益意识。</div><div class="src">来源：Indeed（Vernon CA 1★ "Toxic Working Environment"）</div></div>
-
-        <div class="item b"><div class="t">💸 克扣工时/工资、拖欠尾款</div><div class="d">"篡改工时"、故意排班不足 40 小时却要求同等工作量；离职后迟迟不发最后一笔工资；"以罚款名义扣掉一半支票"。</div><div class="src">来源：Indeed（Charlotte NC、NJ "Horrible place to work"）</div></div>
-
-        <div class="item b"><div class="t">🔥 强度大、几乎无 WLB</div><div class="d">"加班很多，想找 work-life balance 别来这""公司想做成 24/7"；工作量随包裹量波动，旺季极高压。</div><div class="src">来源：Indeed "High pressure"（2026-05）</div></div>
-
-        <div class="item b"><div class="t">🔄 流动率极高、稳定性差</div><div class="d">"没有人在这里干超过三个月"（TX Coppell 运营专员）；站点/DSP 频繁换人换血，团队不稳定。</div><div class="src">来源：Indeed（Coppell TX 1★）、Stage1st 华人论坛</div></div>
-
-        <div class="item b"><div class="t">🏭 仓库环境差、现场混乱</div><div class="d">仓库积灰、没有休息室；组织混乱，到晚了要走近一公里去装车；配送车"每隔一周就晚点"，司机常等数小时。</div><div class="src">来源：Indeed（Houston TX 3★、Charlotte NC）</div></div>
-
-        <div class="item b"><div class="t">🚚 司机模式压价严重、自担成本</div><div class="d">DSP 层层转包，单价从 $2.4 一路压到 $1.7/件；早到仓库分货装车 2–5 小时"打白工"无薪；油费+车辆损耗"几乎不划算"；App 频繁出 bug（2.7 分）。</div><div class="src">来源：Stage1st 亲历长文、Indeed Cullman AL、App Store 司机端评价</div></div>
-
-        <div class="item b"><div class="t">📉 涨薪难、市场以下薪资</div><div class="d">被指"低于市场薪资、气氛压抑"；关于加薪频率的问答直接回答"never（从不）"。</div><div class="src">来源：Indeed 问答区、"Do not work here" 评价</div></div>
-
-        <div class="item b"><div class="t">📦 假妥投 / 偷件（消费者端 · 品牌风险）</div><div class="d">BBB / Yelp / Trustpilot 多篇投诉：司机拍照假装送达后拿走包裹、假妥投、偷走珠宝盒（有监控录像证据）；虽为消费者侧，但直接冲击雇主品牌与招聘口碑。</div><div class="src">来源：BBB（263 条/1.65）、Yelp（58 条/1.5）、Trustpilot</div></div>
-
-        <div class="item b"><div class="t">🤖 客服无人工 / AI 客服</div><div class="d">消费者多次投诉 AI 客服完全无法联系真人，客服外包国外、使用假名、无追溯能力，问题长期无人解决。</div><div class="src">来源：Trustpilot、PissedConsumer</div></div>
-
-        <div class="item b"><div class="t">💰 工资克扣（GOFO EXPRESS 新增）</div><div class="d">Newark NJ 司机 1★「Horrible place to work」：扣掉一半工资说是罚款，管理层粗鲁像对待小孩。</div><div class="src">来源：Indeed GOFO EXPRESS（2026-01-24）</div></div>
-
-        <div class="item b"><div class="t">🔒 App 诚信 / 隐私合规（新增）</div><div class="d">前老板在员工手机私自安装 GOFO Driver App 并冒用账号送货，App 未经许可调用摄像头/麦克风。</div><div class="src">来源：App Store 评论（Hack N Scam，2025-07）</div></div>
-
-        <div class="item b"><div class="t">🚬 司机行为失范（PissedConsumer · 2026 新增）</div><div class="d">2026 年多起消费者投诉司机：包裹散发大麻异味（4-19，"drivers don't need to be smoking marijuana"）、拆空/偷走内容物（3-28，"saw him take my product out"）、送错地址致损失 $112（3-28）、空包裹（4-09）。虽为消费者端，但直指末端司机管理与雇主品牌风险。</div><div class="src">来源：PissedConsumer（gofo-express.pissedconsumer.com，2026-02~04）</div></div>
-      </div>
-    </div>
-
-      <!-- 小红书专题汇总（并入好评/差评） -->
-      <h3 style="font-size:16px;font-weight:800;margin:22px 0 12px;display:flex;align-items:center;gap:8px;color:#FF2442"><span style="width:5px;height:18px;border-radius:3px;background:#FF2442;display:inline-block"></span>小红书平台 GOFO 话题 · 专项舆情扫描（2026-07-25 更新）</h3>
-      <p class="lead" style="margin-bottom:12px">以 <b>GOFO / gofo / Gofo / 高链科技 / 高链 / GOFO Express / gofo express / GOFO快递 / gofo集运 / GOFO工作 / gofo面试 / 高链科技面试 / gofo美国 / GOFO尾程 / 高链科技 招聘</b> 共 <b>15 个关键词</b>检索，2026-07-25 本轮通过登录态 Chrome 实例去重后共抓取 <b>282 条</b>相关笔记；其中 GOFO 品牌直接相关约 <b>50 条</b>。需特别说明：品牌相关笔记中 <b>30+ 条来自 GOFO 官方/商务代理账号（@GOFO商务Hedy、@GOFO-EXPRESS Jason、@美国快递GOFO-小鱼、@Gofo欧区商务-Albert 等）的渠道推广与招商内容</b>，已按需求<b>全部剔除广告/商务宣传类</b>。下方仅汇总可获取的负面与劳动者视角信号（含本轮新增）。</p>
-      <h4 style="font-size:14px;font-weight:800;margin:16px 0 8px;color:#e23b3b">① 负面 / 风险笔记分类汇总（小红书）</h4>
+    <h3 style="font-size:15px;font-weight:800;margin:18px 0 10px;color:#333">1. 综合平台分类汇总（Indeed / PissedConsumer / Trustpilot / BBB / Yelp / App Store / Stage1st）</h3>
       <table>
-        <thead><tr><th>问题类别</th><th>内容（作者 · 点赞）</th><th>对应平台</th></tr></thead>
+        <thead><tr><th>问题类别</th><th>倾向</th><th>概要</th><th>来源链接</th></tr></thead>
         <tbody>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">欠薪·讨薪风险</span></td><td><b>避雷 gofo｜美国送快递讨薪有多难❗️💔</b>（ideal 车匠 · 121赞）— 承包/司机方控诉 GOFO 拖欠费用、讨薪困难，直指合作方收款与劳工权益风险</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">员工体验·反讽(高互动)</span></td><td><b>GOFO我谢谢你一辈子🌹</b>（omom · 173赞）— 标题反讽，为本话题最高互动笔记，强烈暗示负面工作/合作体验</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">尾程配送效率</span></td><td><b>GOFO尾程效率低得离谱</b>（KUIBEIDUO · 18赞）— 质疑末端配送时效与履约能力</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">服务质量·快递差评</span></td><td><b>【TK野播】GOFO快递真垃圾啊</b>（momo 跨境版 · 3赞）— 直白差评，指向终端服务质量</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">预扫/扫描故障</span></td><td><b>希音gofo预扫出问题了</b>（小彬跨境）／ <b>希音直邮大坑！GOFO、UNI扫描直接封店</b>（美通达 · 2赞）— 预上网/扫描异常导致卖家封店风险</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">面单/系统吐槽</span></td><td><b>这个Temu的Gofo面单……来大家吐吐槽</b>（老雷Leo的美国仓 · 33赞）— 邀请同行吐槽 GOFO 面单/系统问题，互动较高</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">产品/合作避坑</span></td><td><b>GOFO花洒避坑</b>（小小螃蟹横着走 · 10赞）— 产品/合作避坑提示</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">尾程效率·仓库侧（新增）</span></td><td><b>gofo又是最后一个来我家仓库提货</b>（JZ solution美国LA海外仓 · 6赞）— 海外仓侧吐槽 GOFO 提货排到最末，反映尾程协同与时效问题</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">价格/合作风险（新增）</span></td><td><b>GOFO快递价格大跳水😱</b>（小红薯欧美账号 · 6赞）— 渠道价格剧烈波动，卖家对合作稳定性与账期存疑</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">产品/合作风险（新增）</span></td><td><b>gofo 偷拉布布原来不止我一个</b>（fafa花花花 balenciaga · 53赞）— 控诉 GOFO 物流致 Labubu 等潮玩丢失/被偷，合作履约风险高互动</td><td>小红书</td></tr>
+          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">入职门槛低、来钱快</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>无经验可申请、公司提供培训；一线时薪 $19–24、加班 1.5 倍，司机周薪约 $1,000+</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">成长快、晋升与轮岗多</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>高速扩张，内部晋升/跨部门轮岗，官方称每年 1–2 次调薪/晋升评审</td><td style="white-space:nowrap"><a href="https://www.gofoexpress.com/" target="_blank">官方招聘 ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">部分站点氛围融洽、领导好</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>有站点运营员 5★「办公室氛围友好」；NJ 管理者/司机评「老板很好」</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">转正后有正规福利</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>转正后提供医疗/牙科/眼科保险、401(k)、PTO、员工推荐奖励</td><td style="white-space:nowrap"><a href="https://www.glassdoor.com/" target="_blank">Glassdoor ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">多元包容 + Visa 担保</span></td><td style="color:#1f9d63;font-weight:600;white-space:nowrap">正面</td><td>多国团队，对优秀员工提供 H1B 等工作签证担保</td><td style="white-space:nowrap"><a href="https://www.gofoexpress.com/" target="_blank">官方招聘 ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">管理粗放、主管不专业</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>新晋主管缺培训、面试问不当私人问题；被称「有毒的工作环境」、恶性竞争</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">克扣工时/工资、拖欠尾款</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>篡改工时、离职迟迟不发尾款、「以罚款名义扣掉一半支票」</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">强度大、几乎无 WLB</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>「加班很多，想找 work-life balance 别来」；旺季极高压</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">流动率极高、稳定性差</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>「没人干超过三个月」；站点/DSP 频繁换人换血</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed / Stage1st ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">仓库环境差、现场混乱</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>仓库积灰无休息室；到晚走近一公里装车，司机常等数小时</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">司机模式压价、自担成本</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>DSP 层层转包，单价 $2.4→$1.7/件；早到装车 2–5h「打白工」、油费自担</td><td style="white-space:nowrap"><a href="https://apps.apple.com/us/app/gofo-driver/id6473001076" target="_blank">Stage1st / App Store ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">涨薪难、市场以下薪资</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>被指低于市场薪资、气氛压抑；加薪频率问答答「never」</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank">Indeed ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">假妥投 / 偷件（品牌风险）</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>司机假送达偷件、偷珠宝盒（有监控证据），直冲雇主品牌与招聘口碑</td><td style="white-space:nowrap"><a href="https://www.trustpilot.com/review/gofoexpress.com" target="_blank">BBB / Yelp / Trustpilot ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">客服无人工 / AI 客服</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>消费者投诉无法联系真人，客服外包国外、使用假名</td><td style="white-space:nowrap"><a href="https://www.pissedconsumer.com/gofo-express.html" target="_blank">Trustpilot / PissedConsumer ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">工资克扣（GOFO EXPRESS）</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>Newark NJ 司机 1★：扣半薪称罚款，管理层粗鲁</td><td style="white-space:nowrap"><a href="https://www.indeed.com/cmp/Gofo-Express/reviews" target="_blank">Indeed GOFO EXPRESS ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">App 诚信 / 隐私合规</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>前老板私自装 GOFO Driver App、冒用账号，未经许可调用摄像头/麦克风</td><td style="white-space:nowrap"><a href="https://apps.apple.com/us/app/gofo-driver/id6473001076" target="_blank">App Store ↗</a></td></tr>
+          <tr><td><span class="tag" style="background:#fdecec;color:#e23b3b">司机行为失范（2026 新增）</span></td><td style="color:#e23b3b;font-weight:600;white-space:nowrap">负面</td><td>大麻异味 / 偷走内容物 / 送错地址 / 空包裹等多起消费者投诉</td><td style="white-space:nowrap"><a href="https://www.pissedconsumer.com/gofo-express.html" target="_blank">PissedConsumer 2026 ↗</a></td></tr>
         </tbody>
       </table>
-      <h4 style="font-size:14px;font-weight:800;margin:16px 0 8px;color:#2b5cff">② 正面 / 求职者视角（已按需求剔除招聘 / 展会宣传类）</h4>
+
+      <!-- 小红书专题汇总 -->
+      <h3 style="font-size:15px;font-weight:800;margin:22px 0 10px;display:flex;align-items:center;gap:8px;color:#FF2442"><span style="width:5px;height:18px;border-radius:3px;background:#FF2442;display:inline-block"></span>2. 小红书平台 GOFO 话题 · 专项舆情扫描（2026-07-25 更新）</h3>
+      <p class="lead" style="margin-bottom:12px">以 <b>GOFO / gofo / Gofo / 高链科技 / GOFO Express / GOFO快递 / gofo集运 / GOFO工作 / gofo面试 / gofo美国 / GOFO尾程</b> 等 <b>15 个关键词</b>检索，本轮通过登录态 Chrome 实例去重后共抓取 <b>282 条</b>相关笔记；其中品牌直接相关约 <b>50 条</b>。品牌相关笔记中 <b>30+ 条来自 GOFO 官方/商务代理账号的渠道推广与招商内容</b>，已按需求<b>全部剔除广告</b>。下方仅汇总可获取的负面与劳动者视角信号（含本轮新增），并附帖子链接。</p>
+      <h4 style="font-size:14px;font-weight:800;margin:16px 0 8px;color:#e23b3b">① 负面 / 风险笔记分类汇总（小红书）</h4>
       <table>
-        <thead><tr><th>类别</th><th>内容（作者 · 点赞）</th><th>对应平台</th></tr></thead>
+        <thead><tr><th>笔记（作者 · 点赞）</th><th>内容概要</th><th>帖子链接</th></tr></thead>
         <tbody>
-          <tr><td><span class="tag" style="background:#e8f6ee;color:#1f9d63">员工关怀·正面</span></td><td><b>Gofo的纪念品小礼物</b>（华南D记PM · 16赞）— 公司文化周边 / 员工关怀，正面雇主品牌信号</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#eef3ff;color:#2b5cff">面试记录·求职者视角</span></td><td><b>深圳易可达（gofo）ssc劳务报账专员面试记录</b>（找到工作就改名 · 36赞）— 真实应聘者视角的 GOFO 关联岗位面试记录</td><td>小红书</td></tr>
-          <tr><td><span class="tag" style="background:#eef3ff;color:#2b5cff">求职讨论·求职者视角</span></td><td><b>全美招人！GofoExpress有人来嘛</b>（国际人才招聘站 · 13赞）— 求职者询问 GOFO 是否值得去，反映招聘口碑关注度</td><td>小红书</td></tr>
+          <tr><td><b>避雷 gofo｜美国送快递讨薪有多难❗️💔</b><br><span style="color:#888;font-size:12px">ideal 车匠 · 121赞</span></td><td>承包/司机方控诉 GOFO 拖欠费用、讨薪困难，直指合作方收款与劳工权益风险</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6811bcc0000000000900c299" target="_blank">精确帖子 ↗</a></td></tr>
+          <tr><td><b>GOFO我谢谢你一辈子🌹</b><br><span style="color:#888;font-size:12px">omom · 173赞</span></td><td>标题反讽，本话题最高互动笔记，强烈暗示负面工作/合作体验</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GOFO%E6%88%91%E8%B0%A2%E8%B0%A2%E4%BD%A0%E4%B8%80%E8%BE%88%E5%AD%90" target="_blank">搜索该帖 ↗</a></td></tr>
+          <tr><td><b>GOFO尾程效率低得离谱</b><br><span style="color:#888;font-size:12px">KUIBEIDUO · 18赞</span></td><td>质疑末端配送时效与履约能力</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GOFO%E5%B0%BE%E7%A8%8B%E6%95%88%E7%8E%87%E4%BD%8E" target="_blank">搜索该帖 ↗</a></td></tr>
+          <tr><td><b>【TK野播】GOFO快递真垃圾啊</b><br><span style="color:#888;font-size:12px">momo 跨境版 · 3赞</span></td><td>直白差评，指向终端服务质量</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GOFO%E5%BF%AB%E9%80%92%E7%9C%9F%E5%9E%83%E5%9C%BE" target="_blank">搜索该帖 ↗</a></td></tr>
+          <tr><td><b>希音gofo预扫出问题了</b><br><span style="color:#888;font-size:12px">小彬跨境 · —赞</span></td><td>预上网/扫描异常风险</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=%E5%B8%8C%E9%9F%B3gofo%E9%A2%84%E6%89%AB" target="_blank">搜索该帖 ↗</a></td></tr>
+          <tr><td><b>希音直邮大坑！GOFO、UNI扫描直接封店</b><br><span style="color:#888;font-size:12px">美通达 · 2赞</span></td><td>预上网/扫描异常导致卖家封店风险</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a5f59f5000000000100347f" target="_blank">精确帖子 ↗</a></td></tr>
+          <tr><td><b>这个Temu的Gofo面单……来大家吐吐槽</b><br><span style="color:#888;font-size:12px">老雷Leo的美国仓 · 33赞</span></td><td>邀请同行吐槽 GOFO 面单/系统问题，互动较高</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=Temu%E7%9A%84Gofo%E9%9D%A2%E5%8D%95" target="_blank">搜索该帖 ↗</a></td></tr>
+          <tr><td><b>GOFO花洒避坑</b><br><span style="color:#888;font-size:12px">小小螃蟹横着走 · 10赞</span></td><td>产品/合作避坑提示</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GOFO%E8%8A%B1%E6%B4%92%E9%81%BF%E5%9D%91" target="_blank">搜索该帖 ↗</a></td></tr>
+          <tr><td><b>gofo又是最后一个来我家仓库提货</b><br><span style="color:#888;font-size:12px">JZ solution美国LA海外仓 · 6赞</span></td><td>海外仓侧吐槽 GOFO 提货排到最末，尾程协同与时效问题</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a33444f00000000070101ce" target="_blank">精确帖子 ↗</a></td></tr>
+          <tr><td><b>GOFO快递价格大跳水😱</b><br><span style="color:#888;font-size:12px">小红薯欧美账号 · 6赞</span></td><td>渠道价格剧烈波动，卖家对合作稳定性与账期存疑</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a1695bd0000000035020d65" target="_blank">精确帖子 ↗</a></td></tr>
+          <tr><td><b>gofo 偷拉布布原来不止我一个</b><br><span style="color:#888;font-size:12px">fafa花花花 balenciaga · 53赞</span></td><td>控诉 GOFO 物流致潮玩丢失/被偷，合作履约风险高互动</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6869cdb6000000001203c16b" target="_blank">精确帖子 ↗</a></td></tr>
+        </tbody>
+      </table>
+      <h4 style="font-size:14px;font-weight:800;margin:16px 0 8px;color:#2b5cff">② 正面 / 求职者视角（已剔除招聘 / 展会宣传类）</h4>
+      <table>
+        <thead><tr><th>笔记（作者 · 点赞）</th><th>内容概要</th><th>帖子链接</th></tr></thead>
+        <tbody>
+          <tr><td><b>Gofo的纪念品小礼物</b><br><span style="color:#888;font-size:12px">华南D记PM · 16赞</span></td><td>公司文化周边/员工关怀，正面雇主品牌信号</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=Gofo%E7%BA%AA%E5%BF%B5%E5%93%81%E5%B0%8F%E7%A4%BC%E7%89%A9" target="_blank">搜索该帖 ↗</a></td></tr>
+          <tr><td><b>深圳易可达（gofo）ssc劳务报账专员面试记录</b><br><span style="color:#888;font-size:12px">找到工作就改名 · 36赞</span></td><td>真实应聘者视角的 GOFO 关联岗位面试记录</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=%E6%B7%B1%E5%9C%B3%E6%98%93%E5%8F%AF%E8%BE%BEgofo" target="_blank">搜索该帖 ↗</a></td></tr>
+          <tr><td><b>全美招人！GofoExpress有人来嘛</b><br><span style="color:#888;font-size:12px">国际人才招聘站 · 13赞</span></td><td>求职者询问 GOFO 是否值得去，反映招聘口碑关注度</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/search_result?keyword=GofoExpress%E6%9C%89%E4%BA%BA%E6%9D%A5%E5%98%9B" target="_blank">搜索该帖 ↗</a></td></tr>
         </tbody>
       </table>
       <div style="background:#fff7e6;border:1px solid #ffd591;border-radius:8px;padding:12px 16px;margin-top:12px;font-size:12.5px">
-        📌 <b>评论区提取说明（2026-07-25 本轮）：</b>本轮已通过<b>登录态 Chrome 实例</b>进入小红书站内搜索（15 关键词，去重 282 条），搜索与卡片级数据可正常获取；但<b>笔记详情页与评论区仍受 App 扫码墙限制</b>——直接打开笔记详情显示「当前笔记暂时无法浏览 / 请打开小红书App扫码查看」，自动化无法进入评论区。经多次尝试（含登录态 + 详情页探测）均被拦截，因此<b>评论级内容仍未能提取</b>。以上为<b>卡片级（标题 / 作者 / 点赞 / 预览）</b>摘取，已剔除全部官方/商务推广广告，覆盖可获取的负面与劳动者视角信号；如需评论区原文，建议由已登录 App 的导出或人工截图补充。
+        📌 <b>评论区提取说明（2026-07-25 本轮）：</b>本轮已通过<b>登录态 Chrome 实例</b>进入小红书站内搜索（15 关键词，去重 282 条），搜索与卡片级数据可正常获取；但<b>笔记详情页与评论区仍受 App 扫码墙限制</b>——直接打开笔记详情显示「当前笔记暂时无法浏览 / 请打开小红书App扫码查看」，自动化无法进入评论区，因此<b>评论级内容仍未能提取</b>。以上为<b>卡片级（标题 / 作者 / 点赞 / 预览）</b>摘取，已剔除全部官方/商务推广广告。帖子链接分两类：标「精确帖子 ↗」为可直达的笔记页；标「搜索该帖 ↗」为按标题检索的结果页（因平台算法轮换，部分高热笔记未稳定出现在自动化结果中，点击搜索即可定位）。
       </div>
   </section>
 
-  <!-- 原声摘录 -->
-  <section>
-    <h2><span class="bar" style="background:var(--accent)"></span>四、代表性原声摘录</h2>
-    <p class="lead">保留原始语气的典型评价，便于领导直观感受口碑温度。</p>
-    <div class="q-label" style="color:var(--good)">正面原声</div>
-    <div class="qrow">
-      <div class="quote g"><div class="stars" style="color:var(--good)">★★★★★</div>"一家不错的公司，办公室氛围友好。"<div class="who">— 站点运营员，Vernon CA · Indeed 2025-12</div></div>
-      <div class="quote g"><div class="stars" style="color:var(--good)">★★★★★</div>"老板很好，是一家让人感觉踏实的公司。"<div class="who">— Manager，New Jersey · Indeed 2026-03</div></div>
-      <div class="quote g"><div class="stars" style="color:var(--good)">★★★☆☆</div>"来钱快。（虽然）仓库很乱、不够专业。"<div class="who">— 司机/仓库工，Houston TX · Indeed 2025-09</div></div>
-    </div>
-    <div class="q-label" style="color:var(--bad);margin-top:14px">负面原声</div>
-    <div class="qrow">
-      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"糟糕的公司，别来。管理混乱、薪资低于市场、气氛压抑，他们会篡改你的工时，还雇用非法劳工。"<div class="who">— 匿名员工 · Indeed 2025-10</div></div>
-      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"以罚款名义扣掉你一半的支票……管理层很无礼，把你当小孩一样训。"<div class="who">— 司机，New Jersey · Indeed 2026-01</div></div>
-      <div class="quote b"><div class="stars" style="color:var(--bad)">💬</div>"早上 5、6 点到仓库分货装车 2–5 小时完全没薪水；单价从 2.4 压到 1.7……还在送的要么是习惯了，要么就是烂人了。"<div class="who">— 华人司机亲历长文 · Stage1st 论坛 2026-06</div></div>
-      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"显示已送达，但司机根本没到过现场，我怀疑这是一家欺诈公司。"<div class="who">— Jennifer G · BBB 2026-06</div></div>
-      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"Terrible Fraudulent Scam Company — 司机毫无监管，客服外包国外假名，最后包裹被偷走。"<div class="who">— Tabitha · Trustpilot 2025-12</div></div>
-      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"The driver stole the contents of my package. I saw him take my product out. He should be fired and prosecuted."<div class="who">— Derrick L · PissedConsumer 2026-03-28</div></div>
-      <div class="quote b"><div class="stars" style="color:var(--bad)">★☆☆☆☆</div>"My package smell like marijuana… drivers don't need to be smoking marijuana while delivering our packages."<div class="who">— Sindy M Ziv · PissedConsumer 2026-04-19</div></div>
-      <div class="quote b"><div class="stars" style="color:var(--bad)">💬</div>"Gofo delivery drivers claim they only received 80% of pay — 经理称只发 80%，剩余 20% 要等四周。"<div class="who">— Marnesia Shaw（司机）· WREG 孟菲斯地方新闻 2026-01-05</div></div>
-    </div>
-  </section>
+
+
 
   <!-- 来源与口碑对照表 -->
   <section>
-    <h2><span class="bar" style="background:var(--warn)"></span>五、信息来源与口碑对照</h2>
+    <h2><span class="bar" style="background:var(--warn)"></span>二、信息来源与口碑对照</h2>
     <table>
       <thead><tr><th>平台 / 来源</th><th>性质</th><th>主要口碑倾向</th><th>关键信息</th></tr></thead>
       <tbody>
@@ -289,7 +229,7 @@
 
   <!-- 结论 -->
   <section>
-    <h2><span class="bar" style="background:var(--good)"></span>六、结论与建议</h2>
+    <h2><span class="bar" style="background:var(--good)"></span>三、结论与建议</h2>
     <div class="panel">
       <p style="font-size:14px"><b>一句话结论：</b>GOFO 是一家高速扩张中的华人背景物流公司，<b style="color:var(--good)">机会多、门槛低、来钱快、成长快</b>，但<b style="color:var(--bad)">管理粗放、强度高、稳定性差、司机端压价严重</b>，整体口碑偏负面、两极分化明显。</p>
       <ul style="margin:14px 0 0 20px;font-size:13.5px;color:var(--sub);line-height:2">
@@ -303,7 +243,7 @@
 
   <!-- HR 举措建议 -->
   <section>
-    <h2><span class="bar" style="background:var(--accent)"></span>七、HR 举措建议（面向 HR / 招聘负责人）</h2>
+    <h2><span class="bar" style="background:var(--accent)"></span>四、HR 举措建议（面向 HR / 招聘负责人）</h2>
     <p class="lead">以下建议基于「GOFO 员工体验公开舆情监测」这一情报视角，无论贵司与 GOFO 是<b>招聘合作/渠道、人才竞争、候选人体验对标还是用工合规对标</b>，均可参考落地。</p>
 
     <div class="hr-card">
@@ -343,7 +283,7 @@
 
   <!-- 监控时间线 -->
   <section>
-    <h2><span class="bar" style="background:var(--warn)"></span>八、监控时间线 · 各时段新增内容查看器</h2>
+    <h2><span class="bar" style="background:var(--warn)"></span>五、监控时间线 · 各时段新增内容查看器</h2>
     <p class="lead">下拉选择某一扫描时段，即可查看该 3 小时周期内抓取到的<b>新增</b>内容（基线为报告初始已知负面，作为「新增」判断对照）。自动化每次运行会自动向此处追加新时段。默认展示「全部新增」。</p>
     <div class="drophdr">
       <label for="runSelect">选择扫描时段：</label>
@@ -357,7 +297,7 @@
 
   <!-- 来源链接 -->
   <section>
-    <h2><span class="bar"></span>九、参考来源链接</h2>
+    <h2><span class="bar"></span>六、参考来源链接</h2>
     <div class="srcgrid">
       <a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank"><b>Indeed</b>Gofo Inc 员工评价（2.1/5）</a>
       <a href="https://www.indeed.com/cmp/Gofo-Express" target="_blank"><b>Indeed</b>GOFO EXPRESS 评价与问答</a>
@@ -392,41 +332,6 @@ const MONITOR_RUNS = [{"id": "run-20260724-1635", "period": "第 10 轮扫描 ·
 
 <script>
 const ink='#1c2430', sub='#5b6675', grid='#e6e9ef';
-// 雷达图 — Indeed 各维度评分
-new Chart(document.getElementById('radar'),{
-  type:'radar',
-  data:{labels:['工作生活平衡','薪酬福利','工作保障/晋升','管理','企业文化'],
-    datasets:[{label:'GOFO 各维度评分（/5）',data:[2.2,2.0,2.0,1.8,1.9],
-      backgroundColor:'rgba(226,59,59,.15)',borderColor:'#e23b3b',borderWidth:2,
-      pointBackgroundColor:'#e23b3b',pointRadius:4}]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:ink,font:{size:12}}},
-    title:{display:true,text:'Indeed 各维度评分（满分 5，越低越差）',color:ink,font:{size:13,weight:'bold'}}},
-    scales:{r:{min:0,max:5,ticks:{stepSize:1,color:sub,backdropColor:'transparent'},
-      grid:{color:grid},angleLines:{color:grid},pointLabels:{color:ink,font:{size:11}}}}}
-});
-// 柱状图 — 负面反馈主题频次
-new Chart(document.getElementById('bar'),{
-  type:'bar',
-  data:{labels:['管理/主管问题','克扣工时/工资','工作强度高','流动率高','仓库环境差','司机压价/成本','涨薪难','假妥投/偷件','客服无人工'],
-    datasets:[{label:'负面反馈提及热度',data:[9,8,7,7,6,8,5,9,7],
-      backgroundColor:'#1f9d63',borderRadius:6,barThickness:22}]},
-  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
-    title:{display:true,text:'差评主题分布（提及热度）',color:ink,font:{size:13,weight:'bold'}}},
-    scales:{x:{beginAtZero:true,max:10,ticks:{color:sub},grid:{color:grid}},
-      y:{ticks:{color:ink,font:{size:12}},grid:{display:false}}}}
-});
-
-// 各平台综合评分对比（含小红书内容平台情绪估算）
-new Chart(document.getElementById('platBar'),{
-  type:'bar',
-  data:{labels:['BBB','Yelp','Trustpilot','PissedConsumer','Indeed(Gofo Inc)','App Store','小红书'],
-    datasets:[{label:'综合评分 / 情绪指数（满分 5，越低越差）',data:[1.65,1.5,1.5,1.7,2.1,2.7,3.0],
-      backgroundColor:['#e23b3b','#e23b3b','#e23b3b','#e23b3b','#d98a00','#1f9d63','#722ed1'],borderRadius:6,barThickness:20}]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
-    title:{display:true,text:'各平台综合评分对比（小红书为 282 条笔记情绪估算·2026-07-25，员工侧偏负面）',color:ink,font:{size:12,weight:'bold'}}},
-    scales:{x:{ticks:{color:ink,font:{size:11}},grid:{display:false}},
-      y:{beginAtZero:true,max:5,ticks:{color:sub},grid:{color:grid}}}}
-});
 
 // 监控时间线下拉逻辑
 (function(){
