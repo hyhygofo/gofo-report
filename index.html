@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GOFO（高链科技）工作体验调研报告 · 含 HR 建议与监控时间线</title>
+<title>GUS 工作体验调研报告（离职在职都可能存在）· 内部参考</title>
 <script>/**
  * Skipped minification because the original files appears to be already minified.
  * Original file: /npm/chart.js@4.4.1/dist/chart.umd.js
@@ -127,134 +127,123 @@
   .tl-item .meta{margin-top:7px;font-size:11.5px;color:#98a2b3}
   .tl-item a{color:var(--accent);text-decoration:none;font-size:12px;margin-left:8px}
   .aggregate{background:var(--accent-bg);border:1px solid #d6e0ff;border-radius:12px;padding:12px 16px;font-size:13px;color:#21408a;margin-bottom:14px}
+  /* 新布局：左列累计 + 右列周看板 */
+  .layout{display:grid;grid-template-columns:300px 1fr;gap:18px;margin-top:16px;align-items:start}
+  @media(max-width:920px){.layout{grid-template-columns:1fr}}
+  aside.side{position:sticky;top:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+  .side-h{font-size:15px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .side .kpi{display:flex;gap:8px;margin-bottom:10px}
+  .side .kpi .b{flex:1;background:var(--bg);border-radius:10px;padding:9px 4px;text-align:center}
+  .side .kpi .b .n{font-size:19px;font-weight:800}
+  .side .kpi .b .l{font-size:11px;color:var(--sub);margin-top:2px}
+  .side canvas{margin-top:4px}
+  .side canvas.h150{height:150px!important}
+  .side .sub2{font-size:12px;font-weight:700;color:var(--sub);margin:14px 0 2px}
+  .side .note{font-size:11px;color:#98a2b3;margin-top:12px;line-height:1.5}
+  .main{}
+  .weekbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);margin-bottom:14px}
+  .weekbar .wk{font-weight:800;font-size:14px}
+  .weekbar label{font-size:13.5px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .weekbar .range{font-size:12.5px;color:var(--sub);margin-left:auto}
+  .blk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:14px}
+  .ov-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(max-width:680px){.ov-grid{grid-template-columns:1fr}}
+  .ov-card{border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .ov-card .t{font-size:12.5px;font-weight:800;color:var(--sub);margin-bottom:6px}
+  .ov-card.pos{border-left:4px solid var(--good)}
+  .ov-card.neg{border-left:4px solid var(--bad)}
+  .ov-card.miss{border-left:4px solid var(--warn)}
+  .ov-card .d{font-size:13px;color:var(--ink);line-height:1.7}
+  .ov-card .d b{color:var(--bad)}
+  .cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(max-width:760px){.cat-grid{grid-template-columns:1fr}}
+  .cat-card{border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .cat-card .ch{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .cat-card .ch .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .cat-card .row{font-size:12.8px;margin:7px 0;line-height:1.7}
+  .cat-card .row .lab{font-weight:700;font-size:11.5px;color:var(--sub);display:block;margin-bottom:1px}
+  .cat-card .plus{color:var(--good)}
+  .cat-card .minus{color:var(--bad)}
+  .cat-card .links{margin-top:8px;font-size:12px}
+  .cat-card .links a{display:block;color:var(--accent);text-decoration:none;margin:2px 0;word-break:break-all}
+  .cat-card .links a:hover{text-decoration:underline}
+  .verdict{background:var(--bg);border-radius:12px;padding:14px 16px;font-size:14px;margin-bottom:14px;line-height:1.7}
+  .verdict .tag{display:inline-block;font-weight:800;padding:3px 12px;border-radius:99px;margin-right:10px;vertical-align:middle}
+  .verdict .tag.bad{background:var(--bad-bg);color:var(--bad)}
+  .verdict .tag.good{background:var(--good-bg);color:var(--good)}
+  .links-col .lrow{border-left:3px solid var(--line);padding:9px 0 9px 13px;margin-bottom:9px}
+  .links-col .lrow.pos{border-color:var(--good)}
+  .links-col .lrow.neg{border-color:var(--bad)}
+  .links-col .lrow .ex{font-size:13px;line-height:1.6}
+  .links-col .lrow a{color:var(--accent);text-decoration:none;font-size:12px;word-break:break-all;margin-left:4px}
+  .links-col .lrow a:hover{text-decoration:underline}
+  .snapshot{background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+  .snapshot .sh{font-size:13.5px;font-weight:800;margin-bottom:8px}
+  .snapshot .srow{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--line)}
+  .snapshot .srow:last-child{border-bottom:none}
+  .snapshot .srow .v{font-weight:700}
+  .snap-item{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;background:#fff}
+  .snap-item .top{display:flex;justify-content:space-between;gap:8px;font-size:12.5px}
+  .snap-item .ex{font-size:12.5px;color:var(--sub);margin-top:4px;line-height:1.6}
+  .snap-item a{color:var(--accent);font-size:11.5px;text-decoration:none;margin-left:6px}
+  .snap-item .pf{font-weight:700}
+  .snap-item .sen{font-size:11px;padding:1px 8px;border-radius:99px;font-weight:700}
+  .sen.neg{background:var(--bad-bg);color:var(--bad)}
+  .sen.pos{background:var(--good-bg);color:var(--good)}
+  .sen.neu{background:var(--accent-bg);color:var(--accent)}
+  .srcfnote{font-size:12.5px;color:var(--sub);background:var(--bg);border-radius:10px;padding:12px 15px;margin-top:12px;line-height:1.7}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header class="hero">
-    <span class="badge">员工工作体验调研 · 内部参考 · 含 HR 建议与监控时间线</span>
-    <h1>GOFO（高链科技）工作体验调研报告</h1>
-    <p>中美岗位员工与从业者工作体验的「好评 / 差评」分类整理，含 HR 建议与监控时间线。</p>
-    <div class="meta">
-      <span>📅 更新日期：2026-08-03</span>
-      <span>🌏 覆盖范围：美国岗位（HR 视角）</span>
-      <span>🔎 信息来源：4 渠道（小红书 / 领英 / Indeed / 本地华人网）</span>
-      <span>⚖️ 口径：人力资源六大模块 · 仅美国 · 仅 HR 相关</span>
-      <span>⚠️ 本轮（2026-08-03 17:00）小红书登录态有效，但站内搜索接口被平台限流、本轮未取到新卡片；领英 / Indeed / 本地华人网 3 渠道同步刷新</span>
-      <span>🤖 已部署：每日 10:00 / 17:00 自动监控 + 飞书推送</span>
-    </div>
+    <span class="badge">GUS 员工工作体验调研 · 内部参考</span>
+    <h1>GUS 工作体验调研报告<span style="font-size:16px;font-weight:600;color:#c6d0e6;margin-left:8px">（离职在职都可能存在）</span></h1>
+    <div class="meta"><span>🔎 信息来源：小红书 / 领英 / Indeed / 本地华人网（仅美国 · 仅 HR 相关 · 仅自有员工）</span></div>
   </header>
+  <!-- ===== 新结构：左列累计 + 右列周看板 ===== -->
+  <div class="layout">
 
-  <!-- 概览数据 -->
-  <section>
+    <!-- 左列：累计整体表现 -->
+    <aside class="side">
+      <div class="side-h">📊 累计整体表现</div>
+      <div class="kpi">
+        <div class="b"><div class="n" id="kTotal">–</div><div class="l">累计条目</div></div>
+        <div class="b"><div class="n" id="kNeg" style="color:#e23b3b">–</div><div class="l">负面</div></div>
+        <div class="b"><div class="n" id="kPos" style="color:#1f9d63">–</div><div class="l">正面</div></div>
+      </div>
+      <div class="sub2">情感分布</div>
+      <canvas id="chartSent" class="h150"></canvas>
+      <div class="sub2">渠道分布（Top 6）</div>
+      <canvas id="chartPlat" class="h150"></canvas>
+      <div class="sub2">维度分布（领导视角 5 类）</div>
+      <canvas id="chartCat" class="h150"></canvas>
+      <div class="note" id="sideNote"></div>
+    </aside>
 
+    <!-- 右列：周看板 -->
+    <main class="main">
+      <div class="weekbar">
+        <span class="wk">📅 周看板</span>
+        <label><input type="radio" name="wk" value="this" checked> 本周</label>
+        <label><input type="radio" name="wk" value="last"> 上周</label>
+        <span class="range" id="wkRange"></span>
+      </div>
 
+      <div id="panelThis"><!-- JS 注入本周 --></div>
+      <div id="panelLast" style="display:none"><!-- JS 注入上周 --></div>
 
-
-  <!-- 好评 vs 差评 -->
-  <section>
-<h2><span class="bar" style="background:var(--good)"></span>一、人力资源六大模块舆情汇总<span style="font-size:12px;font-weight:400;color:#888;margin-left:8px">（美国 · 渠道：小红书 / 领英 / Indeed / 本地华人网）</span></h2>
-<p class="lead">按<b>人力资源六大模块</b>，对 4 个渠道（小红书、领英、Indeed、本地华人网）中<b>美国地区、与 HR 相关</b>的言论做<b>分类汇总</b>：左列为模块分类，中列为提炼的核心发现，右列为可点击查看的<b>负面原生帖 / 评价链接</b>。<b>已剔除全部业务 / 物流 / 产品类内容及非美国信息。</b></p>
-<table class="hr3">
-  <thead><tr><th style="width:17%">人力资源模块（分类）</th><th style="width:49%">核心发现（提炼）</th><th style="width:34%">负面原生链接（点击直达）</th></tr></thead>
-  <tbody>
-    <tr>
-      <td><span class="mod">① 人力资源规划<span class="en">HR Planning</span></span></td>
-      <td class="core"><b>美国网络高速扩张</b>（领英 47 州 300+ 站点），但<b>一线流动率极高</b>——Indeed 评价「没人干超过三个月」。官网 Careers 在招 <b>100 岗</b>（Hub 53 / Station 26，一线占 79%；较 07-30 的 64 岗 4 天内扩招 56%），官方口径含年度晋升调薪 + 轮岗 + 优秀者 sponsor 签证。</td>
-      <td class="links"><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank"><b>Indeed</b>：高流动率评价 ↗</a><a href="https://www.linkedin.com/company/gofoglobal" target="_blank"><b>领英</b>：GOFO 公司页 ↗</a></td>
-    </tr>
-    <tr>
-      <td><span class="mod">② 招聘与配置<span class="en">Recruiting</span></span></td>
-      <td class="core">全美高密度招聘（Glassdoor 11 岗、全球 2,000+ 员工）。多地招「储备站长 / 站点培训生」（支持 H1B sponsor、接受应届），华人网 Chino HUB 招副仓长、猎聘把 DSP 压价谈判写入职责。⚠️ 小红书（达拉斯）：员工抽中 H1B 后遭未抽中女领导嫉妒→找茬→<b>非法开除</b>。Glassdoor 多岗将「Mandarin required / New Grad Only」写入硬性条件，属美国用工合规敏感项。猎聘新挂「海外招聘（亚特兰大）」专职招聘 HR（15-30k、要求熟悉劳动法规），招聘职能开始本地化设岗。</td>
-      <td class="links"><a href="https://aawea.org/job-view-details/GoFo%E7%AB%99%E7%82%B9%E5%9F%B9%E8%AE%AD%E7%94%9F%EF%BC%88%E6%94%AF%E6%8C%81sponsor%EF%BC%89" target="_blank"><b>本地华人网</b>：储备站长 / 支持 sponsor ↗</a><a href="https://huarenzhaopin.com/t/topic/33004" target="_blank"><b>本地华人网</b>：Chino HUB 招聘 ↗</a><a href="https://m.liepin.com/job/1982956049.shtml" target="_blank"><b>本地华人网</b>：站点运营专员(压价谈判) ↗</a><a href="https://www.glassdoor.com/Job/us-gofo-express-jobs-SRCH_IL.0,2_IN1_KO3,15.htm" target="_blank"><b>领英 / Glassdoor</b>：11 个在招岗位（含限应届/强制普通话岗）↗</a><a href="https://gofo.com/us/Careers" target="_blank"><b>官网</b>：Careers 100 个在招岗位 ↗</a></td>
-    </tr>
-    <tr>
-      <td><span class="mod">③ 培训与开发<span class="en">Training</span></span></td>
-      <td class="core">框架补强：储备站长设 6 个月轮岗 + mentorship，并新设专职 Training Specialist（$77–96K）。但一线落地存疑——Indeed Vernon 1.0★ 直指新晋主管缺培训、「有毒环境」；小红书（达拉斯）员工称女领导「从不教人、只折磨人」，人员持续流失。储备站长培养周期由 6 个月压缩为 3–6 个月，警惕速成上岗加剧管理短板。</td>
-      <td class="links"><a href="https://gofo.com/us/Careers" target="_blank"><b>领英 / 官网</b>：培训与晋升 ↗</a><a href="https://m.liepin.com/job/1981501653.shtml" target="_blank"><b>本地华人网</b>：物流主管培训职责 ↗</a><a href="https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888" target="_blank"><b>本地华人网</b>：司机亲历（无培训）↗</a><a href="https://www.career.com/company/gofo-express/jobs" target="_blank"><b>领英 / Glassdoor</b>：Training Specialist(NJ) ↗</a></td>
-    </tr>
-    <tr>
-      <td><span class="mod">④ 绩效管理<span class="en">Performance</span></span></td>
-      <td class="core">KPI / 压价 / 高压导向明显：线路运营（多为低薪 H1B 留学生）为冲 KPI 拼命压价，形成换人换 DSP 恶性循环；Indeed 在职 3.0★ 反映「24/7、加班多、量随包裹浮动」。小红书（达拉斯）：女领导「只认数据不看现场」，防护物资能省则省。储备站长 JD 要求周报/月报，考核仍以过程报表为主，缺质量/体验类指标。</td>
-      <td class="links"><a href="https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888" target="_blank"><b>本地华人网</b>：KPI 压价长文 ↗</a><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank"><b>Indeed</b>：管理粗放评价 ↗</a></td>
-    </tr>
-    <tr>
-      <td><span class="mod">⑤ 薪酬福利管理<span class="en">Comp &amp; Benefits</span></span></td>
-      <td class="core">薪酬两极、福利名存实亡：招聘广告口径偏高（司机周薪标「高于全国 28%」），但员工实报单价 $2.4→$1.7/件、早到装车「打白工」、油费自担；问答区「涨薪 never / 福利 Na / 牙科 No / 假期 Nothing」，与官网 Health/vision/dental+401k 直接矛盾。⚠️ 小红书两帖：达拉斯「高温补贴=一瓶饮料」、司机讨薪帖（121 赞，包线老板欠薪/卷款跑路）。Indeed Delivery Specialist 时薪 $20.18 仍低于均值 23%。</td>
-      <td class="links"><a href="https://www.indeed.com/cmp/Gofo-Express" target="_blank"><b>Indeed</b>：问答区零福利(never/Nothing) ↗</a><a href="https://www.indeed.com/cmp/Gofo-Express/salaries/Delivery-Driver" target="_blank"><b>Indeed</b>：司机薪资口径</a><br><a href="https://www.xiaohongshu.com/search_result?keyword=%E8%BE%BE%E6%8B%89%E6%96%AF%20GOFO%20%E6%88%91%E6%9C%89%E8%AF%9D%E8%AF%B4" target="_blank"><b>📌 小红书</b>：达拉斯高温补贴=一瓶饮料（14条评论）</a> ↗</a><a href="https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888" target="_blank"><b>本地华人网</b>：打白工 / 压价 ↗</a><a href="https://www.indeed.com/cmp/Gofo-Inc/salaries/Delivery-Specialist" target="_blank"><b>Indeed</b>：$20.18/hr 低于均值23% ↗</a><a href="https://www.xiaohongshu.com/explore/6811bcc0000000000900c299" target="_blank"><b>小红书</b>：司机讨薪/避雷GOFO（欠薪·卷款跑路）↗</a></td>
-    </tr>
-    <tr>
-      <td><span class="mod">⑥ 劳动关系管理<span class="en">Labor Relations</span></span></td>
-      <td class="core">劳动关系紧张但非全负面。Indeed Newark 1.0★ 扣半薪称「罚款」、Vernon「有毒环境」；⭐ 小红书（达拉斯·夸笋呐·14 评）重磅：女领导「不讲人情、嫉妒心重、只认数据面子」，中暑冷言「人没了再说」、H1B 员工遭嫉妒后被找茬开除、派系斗争明目张胆、实干员工被针对。少数正面集中于有稳定路线的西语裔一线（NJ Manager 5.0★）。大地360 现 GOFO HR 直发夜班司机帖（14:00 至凌晨、自行装卸），Glassdoor 2.6★ / Indeed 2.0★ 持续承压；小红书司机讨薪帖（121 赞）坐实欠薪风险。</td>
-      <td class="links"><a href="https://www.indeed.com/cmp/Gofo-Express" target="_blank"><b>Indeed</b>：Newark 扣半薪/罚款 ↗</a><a href="https://www.indeed.com/cmp/Gofo-Inc/reviews" target="_blank"><b>Indeed</b>：有毒环境评价 ↗</a><a href="https://stage1st.com/2b/forum.php?goto=findpost&mod=redirect&pid=69807888" target="_blank"><b>本地华人网</b>：劳资矛盾</a><br><br><b>⚠️ 核心负面帖（达拉斯分拣组 · 14条评论）</b><br>
-<a href="https://www.xiaohongshu.com/search_result?keyword=%E8%BE%BE%E6%8B%89%E6%96%AF%20GOFO%20%E6%88%91%E6%9C%89%E8%AF%9D%E8%AF%B4" target="_blank">📌 不讲人情/嫉妒心重/派系斗争/"人没了再说"</a><br>
-<a href="https://www.xiaohongshu.com/search_result?keyword=%E8%BE%BE%E6%8B%89%E6%96%AF%20GOFO%20%E6%88%91%E6%9C%89%E8%AF%9D%E8%AF%B4" target="_blank">📌 H1B 员工遭嫉妒后被找茬开除</a><br>
-<a href="https://www.xiaohongshu.com/search_result?keyword=%E8%BE%BE%E6%8B%89%E6%96%AF%20GOFO%20%E6%88%91%E6%9C%89%E8%AF%9D%E8%AF%B4" target="_blank">📌 站队·打压·冷处理·针对实干员工</a> ↗</a><a href="https://c.dadi360.com/c/posts/list/4103044.page" target="_blank"><b>本地华人网</b>：GOFO HR 夜班司机帖 ↗</a><a href="https://www.xiaohongshu.com/explore/6811bcc0000000000900c299" target="_blank"><b>小红书</b>：司机讨薪/避雷GOFO（欠薪纠纷）↗</a></td>
-    </tr>
-  </tbody>
-</table>
-<div style="background:#fff7e6;border:1px solid #ffd591;border-radius:8px;padding:12px 16px;margin-top:14px;font-size:12.5px">
-  📌 <b>说明：</b>① 仅覆盖<b>小红书 / 领英 / Indeed / 本地华人网</b> 4 个渠道，且只取<b>美国地区、与人力资源六大模块相关</b>的内容；业务 / 物流 / 产品类（如尾程时效、价格、丢件、面单等）已剔除。② 小红书已恢复正文级抓取（带 xsec_token 直达详情页，正文与评论区可读）；领英公开页以官方正面口径为主，负面多来自员工评价站与华人论坛。③ <b style="color:#b26a00">本轮（2026-08-03 17:00）小红书登录态<b>仍有效</b>（信息流页正常加载），但站内 <code>search_result</code> 搜索接口自当日 14:50 起<b>被平台限流</b>，本轮 3 次重试均导航超时，<b>小红书未取到新卡片</b>；限流冷却后由每 3 小时的预警自动化补扫。领英 / Indeed / 本地华人网 3 渠道刷新至 2026-08-03 17:00，本轮新增 2 条中性项（官网在招岗位 4 天内 64→100、猎聘亚特兰大专职招聘 HR），<b>无新增员工侧负面</b>（当日 14:30 轮的 4 条 Glassdoor 负面见时间线第 29 轮）。</b>④ 数据截至 2026-08-03 17:00。
-</div>
-</section>
-
-  <!-- 结论 -->
-  <section>
-  <h2><span class="bar" style="background:var(--good)"></span>二、结论与建议（HR 视角）</h2>
-  <div class="panel">
-    <p style="font-size:14px"><b>一句话结论：</b>GOFO 在美国<b style="color:var(--good)">扩张快、门槛低、机会多、招聘活跃</b>，但<b style="color:var(--bad)">管理粗放、一线薪酬被压价、流动率极高、劳动关系紧张</b>，HR 侧风险突出，需优先治理薪酬透明度与一线保留。</p>
+      <div class="srcfnote">
+        <b>⚠️ 调研说明与局限：</b>本报告仅对 <b>4 个渠道</b>（小红书 / 领英 / Indeed / 本地华人网）中
+        <b>美国地区、与 HR 相关、且为 GOFO 自有员工（在职 / 离职）</b>的公开言论做分类汇总；
+        <b>司机 / DSP / 包裹 / 消费者投诉类内容已剔除</b>。左列为累计整体表现，右列为最近一周 / 上一周看板。
+        存在主观性与幸存者偏差，仅供内部参考，不构成最终定性。数据由自动化每日刷新。
+      </div>
+    </main>
   </div>
-  <div class="grid2">
-    <div class="panel">
-      <h3>✅ 相对优势（可强化）</h3>
-      <div class="item g"><div class="t">招聘供给充足</div><div class="d">全美高密度招聘、华人渠道响应快，领英提供 Visa 担保与晋升通道，雇主吸引力在「机会多、成长快」。</div></div>
-      <div class="item g"><div class="t">官方福利框架完整</div><div class="d">领英 / 官网宣称医疗、401(k)、轮岗与年度晋升评审，框架具备，但一线落地存疑。</div></div>
-    </div>
-    <div class="panel">
-      <h3>⚠️ 主要风险（需治理）</h3>
-      <div class="item b"><div class="t">薪酬压价与克扣</div><div class="d">单价 $2.4→$1.7/件、打白工、扣半薪、讨薪帖（小红书 121 赞），Indeed 薪资福利仅 2.0★。</div></div>
-      <div class="item b"><div class="t">流动率与劳动关系</div><div class="d">「没人干超过三个月」、Vernon CA 有毒环境 1★、小红书反讽帖 173 赞，DSP–司机劳资矛盾突出。</div></div>
-    </div>
-  </div>
-</section>
-
-  <!-- HR 举措建议 -->
-  <section>
-  <h2><span class="bar" style="background:var(--accent)"></span>三、HR 举措建议（面向 HR / 招聘负责人）</h2>
-  <div class="hr-card"><h4>① 薪酬与结算透明化<span class="muted">（薪酬福利管理）</span></h4><p>针对小红书讨薪帖、本地华人网打白工 / 压价、Indeed 扣半薪：统一计价与结算规则，杜绝「打白工」与随意扣款，建立工资争议快速响应通道。</p></div>
-  <div class="hr-card"><h4>② 招聘与入职体验<span class="muted">（招聘与配置）</span></h4><p>针对华人网高密度招聘与求职者「是否值得去」存疑：规范招聘话术与预期管理，强化领英 Visa 担保卖点，提升入职第一周体验与留存。</p></div>
-  <div class="hr-card"><h4>③ 一线培训体系<span class="muted">（培训与开发）</span></h4><p>针对 Stage1st「司机无培训、教了就会」：将官网宣称的 in-app 培训模块落到实处，建立新手带教与安全检查清单，降低事故与流失。</p></div>
-  <div class="hr-card"><h4>④ 绩效与 KPI 合理性<span class="muted">（绩效管理）</span></h4><p>针对华人网 KPI 压价恶性循环、Indeed 管理粗放：重新审视一线 KPI 设计，避免「为冲量拼命压价」损害质量与劳动关系，明确管理者考核责任。</p></div>
-  <div class="hr-card"><h4>⑤ 劳动关系与沟通<span class="muted">（劳动关系管理）</span></h4><p>针对 Indeed 有毒环境、仓库环境差、小红书反讽帖：改善仓库现场与主管管理培训，建立匿名反馈与申诉通道，遏制劳资矛盾升级。</p></div>
-  <div class="hr-card"><h4>⑥ 人力规划与保留<span class="muted">（人力资源规划）</span></h4><p>针对「没人干超过三个月」的高流动：完善编制与排班稳定性，设计一线 retention 激励（全勤 / 旺季补贴 / 服务奖），降低 DSP 频繁换血成本。</p></div>
-</section>
-
-  <!-- 监控时间线 -->
-  <section>
-    <h2><span class="bar" style="background:var(--warn)"></span>四、监控时间线 · 各时段新增内容查看器</h2>
-    <p class="lead">勾选「展开查看内容」后，可按下方下拉选项<b>选择扫描时段与平台</b>查看对应<b>新增</b>内容（基线为报告初始已知负面，仅作对照）。取消勾选则此处保持收起，不展示明细。勾选「显示完整内容」展示全部正文；仅勾选「展开查看内容」时<b>仅展示关键点</b>（平台·主题·情感），便于快速扫读。</p>
-    <div class="drophdr">
-      <label style="margin-left:0;user-select:none;cursor:pointer"><input type="checkbox" id="expandView"> 展开查看内容</label>
-      <label for="runSelect" style="margin-left:14px">选择扫描时段：</label>
-      <select id="runSelect"></select>
-      <label for="platSelect">按平台筛选：</label>
-      <select id="platSelect"></select>
-      <label style="margin-left:14px;user-select:none;cursor:pointer"><input type="checkbox" id="showFull"> 显示完整内容</label>
-    </div>
-    <div id="tlAgg" class="aggregate"></div>
-    <div id="tlRender"></div>
-  </section>
-
-  <!-- 来源链接 -->
-    <section>
-    <div class="notewarn">
-      <b>⚠️ 调研说明与局限：</b>本报告按<b>人力资源六大模块</b>，仅对 <b>4 个渠道</b>（小红书 / 领英 / Indeed / 本地华人网）中<b>美国地区、与 HR 相关</b>的公开言论做分类汇总；业务 / 物流 / 产品类内容及非美国信息均已剔除。小红书以<b>登录态 Chrome 实例 + 关键词</b>检索，现已可通过 xsec_token 直达详情页提取正文与评论区。<b style="color:#b26a00">本轮（2026-08-03 17:00）小红书登录态仍有效，但站内搜索接口自当日 14:50 起被平台限流（3 次重试均导航超时），<b>小红书本轮未取到新卡片、数据未更新</b>，待限流冷却后由每 3 小时的预警自动化补扫</b>；领英 / Indeed / 本地华人网（含猎聘、华人招聘网、aawea、大地360、华人街）已刷新至 2026-08-03 17:00，本轮新增 2 条中性项（官网在招岗位 4 天内由 64 增至 100、猎聘亚特兰大专职招聘 HR 岗），<b>无新增员工侧负面</b>。领英公开页以官方正面口径为主，负面多来自员工评价站与华人论坛。存在主观性与幸存者偏差，仅供内部参考，不构成对该公司的最终定性。监控时间线由自动化每日 10:00 / 17:00 更新。
-    </div>
-  </section>
-
   <footer>
-    GOFO（高链科技）工作体验调研报告 · 基于公开信息整理 · 2026-08-03 · 内部参考
+    GUS（GOFO）员工工作体验调研报告 · 基于公开信息整理 · 内部参考
   </footer>
 </div>
 
@@ -265,80 +254,212 @@ const MONITOR_RUNS = [{"id": "run-20260803-1438", "period": "第 29 轮扫描 ·
 <!-- MONITOR_DATA_END -->
 
 <script>
-const ink='#1c2430', sub='#5b6675', grid='#e6e9ef';
 
-// 监控时间线下拉逻辑
 (function(){
-  const sel=document.getElementById('runSelect');
-  const plat=document.getElementById('platSelect');
-  const render=document.getElementById('tlRender');
-  const agg=document.getElementById('tlAgg');
-  const expand=document.getElementById('expandView');
-  const runs=MONITOR_RUNS||[];
-  let totalNew=0;
-  runs.forEach(r=>{ if(!r.isBaseline) totalNew+=(r.items||[]).length; });
-  const allNew=runs.filter(r=>!r.isBaseline).flatMap(r=>(r.items||[]));
-  const platforms=[...new Set(allNew.map(it=>it.platform))].sort();
-  agg.innerHTML=`📊 当前共 <b>${runs.length}</b> 个扫描时段，非基线（真正新增）时段 <b>${runs.filter(r=>!r.isBaseline).length}</b> 个，累计新增条目 <b>${totalNew}</b> 条，覆盖平台 <b>${platforms.length}</b> 个。基线条目 <b>${runs.filter(r=>r.isBaseline).reduce((s,r)=>s+(r.items||[]).length,0)}</b> 条（仅作对照，不计入新增）。`;
+  "use strict";
+  var RUNS = (typeof MONITOR_RUNS !== "undefined") ? MONITOR_RUNS : [];
+  var WEEK = 7*24*3600*1000;
 
-  runs.forEach((r,i)=>{
-    const n=(r.items||[]).length;
-    const opt=document.createElement('option');
-    opt.value=String(i);
-    opt.textContent=`${r.period} · ${n} 条${r.isBaseline?'（基线）':''}`;
-    sel.appendChild(opt);
+  function parseT(s){ if(!s) return null; var d=new Date(String(s).replace(" ","T")); return isNaN(d.getTime())?null:d; }
+  function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function trunc(s,n){ s=s||""; return s.length>n ? s.slice(0,n)+"…" : s; }
+  function fmt(d){ if(!d) return ""; var p=function(n){return ("0"+n).slice(-2);}; return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate()); }
+
+  // 员工口径：剔除司机/DSP/包裹/消费者投诉，只看 GOFO 自有员工
+  function isEmp(it){
+    var p=(it.platform||"").toLowerCase();
+    var th=(it.theme||"").toLowerCase();
+    var ex=(it.excerpt||"").toLowerCase();
+    var blob=p+" "+th;
+    if(/google play|app store|应用商店|pissedconsumer|bbb|trustpilot|consumer/.test(p)) return false;
+    if(/司机|driver|dsp|承包|包裹|尾程|派送|配送|面单|快递/.test(blob)) return false;
+    if(/delivery driver|承包司机|前承包|讨薪|欠薪|卷款|打白工|按\$?\d[\d.]*\/件|每\s*件|件\s*派/.test(ex)) return false;
+    return true;
+  }
+  function senOf(it){
+    var s=(it.sentiment||"").toLowerCase();
+    if(s==="negative"||s==="负面") return "neg";
+    if(s==="positive"||s==="正面") return "pos";
+    return "neu";
+  }
+
+  var CATS=["招聘类","人才发展·培训","绩效激励","薪酬福利","员工关系"];
+  var CATCOLORS={"招聘类":"#2b5cff","人才发展·培训":"#7a5cff","绩效激励":"#d98a00","薪酬福利":"#e23b3b","员工关系":"#1f9d63"};
+  function catColor(c){ return CATCOLORS[c]||"#98a2b3"; }
+  function catOf(it){
+    var t=((it.theme||"")+" "+(it.excerpt||"")+" "+(it.platform||"")).toLowerCase();
+    if(/员工关系|劳动关系|劳动|解雇|开除|辞退|投诉|歧视|工会|申诉|反馈|氛围|文化|人情|工作环境|安全|派系|针对|报复|pua|压榨/.test(t)) return "员工关系";
+    if(/招聘|recruit|hiring|面试|配置|岗位|sponsor|h1b|签证|人才画像|储备站长|站点培训生|站长|规划|编制|headcount/.test(t)) return "招聘类";
+    if(/培训|training|培养|轮岗|导师|mentor|onboarding|入职|带教|新手/.test(t)) return "人才发展·培训";
+    if(/绩效|kpi|考核|晋升|调薪|激励|奖金|评优|目标|过程报表|周报|月报|评审/.test(t)) return "绩效激励";
+    if(/薪酬|工资|薪资|salary|时薪|周薪|福利|保险|401|pto|带薪|加班费|补贴|单价|none|nothing|na |牙科|假期|on-call|扣薪|罚款|22刀|22美元/.test(t)) return "薪酬福利";
+    return "员工关系";
+  }
+  function hrText(c){
+    var M={
+      "招聘类":"规范招聘话术与预期管理，强化签证担保 / 成长通道卖点；推动本地化招聘专岗（如亚特兰大 HR），缩短面试到入职周期，提升留存第一公里。",
+      "人才发展·培训":"将官网宣称的培训体系（储备站长轮岗、Training Specialist）落到实处，建立新手带教与安全 / 合规清单；警惕培养周期被压缩至 2 周导致的速成上岗。",
+      "绩效激励":"重新审视一线 KPI 设计，避免「为冲量压价」损害质量与员工体验；明确管理者考核责任，纳入员工体验 / 质量类指标。",
+      "薪酬福利":"统一计价与结算规则，杜绝「打白工 / 随意扣款 / 讨薪」；推动招聘广告口径与一线实发一致，建立工资争议快速响应通道。",
+      "员工关系":"改善现场管理与主管沟通培训，建立匿名反馈与申诉通道；遏制派系 / 针对 / 报复性解雇，降低高流动与劳资法律风险。"
+    };
+    return M[c]||"";
+  }
+
+  // flatten
+  var flat=[];
+  RUNS.forEach(function(r){
+    (r.items||[]).forEach(function(it){ flat.push({it:it, rt:parseT(r.runTime), base:!!r.isBaseline}); });
   });
-  const allOpt=document.createElement('option');
-  allOpt.value='all';
-  allOpt.textContent=`🆕 全部新增（非基线）· ${totalNew} 条`;
-  sel.appendChild(allOpt);
+  var emp = flat.filter(function(x){ return isEmp(x.it); });
 
-  const pAll=document.createElement('option');
-  pAll.value='all'; pAll.textContent=`全部平台 · ${allNew.length} 条`;
-  plat.appendChild(pAll);
-  platforms.forEach(p=>{
-    const n=allNew.filter(it=>it.platform===p).length;
-    const o=document.createElement('option');
-    o.value=p; o.textContent=`${p} · ${n} 条`;
-    plat.appendChild(o);
+  var times = emp.map(function(x){ return x.rt; }).filter(Boolean);
+  var END = times.length ? Math.max.apply(null,times) : Date.now();
+  var thisStart = END - WEEK, lastStart = END - 2*WEEK;
+
+  function wkItems(s,e){ return emp.filter(function(x){ return !x.base && x.rt && x.rt>=s && x.rt<e; }); }
+  var thisWk = wkItems(thisStart, END+1);
+  var lastWk = wkItems(lastStart, thisStart);
+
+  // ===== 左列累计 =====
+  var cNeg=emp.filter(function(x){return senOf(x.it)==="neg";}).length;
+  var cPos=emp.filter(function(x){return senOf(x.it)==="pos";}).length;
+  var cNeu=emp.filter(function(x){return senOf(x.it)==="neu";}).length;
+  var setT=function(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; };
+  setT("kTotal", emp.length); setT("kNeg", cNeg); setT("kPos", cPos);
+
+  function doughnut(id, labels, data, colors){
+    var el=document.getElementById(id); if(!el||!window.Chart) return;
+    new Chart(el,{type:"doughnut",data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderWidth:0}]},
+      options:{plugins:{legend:{position:"bottom",labels:{font:{size:10},boxWidth:10}},tooltip:{}},cutout:"56%",responsive:true,maintainAspectRatio:false}});
+  }
+  function bar(id, labels, data, color){
+    var el=document.getElementById(id); if(!el||!window.Chart) return;
+    new Chart(el,{type:"bar",data:{labels:labels,datasets:[{data:data,backgroundColor:color,borderRadius:4}]},
+      options:{plugins:{legend:{display:false},tooltip:{}},scales:{x:{ticks:{font:{size:9}}},y:{beginAtZero:true,ticks:{font:{size:9},precision:0}}},responsive:true,maintainAspectRatio:false}});
+  }
+
+  doughnut("chartSent", ["正面","负面","中性"], [cPos,cNeg,cNeu], ["#1f9d63","#e23b3b","#2b5cff"]);
+
+  var platCount={};
+  emp.forEach(function(x){ var p=x.it.platform||"未知"; platCount[p]=(platCount[p]||0)+1; });
+  var arr=Object.keys(platCount).map(function(k){return [k,platCount[k]];}).sort(function(a,b){return b[1]-a[1];});
+  var top=arr.slice(0,6), other=arr.slice(6).reduce(function(s,a){return s+a[1];},0);
+  var plabels=top.map(function(a){return a[0];}), pdata=top.map(function(a){return a[1];});
+  if(other>0){ plabels.push("其他"); pdata.push(other); }
+  bar("chartPlat", plabels, pdata, "#2b5cff");
+
+  var catCount={}; CATS.forEach(function(c){catCount[c]=0;});
+  emp.forEach(function(x){ var c=catOf(x.it); if(catCount[c]!==undefined) catCount[c]++; });
+  bar("chartCat", CATS.map(function(c){return c.length>5?c.slice(0,5):c;}), CATS.map(function(c){return catCount[c];}), "#7a5cff");
+
+  var sn=document.getElementById("sideNote");
+  if(sn) sn.textContent="数据截至 "+fmt(new Date(END))+"；口径：仅美国 · 仅 HR 相关 · 仅 GOFO 自有员工（已剔除司机/DSP/包裹/消费者投诉）；累计含基线建档已知项。";
+
+  // ===== 右列周看板 =====
+  function statusOf(it){
+    var t=((it.theme||"")+" "+(it.excerpt||"")).toLowerCase();
+    if(/离职|前员工|former|前\s|ex-employee|离开|走了|前承包/.test(t)) return "off";
+    if(/在职|现任|current|现\s/.test(t)) return "on";
+    return "unk";
+  }
+  function renderWeek(items, rangeText, targetId){
+    var neg=items.filter(function(x){return senOf(x.it)==="neg";});
+    var pos=items.filter(function(x){return senOf(x.it)==="pos";});
+    var neu=items.filter(function(x){return senOf(x.it)==="neu";});
+    var plats=[].filter.call(new Set(items.map(function(x){return x.it.platform;})), function(p){return p;});
+    var on=0,off=0,unk=0;
+    items.forEach(function(x){ var s=statusOf(x.it); if(s==="off")off++; else if(s==="on")on++; else unk++; });
+    var byCat={}; CATS.forEach(function(c){byCat[c]=[];});
+    items.forEach(function(x){ var c=catOf(x.it); (byCat[c]||(byCat[c]=[])).push(x.it); });
+
+    var h="";
+    // snapshot
+    h+='<div class="snapshot"><div class="sh">📌 本周快照 · '+esc(rangeText)+'</div>';
+    h+='<div class="srow"><span>条目数</span><span class="v">'+items.length+'</span></div>';
+    h+='<div class="srow"><span>负面 / 正面 / 中性</span><span class="v" style="color:#e23b3b">'+neg.length+'</span> / <span class="v" style="color:#1f9d63">'+pos.length+'</span> / '+neu.length+'</div>';
+    h+='<div class="srow"><span>覆盖渠道</span><span class="v">'+plats.length+' 个</span></div>';
+    h+= plats.map(function(p){return '<span class="pill b" style="margin:3px 4px 0 0;display:inline-block">'+esc(p)+'</span>';}).join("");
+    h+='</div>';
+
+    // 一·总览
+    h+='<div class="blk"><h2><span class="bar"></span>一、总览</h2><div class="ov-grid">';
+    h+='<div class="ov-card"><div class="t">🔎 信息来源</div><div class="d">'+(plats.length?plats.map(function(p){return esc(p);}).join("、"):"无")+'</div></div>';
+    h+='<div class="ov-card"><div class="t">👥 在职 / 离职评价</div><div class="d">在职 <b>'+on+'</b> · 离职 <b>'+off+'</b> · 未知 <b>'+unk+'</b></div></div>';
+    var posTxt = pos.length ? pos.slice(0,4).map(function(x){return "• "+esc(trunc(x.it.excerpt,64));}).join("<br>") : "本周无新增正面评价。";
+    h+='<div class="ov-card pos"><div class="t">✅ 整体正面点</div><div class="d">'+posTxt+'</div></div>';
+    var negTxt = neg.length ? neg.slice(0,4).map(function(x){return "• "+esc(trunc(x.it.excerpt,64));}).join("<br>") : "本周无新增负面评价。";
+    h+='<div class="ov-card neg"><div class="t">⚠️ 整体负面点</div><div class="d">'+negTxt+'</div></div>';
+    var miss=[];
+    CATS.forEach(function(c){ if((byCat[c]||[]).length===0) miss.push(c); });
+    if(pos.length===0) miss.push("无正面样本");
+    if(items.length===0) miss.push("本周无新增员工侧条目");
+    h+='<div class="ov-card miss"><div class="t">🕳️ 错失 / 缺口</div><div class="d">'+(miss.length?miss.map(function(m){return "• "+esc(m);}).join("<br>"):"无明显缺口。")+'</div></div>';
+    h+='</div></div>';
+
+    // 二·细分维度
+    h+='<div class="blk"><h2><span class="bar"></span>二、细分维度（领导视角 5 类）</h2><div class="cat-grid">';
+    CATS.forEach(function(c){
+      var a=byCat[c]||[], cn=a.filter(function(it){return senOf(it)==="neg";}).length, cp=a.filter(function(it){return senOf(it)==="pos";}).length;
+      h+='<div class="cat-card"><div class="ch"><span class="dot" style="background:'+catColor(c)+'"></span>'+esc(c)+' <span class="muted" style="font-weight:400;font-size:12px">('+a.length+' 条 · 负'+cn+'/正'+cp+')</span></div>';
+      a.slice(0,3).forEach(function(it){
+        var s=senOf(it);
+        h+='<div class="row '+(s==="pos"?"plus":"minus")+'"><span class="lab">'+esc(it.platform||"")+' · '+(s==="pos"?"正面":s==="neg"?"负面":"中性")+'</span>'+esc(trunc(it.excerpt,70))+(it.url?' <a href="'+esc(it.url)+'" target="_blank">↗</a>':"")+'</div>';
+      });
+      if(a.length>3) h+='<div class="row muted">…另有 '+(a.length-3)+' 条</div>';
+      if(a.length===0) h+='<div class="row muted">本周无相关条目</div>';
+      h+='</div>';
+    });
+    h+='</div></div>';
+
+    // 三·本周结论
+    var good = items.length>0 && neg.length<=pos.length;
+    h+='<div class="blk"><h2><span class="bar"></span>三、本周结论</h2>';
+    h+='<div class="verdict"><span class="tag '+(good?"good":"bad")+'">'+(good?"整体偏正面":"整体偏负面，需重点关注")+'</span>本周共捕获 <b>'+items.length+'</b> 条员工侧条目（负面 '+neg.length+' / 正面 '+pos.length+' / 中性 '+neu.length+'），覆盖 '+plats.length+' 个渠道。</div>';
+    h+='<div class="links-col">';
+    pos.slice(0,6).forEach(function(x){
+      h+='<div class="lrow pos"><div class="ex">'+esc(trunc(x.it.excerpt,80))+'</div>'+(x.it.url?'<a href="'+esc(x.it.url)+'" target="_blank">查看来源 ↗</a>':"");
+      if(x.it.platform) h+=' <span class="muted">'+esc(x.it.platform)+'</span>';
+      h+='</div>';
+    });
+    neg.slice(0,8).forEach(function(x){
+      h+='<div class="lrow neg"><div class="ex">'+esc(trunc(x.it.excerpt,80))+'</div>'+(x.it.url?'<a href="'+esc(x.it.url)+'" target="_blank">查看来源 ↗</a>':"");
+      if(x.it.platform) h+=' <span class="muted">'+esc(x.it.platform)+'</span>';
+      h+='</div>';
+    });
+    h+='</div></div>';
+
+    // 四·HR 改善建议
+    h+='<div class="blk"><h2><span class="bar"></span>四、HR 改善建议</h2>';
+    CATS.forEach(function(c){
+      var a=byCat[c]||[], cn=a.filter(function(it){return senOf(it)==="neg";}).length;
+      var lv = cn>0?"hi":"mid", lvtxt = cn>0?("本周有 "+cn+" 条负面 · 优先"):"持续关注";
+      h+='<div class="hr-card"><h4>'+esc(c)+' <span class="lv '+lv+'">'+lvtxt+'</span></h4><p>'+esc(hrText(c))+'</p></div>';
+    });
+    h+='</div>';
+
+    var el=document.getElementById(targetId); if(el) el.innerHTML=h;
+  }
+
+  var thisRange = fmt(new Date(thisStart))+" ~ "+fmt(new Date(END));
+  var lastRange = fmt(new Date(lastStart))+" ~ "+fmt(new Date(thisStart));
+  var wr=document.getElementById("wkRange");
+  if(wr) wr.textContent="本周："+thisRange+" ｜ 上周："+lastRange;
+
+  renderWeek(thisWk, thisRange, "panelThis");
+  renderWeek(lastWk, lastRange, "panelLast");
+
+  var radios=document.querySelectorAll('input[name=wk]');
+  Array.prototype.forEach.call(radios, function(r){
+    r.addEventListener("change", function(e){
+      var v=e.target.value;
+      var t=document.getElementById("panelThis"), l=document.getElementById("panelLast");
+      if(t) t.style.display = v==="this"?"block":"none";
+      if(l) l.style.display = v==="last"?"block":"none";
+    });
   });
-
-  function card(it){
-    const full=document.getElementById('showFull').checked;
-    const sent=it.sentiment||'负面';
-    const ex = full
-      ? `<div class="ex">${it.excerpt}</div>`
-      : `<div class="ex kp">🔑 关键点：${it.theme} · 情感 ${sent}</div>`;
-    const meta = full ? `情感：${sent}` : ``;
-    return `<div class="tl-item">
-      <div class="top"><span class="pf">${it.platform}</span><span class="pill b">${it.theme}</span></div>
-      ${ex}
-      <div class="meta">${meta}${it.url?` <a href="${it.url}" target="_blank">查看来源 ↗</a>`:''}</div>
-    </div>`;
-  }
-  function listItems(){
-    const pf=plat.value;
-    const run=sel.value;
-    let items = (run==='all') ? allNew : (runs[Number(run)].items||[]);
-    if(pf!=='all') items = items.filter(it=>it.platform===pf);
-    return items;
-  }
-  function renderAll(){
-    if(!expand.checked){
-      render.innerHTML='<div class="notewarn" style="margin:10px 0">内容已收起。勾选上方「展开查看内容」并按下拉选项选择扫描时段与平台后，此处显示对应新增明细。</div>';
-      return;
-    }
-    const items=listItems();
-    let h=`<div style="margin-top:12px">`+items.map(it=>card(it)).join('')+`</div>`;
-    if(!items.length) h='<div class="notewarn" style="margin:10px 0">该筛选条件下暂无条目。</div>';
-    render.innerHTML=h;
-  }
-  sel.addEventListener('change',renderAll);
-  plat.addEventListener('change',renderAll);
-  document.getElementById('showFull').addEventListener('change',renderAll);
-  expand.addEventListener('change',renderAll);
-  sel.value='all'; plat.value='all'; renderAll();
 })();
+
 </script>
 </body>
 </html>
