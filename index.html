@@ -127,24 +127,35 @@
   .tl-item .meta{margin-top:7px;font-size:11.5px;color:#98a2b3}
   .tl-item a{color:var(--accent);text-decoration:none;font-size:12px;margin-left:8px}
   .aggregate{background:var(--accent-bg);border:1px solid #d6e0ff;border-radius:12px;padding:12px 16px;font-size:13px;color:#21408a;margin-bottom:14px}
-  /* 新布局：左列累计 + 右列周看板 */
-  .layout{display:grid;grid-template-columns:300px 1fr;gap:18px;margin-top:16px;align-items:start}
+  /* 新布局：左列周期切换 + 右列内容看板 */
+  .layout{display:grid;grid-template-columns:250px 1fr;gap:18px;margin-top:16px;align-items:start}
   @media(max-width:920px){.layout{grid-template-columns:1fr}}
   aside.side{position:sticky;top:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
-  .side-h{font-size:15px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-  .side .kpi{display:flex;gap:8px;margin-bottom:10px}
-  .side .kpi .b{flex:1;background:var(--bg);border-radius:10px;padding:9px 4px;text-align:center}
-  .side .kpi .b .n{font-size:19px;font-weight:800}
-  .side .kpi .b .l{font-size:11px;color:var(--sub);margin-top:2px}
-  .side canvas{margin-top:4px}
-  .side canvas.h150{height:150px!important}
-  .side .sub2{font-size:12px;font-weight:700;color:var(--sub);margin:14px 0 2px}
-  .side .note{font-size:11px;color:#98a2b3;margin-top:12px;line-height:1.5}
+  .side-h{font-size:15px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .nav{display:flex;flex-direction:column;gap:10px}
+  .nav-btn{display:flex;flex-direction:column;gap:2px;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:11px 13px;cursor:pointer;font:inherit;color:var(--ink);transition:.15s}
+  .nav-btn:hover{border-color:var(--accent)}
+  .nav-btn.active{border-color:var(--accent);background:var(--accent-bg);box-shadow:0 2px 10px rgba(43,92,255,.12)}
+  .nav-btn .nm{font-size:14px;font-weight:800}
+  .nav-btn .rg{font-size:11px;color:var(--sub);margin-top:1px}
+  .nav-btn.active .rg{color:var(--accent)}
+  .side-range{margin-top:14px;font-size:11.5px;color:#98a2b3;line-height:1.6;border-top:1px dashed var(--line);padding-top:10px}
   .main{}
-  .weekbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);margin-bottom:14px}
-  .weekbar .wk{font-weight:800;font-size:14px}
-  .weekbar label{font-size:13.5px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
-  .weekbar .range{font-size:12.5px;color:var(--sub);margin-left:auto}
+  .view-head{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+  .view-head .vt{font-size:18px;font-weight:800}
+  .view-head .vr{font-size:12.5px;color:var(--sub)}
+  /* 汇总：KPI + 图表（位于右列顶部） */
+  .kpi{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .kpi .b{flex:1;min-width:88px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 8px;text-align:center}
+  .kpi .b .n{font-size:22px;font-weight:800}
+  .kpi .b .l{font-size:11px;color:var(--sub);margin-top:3px}
+  .charts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+  @media(max-width:760px){.charts{grid-template-columns:1fr}}
+  .chbox{border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+  .chbox .ct{font-size:12.5px;font-weight:700;color:var(--sub);margin-bottom:6px}
+  .chbox canvas{height:160px!important}
+  .note{font-size:11px;color:#98a2b3;margin-top:10px;line-height:1.5}
+  .pill{display:inline-block;background:var(--accent-bg);color:var(--accent);font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:99px}
   .blk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:14px}
   .ov-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
   @media(max-width:680px){.ov-grid{grid-template-columns:1fr}}
@@ -177,6 +188,14 @@
   .links-col .lrow .ex{font-size:13px;line-height:1.6}
   .links-col .lrow a{color:var(--accent);text-decoration:none;font-size:12px;word-break:break-all;margin-left:4px}
   .links-col .lrow a:hover{text-decoration:underline}
+  .hr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(max-width:760px){.hr-grid{grid-template-columns:1fr}}
+  .hr-card{border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .hr-card h4{font-size:14px;margin:0 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .hr-card .lv{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px}
+  .hr-card .lv.hi{background:var(--bad-bg);color:var(--bad)}
+  .hr-card .lv.mid{background:var(--accent-bg);color:var(--accent)}
+  .hr-card p{font-size:12.8px;color:var(--ink);line-height:1.7;margin:0}
   .snapshot{background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
   .snapshot .sh{font-size:13.5px;font-weight:800;margin-bottom:8px}
   .snapshot .srow{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--line)}
@@ -202,43 +221,33 @@
     <h1>GUS 工作体验调研报告<span style="font-size:16px;font-weight:600;color:#c6d0e6;margin-left:8px">（离职在职都可能存在）</span></h1>
     <div class="meta"><span>🔎 信息来源：小红书 / 领英 / Indeed / 本地华人网（仅美国 · 仅 HR 相关 · 仅自有员工）</span></div>
   </header>
-  <!-- ===== 新结构：左列累计 + 右列周看板 ===== -->
+  <!-- ===== 新结构：左列周期切换 + 右列内容看板 ===== -->
   <div class="layout">
 
-    <!-- 左列：累计整体表现 -->
+    <!-- 左列：周期切换 -->
     <aside class="side">
-      <div class="side-h">📊 累计整体表现</div>
-      <div class="kpi">
-        <div class="b"><div class="n" id="kTotal">–</div><div class="l">累计条目</div></div>
-        <div class="b"><div class="n" id="kNeg" style="color:#e23b3b">–</div><div class="l">负面</div></div>
-        <div class="b"><div class="n" id="kPos" style="color:#1f9d63">–</div><div class="l">正面</div></div>
+      <div class="side-h">📅 周期</div>
+      <div class="nav" id="nav">
+        <button class="nav-btn active" data-mode="this"><span class="nm">本周</span><span class="rg" id="rgThis"></span></button>
+        <button class="nav-btn" data-mode="last"><span class="nm">上周</span><span class="rg" id="rgLast"></span></button>
+        <button class="nav-btn" data-mode="all"><span class="nm">汇总</span><span class="rg">历史至今</span></button>
       </div>
-      <div class="sub2">情感分布</div>
-      <canvas id="chartSent" class="h150"></canvas>
-      <div class="sub2">渠道分布（Top 6）</div>
-      <canvas id="chartPlat" class="h150"></canvas>
-      <div class="sub2">维度分布（领导视角 5 类）</div>
-      <canvas id="chartCat" class="h150"></canvas>
-      <div class="note" id="sideNote"></div>
+      <div class="side-range" id="sideRange"></div>
     </aside>
 
-    <!-- 右列：周看板 -->
+    <!-- 右列：内容看板 -->
     <main class="main">
-      <div class="weekbar">
-        <span class="wk">📅 周看板</span>
-        <label><input type="radio" name="wk" value="this" checked> 本周</label>
-        <label><input type="radio" name="wk" value="last"> 上周</label>
-        <span class="range" id="wkRange"></span>
+      <div class="view-head">
+        <div class="vt" id="viewTitle"></div>
+        <div class="vr" id="viewRange"></div>
       </div>
-
-      <div id="panelThis"><!-- JS 注入本周 --></div>
-      <div id="panelLast" style="display:none"><!-- JS 注入上周 --></div>
+      <div id="view"><!-- JS 注入 --></div>
 
       <div class="srcfnote">
         <b>⚠️ 调研说明与局限：</b>本报告仅对 <b>4 个渠道</b>（小红书 / 领英 / Indeed / 本地华人网）中
         <b>美国地区、与 HR 相关、且为 GOFO 自有员工（在职 / 离职）</b>的公开言论做分类汇总；
-        <b>司机 / DSP / 包裹 / 消费者投诉类内容已剔除</b>。左列为累计整体表现，右列为最近一周 / 上一周看板。
-        存在主观性与幸存者偏差，仅供内部参考，不构成最终定性。数据由自动化每日刷新。
+        <b>司机 / DSP / 包裹 / 消费者投诉类内容已剔除</b>。
+        周看板仅展示所选周期内的新增员工侧条目；汇总为历史至今累计。存在主观性与幸存者偏差，仅供内部参考。数据由自动化每日刷新。
       </div>
     </main>
   </div>
@@ -264,6 +273,7 @@ const MONITOR_RUNS = [{"id": "run-20260803-1438", "period": "第 29 轮扫描 ·
   function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
   function trunc(s,n){ s=s||""; return s.length>n ? s.slice(0,n)+"…" : s; }
   function fmt(d){ if(!d) return ""; var p=function(n){return ("0"+n).slice(-2);}; return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate()); }
+  function uniq(a){ var s={}; return a.filter(function(x){ return x && !s[x] ? (s[x]=1) : false; }); }
 
   // 员工口径：剔除司机/DSP/包裹/消费者投诉，只看 GOFO 自有员工
   function isEmp(it){
@@ -305,6 +315,12 @@ const MONITOR_RUNS = [{"id": "run-20260803-1438", "period": "第 29 轮扫描 ·
     };
     return M[c]||"";
   }
+  function statusOf(it){
+    var t=((it.theme||"")+" "+(it.excerpt||"")).toLowerCase();
+    if(/离职|前员工|former|前\s|ex-employee|离开|走了|前承包/.test(t)) return "off";
+    if(/在职|现任|current|现\s/.test(t)) return "on";
+    return "unk";
+  }
 
   // flatten
   var flat=[];
@@ -320,80 +336,68 @@ const MONITOR_RUNS = [{"id": "run-20260803-1438", "period": "第 29 轮扫描 ·
   function wkItems(s,e){ return emp.filter(function(x){ return !x.base && x.rt && x.rt>=s && x.rt<e; }); }
   var thisWk = wkItems(thisStart, END+1);
   var lastWk = wkItems(lastStart, thisStart);
+  var thisRange = fmt(new Date(thisStart))+" ~ "+fmt(new Date(END));
+  var lastRange = fmt(new Date(lastStart))+" ~ "+fmt(new Date(thisStart));
 
-  // ===== 左列累计 =====
-  var cNeg=emp.filter(function(x){return senOf(x.it)==="neg";}).length;
-  var cPos=emp.filter(function(x){return senOf(x.it)==="pos";}).length;
-  var cNeu=emp.filter(function(x){return senOf(x.it)==="neu";}).length;
-  var setT=function(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; };
-  setT("kTotal", emp.length); setT("kNeg", cNeg); setT("kPos", cPos);
-
-  function doughnut(id, labels, data, colors){
-    var el=document.getElementById(id); if(!el||!window.Chart) return;
-    new Chart(el,{type:"doughnut",data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderWidth:0}]},
-      options:{plugins:{legend:{position:"bottom",labels:{font:{size:10},boxWidth:10}},tooltip:{}},cutout:"56%",responsive:true,maintainAspectRatio:false}});
-  }
-  function bar(id, labels, data, color){
-    var el=document.getElementById(id); if(!el||!window.Chart) return;
-    new Chart(el,{type:"bar",data:{labels:labels,datasets:[{data:data,backgroundColor:color,borderRadius:4}]},
-      options:{plugins:{legend:{display:false},tooltip:{}},scales:{x:{ticks:{font:{size:9}}},y:{beginAtZero:true,ticks:{font:{size:9},precision:0}}},responsive:true,maintainAspectRatio:false}});
-  }
-
-  doughnut("chartSent", ["正面","负面","中性"], [cPos,cNeg,cNeu], ["#1f9d63","#e23b3b","#2b5cff"]);
-
-  var platCount={};
-  emp.forEach(function(x){ var p=x.it.platform||"未知"; platCount[p]=(platCount[p]||0)+1; });
-  var arr=Object.keys(platCount).map(function(k){return [k,platCount[k]];}).sort(function(a,b){return b[1]-a[1];});
-  var top=arr.slice(0,6), other=arr.slice(6).reduce(function(s,a){return s+a[1];},0);
-  var plabels=top.map(function(a){return a[0];}), pdata=top.map(function(a){return a[1];});
-  if(other>0){ plabels.push("其他"); pdata.push(other); }
-  bar("chartPlat", plabels, pdata, "#2b5cff");
-
-  var catCount={}; CATS.forEach(function(c){catCount[c]=0;});
-  emp.forEach(function(x){ var c=catOf(x.it); if(catCount[c]!==undefined) catCount[c]++; });
-  bar("chartCat", CATS.map(function(c){return c.length>5?c.slice(0,5):c;}), CATS.map(function(c){return catCount[c];}), "#7a5cff");
-
-  var sn=document.getElementById("sideNote");
-  if(sn) sn.textContent="数据截至 "+fmt(new Date(END))+"；口径：仅美国 · 仅 HR 相关 · 仅 GOFO 自有员工（已剔除司机/DSP/包裹/消费者投诉）；累计含基线建档已知项。";
-
-  // ===== 右列周看板 =====
-  function statusOf(it){
-    var t=((it.theme||"")+" "+(it.excerpt||"")).toLowerCase();
-    if(/离职|前员工|former|前\s|ex-employee|离开|走了|前承包/.test(t)) return "off";
-    if(/在职|现任|current|现\s/.test(t)) return "on";
-    return "unk";
-  }
-  function renderWeek(items, rangeText, targetId){
+  // ---- 渲染片段 ----
+  function snapshotHtml(items, rangeText, label){
     var neg=items.filter(function(x){return senOf(x.it)==="neg";});
     var pos=items.filter(function(x){return senOf(x.it)==="pos";});
     var neu=items.filter(function(x){return senOf(x.it)==="neu";});
-    var plats=[].filter.call(new Set(items.map(function(x){return x.it.platform;})), function(p){return p;});
+    var plats=uniq(items.map(function(x){return x.it.platform;}));
+    var h="";
+    h+='<div class="snapshot"><div class="sh">📌 '+esc(label)+' · '+esc(rangeText)+'</div>';
+    h+='<div class="srow"><span>条目数</span><span class="v">'+items.length+'</span></div>';
+    h+='<div class="srow"><span>负面 / 正面 / 中性</span><span class="v" style="color:#e23b3b">'+neg.length+'</span> / <span class="v" style="color:#1f9d63">'+pos.length+'</span> / '+neu.length+'</div>';
+    h+='<div class="srow"><span>覆盖渠道</span><span class="v">'+plats.length+' 个</span></div>';
+    if(plats.length) h+= plats.map(function(p){return '<span class="pill">'+esc(p)+'</span>';}).join(" ");
+    h+='</div>';
+    return h;
+  }
+
+  function cumHtml(){
+    var cNeg=emp.filter(function(x){return senOf(x.it)==="neg";}).length;
+    var cPos=emp.filter(function(x){return senOf(x.it)==="pos";}).length;
+    var cNeu=emp.filter(function(x){return senOf(x.it)==="neu";}).length;
+    var h="";
+    h+='<div class="kpi">'
+      +'<div class="b"><div class="n">'+emp.length+'</div><div class="l">累计条目</div></div>'
+      +'<div class="b"><div class="n" style="color:#e23b3b">'+cNeg+'</div><div class="l">负面</div></div>'
+      +'<div class="b"><div class="n" style="color:#1f9d63">'+cPos+'</div><div class="l">正面</div></div>'
+      +'<div class="b"><div class="n">'+cNeu+'</div><div class="l">中性</div></div>'
+      +'</div>';
+    h+='<div class="charts">'
+      +'<div class="chbox"><div class="ct">情感分布</div><canvas id="chartSent"></canvas></div>'
+      +'<div class="chbox"><div class="ct">渠道分布（Top 6）</div><canvas id="chartPlat"></canvas></div>'
+      +'<div class="chbox"><div class="ct">维度分布（领导视角 5 类）</div><canvas id="chartCat"></canvas></div>'
+      +'</div>';
+    h+='<div class="note">数据截至 '+fmt(new Date(END))+'；口径：仅美国 · 仅 HR 相关 · 仅 GOFO 自有员工（已剔除司机/DSP/包裹/消费者投诉）；累计含基线建档已知项。</div>';
+    return h;
+  }
+
+  function sectionsHtml(items, rangeText, h3){
+    var neg=items.filter(function(x){return senOf(x.it)==="neg";});
+    var pos=items.filter(function(x){return senOf(x.it)==="pos";});
+    var neu=items.filter(function(x){return senOf(x.it)==="neu";});
+    var plats=uniq(items.map(function(x){return x.it.platform;}));
     var on=0,off=0,unk=0;
     items.forEach(function(x){ var s=statusOf(x.it); if(s==="off")off++; else if(s==="on")on++; else unk++; });
     var byCat={}; CATS.forEach(function(c){byCat[c]=[];});
     items.forEach(function(x){ var c=catOf(x.it); (byCat[c]||(byCat[c]=[])).push(x.it); });
 
     var h="";
-    // snapshot
-    h+='<div class="snapshot"><div class="sh">📌 本周快照 · '+esc(rangeText)+'</div>';
-    h+='<div class="srow"><span>条目数</span><span class="v">'+items.length+'</span></div>';
-    h+='<div class="srow"><span>负面 / 正面 / 中性</span><span class="v" style="color:#e23b3b">'+neg.length+'</span> / <span class="v" style="color:#1f9d63">'+pos.length+'</span> / '+neu.length+'</div>';
-    h+='<div class="srow"><span>覆盖渠道</span><span class="v">'+plats.length+' 个</span></div>';
-    h+= plats.map(function(p){return '<span class="pill b" style="margin:3px 4px 0 0;display:inline-block">'+esc(p)+'</span>';}).join("");
-    h+='</div>';
-
     // 一·总览
     h+='<div class="blk"><h2><span class="bar"></span>一、总览</h2><div class="ov-grid">';
     h+='<div class="ov-card"><div class="t">🔎 信息来源</div><div class="d">'+(plats.length?plats.map(function(p){return esc(p);}).join("、"):"无")+'</div></div>';
     h+='<div class="ov-card"><div class="t">👥 在职 / 离职评价</div><div class="d">在职 <b>'+on+'</b> · 离职 <b>'+off+'</b> · 未知 <b>'+unk+'</b></div></div>';
-    var posTxt = pos.length ? pos.slice(0,4).map(function(x){return "• "+esc(trunc(x.it.excerpt,64));}).join("<br>") : "本周无新增正面评价。";
+    var posTxt = pos.length ? pos.slice(0,4).map(function(x){return "• "+esc(trunc(x.it.excerpt,64));}).join("<br>") : "本周期无新增正面评价。";
     h+='<div class="ov-card pos"><div class="t">✅ 整体正面点</div><div class="d">'+posTxt+'</div></div>';
-    var negTxt = neg.length ? neg.slice(0,4).map(function(x){return "• "+esc(trunc(x.it.excerpt,64));}).join("<br>") : "本周无新增负面评价。";
+    var negTxt = neg.length ? neg.slice(0,4).map(function(x){return "• "+esc(trunc(x.it.excerpt,64));}).join("<br>") : "本周期无新增负面评价。";
     h+='<div class="ov-card neg"><div class="t">⚠️ 整体负面点</div><div class="d">'+negTxt+'</div></div>';
     var miss=[];
     CATS.forEach(function(c){ if((byCat[c]||[]).length===0) miss.push(c); });
     if(pos.length===0) miss.push("无正面样本");
-    if(items.length===0) miss.push("本周无新增员工侧条目");
+    if(items.length===0) miss.push("本周期无新增员工侧条目");
     h+='<div class="ov-card miss"><div class="t">🕳️ 错失 / 缺口</div><div class="d">'+(miss.length?miss.map(function(m){return "• "+esc(m);}).join("<br>"):"无明显缺口。")+'</div></div>';
     h+='</div></div>';
 
@@ -407,15 +411,15 @@ const MONITOR_RUNS = [{"id": "run-20260803-1438", "period": "第 29 轮扫描 ·
         h+='<div class="row '+(s==="pos"?"plus":"minus")+'"><span class="lab">'+esc(it.platform||"")+' · '+(s==="pos"?"正面":s==="neg"?"负面":"中性")+'</span>'+esc(trunc(it.excerpt,70))+(it.url?' <a href="'+esc(it.url)+'" target="_blank">↗</a>':"")+'</div>';
       });
       if(a.length>3) h+='<div class="row muted">…另有 '+(a.length-3)+' 条</div>';
-      if(a.length===0) h+='<div class="row muted">本周无相关条目</div>';
+      if(a.length===0) h+='<div class="row muted">本周期无相关条目</div>';
       h+='</div>';
     });
     h+='</div></div>';
 
-    // 三·本周结论
+    // 三·结论
     var good = items.length>0 && neg.length<=pos.length;
-    h+='<div class="blk"><h2><span class="bar"></span>三、本周结论</h2>';
-    h+='<div class="verdict"><span class="tag '+(good?"good":"bad")+'">'+(good?"整体偏正面":"整体偏负面，需重点关注")+'</span>本周共捕获 <b>'+items.length+'</b> 条员工侧条目（负面 '+neg.length+' / 正面 '+pos.length+' / 中性 '+neu.length+'），覆盖 '+plats.length+' 个渠道。</div>';
+    h+='<div class="blk"><h2><span class="bar"></span>三、'+esc(h3)+'</h2>';
+    h+='<div class="verdict"><span class="tag '+(good?"good":"bad")+'">'+(good?"整体偏正面":"整体偏负面，需重点关注")+'</span>本周期共捕获 <b>'+items.length+'</b> 条员工侧条目（负面 '+neg.length+' / 正面 '+pos.length+' / 中性 '+neu.length+'），覆盖 '+plats.length+' 个渠道。</div>';
     h+='<div class="links-col">';
     pos.slice(0,6).forEach(function(x){
       h+='<div class="lrow pos"><div class="ex">'+esc(trunc(x.it.excerpt,80))+'</div>'+(x.it.url?'<a href="'+esc(x.it.url)+'" target="_blank">查看来源 ↗</a>':"");
@@ -430,34 +434,80 @@ const MONITOR_RUNS = [{"id": "run-20260803-1438", "period": "第 29 轮扫描 ·
     h+='</div></div>';
 
     // 四·HR 改善建议
-    h+='<div class="blk"><h2><span class="bar"></span>四、HR 改善建议</h2>';
+    h+='<div class="blk"><h2><span class="bar"></span>四、HR 改善建议</h2><div class="hr-grid">';
     CATS.forEach(function(c){
       var a=byCat[c]||[], cn=a.filter(function(it){return senOf(it)==="neg";}).length;
-      var lv = cn>0?"hi":"mid", lvtxt = cn>0?("本周有 "+cn+" 条负面 · 优先"):"持续关注";
+      var lv = cn>0?"hi":"mid", lvtxt = cn>0?("本周期有 "+cn+" 条负面 · 优先"):"持续关注";
       h+='<div class="hr-card"><h4>'+esc(c)+' <span class="lv '+lv+'">'+lvtxt+'</span></h4><p>'+esc(hrText(c))+'</p></div>';
     });
-    h+='</div>';
+    h+='</div></div>';
 
-    var el=document.getElementById(targetId); if(el) el.innerHTML=h;
+    return h;
   }
 
-  var thisRange = fmt(new Date(thisStart))+" ~ "+fmt(new Date(END));
-  var lastRange = fmt(new Date(lastStart))+" ~ "+fmt(new Date(thisStart));
-  var wr=document.getElementById("wkRange");
-  if(wr) wr.textContent="本周："+thisRange+" ｜ 上周："+lastRange;
+  function doughnut(id, labels, data, colors){
+    var el=document.getElementById(id); if(!el||!window.Chart) return;
+    new Chart(el,{type:"doughnut",data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderWidth:0}]},
+      options:{plugins:{legend:{position:"bottom",labels:{font:{size:10},boxWidth:10}},tooltip:{}},cutout:"56%",responsive:true,maintainAspectRatio:false}});
+  }
+  function bar(id, labels, data, color){
+    var el=document.getElementById(id); if(!el||!window.Chart) return;
+    new Chart(el,{type:"bar",data:{labels:labels,datasets:[{data:data,backgroundColor:color,borderRadius:4}]},
+      options:{plugins:{legend:{display:false},tooltip:{}},scales:{x:{ticks:{font:{size:9}}},y:{beginAtZero:true,ticks:{font:{size:9},precision:0}}},responsive:true,maintainAspectRatio:false}});
+  }
+  function drawCharts(){
+    var cNeg=emp.filter(function(x){return senOf(x.it)==="neg";}).length;
+    var cPos=emp.filter(function(x){return senOf(x.it)==="pos";}).length;
+    var cNeu=emp.filter(function(x){return senOf(x.it)==="neu";}).length;
+    doughnut("chartSent", ["正面","负面","中性"], [cPos,cNeg,cNeu], ["#1f9d63","#e23b3b","#2b5cff"]);
+    var platCount={};
+    emp.forEach(function(x){ var p=x.it.platform||"未知"; platCount[p]=(platCount[p]||0)+1; });
+    var arr=Object.keys(platCount).map(function(k){return [k,platCount[k]];}).sort(function(a,b){return b[1]-a[1];});
+    var top=arr.slice(0,6), other=arr.slice(6).reduce(function(s,a){return s+a[1];},0);
+    var plabels=top.map(function(a){return a[0];}), pdata=top.map(function(a){return a[1];});
+    if(other>0){ plabels.push("其他"); pdata.push(other); }
+    bar("chartPlat", plabels, pdata, "#2b5cff");
+    var catCount={}; CATS.forEach(function(c){catCount[c]=0;});
+    emp.forEach(function(x){ var c=catOf(x.it); if(catCount[c]!==undefined) catCount[c]++; });
+    bar("chartCat", CATS.map(function(c){return c.length>5?c.slice(0,5):c;}), CATS.map(function(c){return catCount[c];}), "#7a5cff");
+  }
 
-  renderWeek(thisWk, thisRange, "panelThis");
-  renderWeek(lastWk, lastRange, "panelLast");
+  // ---- 模式调度 ----
+  var currentMode="this";
+  function render(){
+    var title, range, items, html;
+    if(currentMode==="last"){
+      items=lastWk; title="上周看板"; range=lastRange;
+      html = snapshotHtml(items,lastRange,"上周快照") + sectionsHtml(items,lastRange,"上周结论");
+    } else if(currentMode==="all"){
+      items=emp; title="累计汇总"; range="数据截至 "+fmt(new Date(END));
+      html = cumHtml() + sectionsHtml(items,"历史至今","总体结论");
+    } else {
+      items=thisWk; title="本周看板"; range=thisRange;
+      html = snapshotHtml(items,thisRange,"本周快照") + sectionsHtml(items,thisRange,"本周结论");
+    }
+    var vt=document.getElementById("viewTitle"); if(vt) vt.textContent=title;
+    var vr=document.getElementById("viewRange"); if(vr) vr.textContent=range;
+    var v=document.getElementById("view"); if(v) v.innerHTML=html;
+    if(currentMode==="all") drawCharts();
+  }
 
-  var radios=document.querySelectorAll('input[name=wk]');
-  Array.prototype.forEach.call(radios, function(r){
-    r.addEventListener("change", function(e){
-      var v=e.target.value;
-      var t=document.getElementById("panelThis"), l=document.getElementById("panelLast");
-      if(t) t.style.display = v==="this"?"block":"none";
-      if(l) l.style.display = v==="last"?"block":"none";
+  // ---- 初始化：周期文案 + 导航 ----
+  var rgT=document.getElementById("rgThis"); if(rgT) rgT.textContent=thisRange;
+  var rgL=document.getElementById("rgLast"); if(rgL) rgL.textContent=lastRange;
+  var sr=document.getElementById("sideRange");
+  if(sr) sr.textContent="本周 "+thisRange+" ｜ 上周 "+lastRange+" ｜ 汇总 历史至今（数据截至 "+fmt(new Date(END))+"）";
+
+  var btns=document.querySelectorAll("#nav .nav-btn");
+  Array.prototype.forEach.call(btns, function(b){
+    b.addEventListener("click", function(){
+      currentMode=b.getAttribute("data-mode");
+      Array.prototype.forEach.call(btns, function(x){ x.classList.remove("active"); });
+      b.classList.add("active");
+      render();
     });
   });
+  render();
 })();
 
 </script>
