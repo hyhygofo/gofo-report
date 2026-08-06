@@ -279,7 +279,6 @@
       <header class="hero">
         <h1>GUS 员工体验社媒洞察报告</h1>
         <p class="source-line">信息来源：小红书 / 领英 / Indeed / 本地华人网</p>
-        <p class="search-scope">搜索范围：GOFO / GUS · 仅美国 · 仅 GOFO 自有员工（在职 / 离职） · 招聘 · 人才发展培训 · 绩效激励 · 薪酬福利 · 员工关系</p>
       </header>
 
       <div id="view"><!-- JS 注入 --></div>
@@ -467,7 +466,6 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
   // ---- summary 卡（周 / 累计） ----
   function summaryCard(items, isWeek, label){
     var s=split(items);
-    var plats=uniq(items.map(function(x){return x.it.platform;}));
     var verdictTxt, cls="summary card"+(isWeek?" week":"");
     if(!items.length){ verdictTxt="<strong>本周期无新增。</strong>所选周期内未捕获符合口径的员工侧新增条目。"; }
     else if(s.neg.length>s.pos.length){ verdictTxt="<strong>不好。</strong>共 "+items.length+" 条有效条目，其中负面 "+s.neg.length+" 条、正面 "+s.pos.length+" 条、中性 "+s.neu.length+" 条，整体偏负。"; }
@@ -476,7 +474,6 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
 
     var posTxt = s.pos.length ? s.pos.slice(0,3).map(function(x){return esc(trunc(cleanExcerpt(x.it.excerpt),70));}).join("；") : "未发现可核验的正面自有员工评价。";
     var negTxt = s.neg.length ? s.neg.slice(0,3).map(function(x){return esc(trunc(cleanExcerpt(x.it.excerpt),70));}).join("；") : "未发现新增负面自有员工评价。";
-    var siteTxt = plats.length ? plats.map(function(p){return esc(p);}).join("、")+"（共 "+plats.length+" 个渠道）" : "本周期无渠道命中。";
 
     var h='<article class="'+cls+'">';
     if(label) h+='<h3>'+esc(label)+'</h3>';
@@ -484,7 +481,6 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     h+='<dt>整体</dt><dd>'+verdictTxt+'</dd>';
     h+='<dt>正面</dt><dd>'+posTxt+'</dd>';
     h+='<dt>负面</dt><dd>'+negTxt+'</dd>';
-    h+='<dt>网站</dt><dd>'+siteTxt+'</dd>';
     h+='</dl></article>';
     return h;
   }
