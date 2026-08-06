@@ -150,6 +150,14 @@
   .status-ok { color: var(--green); }
   .muted { color: var(--muted); font-size: 12px; }
   .theme-tag { display: inline-block; margin: 3px 0 0 6px; font-size: 12px; color: var(--navy); background: #eef1f7; padding: 2px 8px; border-radius: 4px; line-height: 1.5; }
+  .priority-table { width:100%; border-collapse:collapse; margin-top:8px; font-size:13px; }
+  .priority-table th,.priority-table td { padding:10px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+  .priority-table th { background:#f5f7fa; color:var(--navy); font-weight:600; white-space:nowrap; }
+  .priority-table tr:nth-child(even) td { background:#fafbfc; }
+  .priority-table .p0{color:var(--red);font-weight:700;font-size:14px;}
+  .priority-table .p1{color:var(--gold-raw,#b8860b);font-weight:700;}
+  .priority-table .p2{color:var(--muted);font-weight:600;}
+  .priority-table .impact{color:var(--red);font-size:12px;line-height:1.5;}
 
   .note { margin-top: 16px; padding: 15px 18px; border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; background: var(--gold-soft); color: #5c4b19; font-size: 13px; }
   footer { margin-top: 26px; color: var(--muted); font-size: 12px; text-align: center; }
@@ -575,6 +583,28 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     var dim=dimensions(emp,false);
     h+='<section class="section"><h2 class="section-title">累计细分维度 <small>领导视角 5 类</small></h2>'+dim.html+'</section>';
     h+='<section class="section"><h2 class="section-title">HR核心举措</h2>'+coreActions(dim,false)+'</section>';
+    h+='<section class="section"><h2 class="section-title">问题优先级矩阵</h2>'+priorityMatrix()+'</section>';
+    return h;
+  }
+
+  // ---- 问题优先级矩阵 ----
+  function priorityMatrix(){
+    var rows=[
+      ["P0","运营体系腐败","留学生运营收黑钱、切线牟利，已形成系统性腐败链","DSP 大规模流失、法律诉讼、DOJ 调查"],
+      ["P0","非法用工","雇佣无工卡人员、现金支付规避监管，员工已直接曝光","ICE 调查、巨额罚款、刑事责任"],
+      ["P0","无偿劳动（理货）","每天 2-5 小时无薪工作，涉及数千名司机 × 每年约 1000 小时","集体诉讼（Wage Theft）、劳工部调查"],
+      ["P1","薪酬拖欠与克扣","离职拖欠工资、篡改工时、80%工资事件（孟菲斯）","员工集体维权、媒体曝光、WREG 级负面报道"],
+      ["P1","管理人才断层","初级管理者零培训、无经验，三个月无人能坚持","运营效率崩溃、服务质量螺旋下降"],
+      ["P2","IT 能力与本地化不足","系统依赖国内远程修复 Bug，\"科技驱动\"名不副实","竞争力下降、客户流失"],
+      ["P2","职场生态环境","帮派文化、脏乱宿舍、无休息室、压抑氛围","雇主品牌崩塌、招聘困难"],
+      ["P2","强制开荒 + DSP 压榨","以威胁切线路为手段逼迫 DSP 去新城市开荒","DSP 合作关系恶化、爆发更多\"起义\""]
+    ];
+    var h='<table class="priority-table"><thead><tr><th>优先级</th><th>问题</th><th>严重程度说明</th><th>可能后果</th></tr></thead><tbody>';
+    rows.forEach(function(r){
+      var cls=r[0]==="P0"?"p0":r[0]==="P1"?"p1":"p2";
+      h+='<tr><td class="'+cls+'">'+esc(r[0])+'</td><td><b>'+esc(r[1])+'</b></td><td>'+esc(r[2])+'</td><td class="impact">'+esc(r[3])+'</td></tr>';
+    });
+    h+='</tbody></table>';
     return h;
   }
 
