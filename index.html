@@ -441,10 +441,12 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     });
     var tops=Object.keys(hits).sort(function(a,b){return hits[b]-hits[a];}).slice(0,3);
     var themeHtml=tops.length?'<span class="theme-tag">主要反映：'+tops.map(function(t){return esc(t);}).join('\u3001')+'</span>':'';
-    var rep=esc(trunc((items[0].it.excerpt||""),38));
-    var link=items[0].it.url?' <a target="_blank" rel="noopener" href="'+esc(items[0].it.url)+'">来源\u2192</a>':'';
-    return '<p><b>'+items.length+' \u6761</b>'+themeHtml+'</p>'
-      +(rep?'<p class="muted">\u4F8B\uFF1A'+rep+'…'+link+'</p>':'');
+    var lines=items.map(function(x){
+      var ex=esc(trunc(x.it.excerpt||"",40));
+      var url=x.it.url?' <a target="_blank" rel="noopener" href="'+esc(x.it.url)+'">来源\u2192</a>':' <span class="muted">(无链接)</span>';
+      return '<p class="muted">\u4F8B\uFF1A'+ex+url+'</p>';
+    }).join("");
+    return '<p><b>'+items.length+' \u6761</b>'+themeHtml+'</p>'+lines;
   }
 
 
@@ -526,7 +528,12 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
         concl='<p><strong>中性。</strong>共 '+a.length+' 条制度 / 岗位类信号，无明确正负面员工评价。</p>';
       }
       if(a.length && s.neu.length){
-        concl+='<p class="neutral-note">另有 '+s.neu.length+' 条中性信号：'+esc(trunc(s.neu[0].it.excerpt,60))+(s.neu[0].it.url?'<a target="_blank" rel="noopener" href="'+esc(s.neu[0].it.url)+'">查看来源 ↗</a>':"")+'</p>';
+        var nlines=s.neu.map(function(x){
+          var ex=esc(trunc(x.it.excerpt||"",48));
+          var url=x.it.url?' <a target="_blank" rel="noopener" href="'+esc(x.it.url)+'">来源↗</a>':' <span class="muted">(无链接)</span>';
+          return '<p class="neutral-note">例：'+ex+url+'</p>';
+        }).join("");
+        concl+='<p class="neutral-note"><b>'+s.neu.length+' 条中性信号：</b></p>'+nlines;
       }
 
       h+='<article class="dimension card">';
