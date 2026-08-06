@@ -442,6 +442,28 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
   }
 
 
+  // ---- 摘要清洗（去掉作者/平台/日期/评分等元数据，只留关键表达） ----
+  function cleanExcerpt(raw){
+    if(!raw) return "";
+    var s=raw;
+    // 去掉评分 ★/分
+    s=s.replace(/\d+\.?\d*\s*★?\s*[\uff08(]?\s*(满分|满分评价)?\s*[\uff09)]?/g,"");
+    // 去掉日期 (2026-06-04) / (2026-07-10) 等
+    s=s.replace(/\(\d{4}[-\/]\d{1,2}[-\/]\d{1,2}\)/g,"");
+    s=s.replace(/\d{4}[-\/]\d{1,2}[-\/]\d{1,2}/g,"");
+    // 去掉平台名前缀（Glassdoor 在职 / Indeed / 小红书 @xxx / 纽约工作网）
+    s=s.replace(/^(Glassdoor|Indeed|LinkedIn|小红书|领英|本地华人网|纽约工作网|SimplyHired|PissedConsumer|BBB|Reddit|美卡论坛|stage1st)\s*(在职|在招|@.*?[）\s]|[:\s])/gi,"");
+    s=s.replace(/@\w{5,20}/g,"");
+    // 去掉作者名模式（Lew…、Anonymous、Ayden, NC 等短名+逗号/括号）
+    s=s.replace(/^[A-Z][a-z]+(?:,\s*[A-Z]{2})?(?:,\s*\w+)?(?=\s*[：:;，])/g,"");
+    s=s.replace(/^[《][^》]+[》]\s*/g,"");
+    // 去掉残留的括号内元数据
+    s=s.replace(/[\uff08(][^)]{0,40}?[\uff09)]/g,function(m){ if(/^(初级|高级|正职|兼职|全职|司机|仓库|Hub|Station|Management|Office)/.test(m)) return m; return ""; });
+    // 清理多余空格和标点
+    s=s.replace(/\s{2,}/g," ").replace(/^[；;\s，,]+|[；;\s，,]+$/g,"").trim();
+    return s;
+  }
+
   // ---- summary 卡（周 / 累计） ----
   function summaryCard(items, isWeek, label){
     var s=split(items);
@@ -452,8 +474,8 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     else if(s.pos.length>s.neg.length){ verdictTxt="<strong>偏正。</strong>共 "+items.length+" 条有效条目，正面 "+s.pos.length+" 条多于负面 "+s.neg.length+" 条。"; cls+=" ok"; }
     else { verdictTxt="<strong>以中性信号为主。</strong>共 "+items.length+" 条有效条目（负面 "+s.neg.length+" / 正面 "+s.pos.length+" / 中性 "+s.neu.length+"）。"; cls+=" ok"; }
 
-    var posTxt = s.pos.length ? s.pos.slice(0,3).map(function(x){return esc(trunc(x.it.excerpt,70));}).join("；") : "未发现可核验的正面自有员工评价。";
-    var negTxt = s.neg.length ? s.neg.slice(0,3).map(function(x){return esc(trunc(x.it.excerpt,70));}).join("；") : "未发现新增负面自有员工评价。";
+    var posTxt = s.pos.length ? s.pos.slice(0,3).map(function(x){return esc(trunc(cleanExcerpt(x.it.excerpt),70));}).join("；") : "未发现可核验的正面自有员工评价。";
+    var negTxt = s.neg.length ? s.neg.slice(0,3).map(function(x){return esc(trunc(cleanExcerpt(x.it.excerpt),70));}).join("；") : "未发现新增负面自有员工评价。";
     var siteTxt = plats.length ? plats.map(function(p){return esc(p);}).join("、")+"（共 "+plats.length+" 个渠道）" : "本周期无渠道命中。";
 
     var h='<article class="'+cls+'">';
