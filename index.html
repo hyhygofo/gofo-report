@@ -98,7 +98,7 @@
   .summary dd { margin: 0; color: #28374d; }
   .week-link { margin: 9px 0 0; font-weight: 700; }
 
-  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin-top: 11px; }
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 11px; }
   .metric { padding: 12px 13px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
   .metric .number { display: block; font-size: 24px; font-weight: 850; line-height: 1.15; }
   .metric .label { color: var(--muted); font-size: 12px; }
@@ -298,7 +298,7 @@
       <div class="note">
         <b>调研说明与局限：</b>本报告仅对 <b>4 个渠道</b>（小红书 / 领英 / Indeed / 本地华人网）中
         <b>美国地区、与 HR 相关、且为 GOFO 自有员工（在职 / 离职）</b>的公开言论做分类汇总；
-        <b>司机 / DSP / 包裹 / 消费者投诉类内容已剔除</b>。周视图按自然周（周一至周日）统计所选周期内的新增员工侧条目，汇总为历史至今累计。
+        <b>司机 / DSP / 包裹 / 消费者投诉、招聘广告及中性信号均不纳入</b>，仅呈现员工侧的<b>负面与正面</b>评价，并按领导视角 7 类（招聘类 / 人才发展·培训 / 绩效激励 / 薪酬福利 / 员工关系 / 帮派 / 小团队）归类。周视图按自然周（周一至周日）统计所选周期内的新增员工侧条目，汇总为历史至今累计。
         用户陈述��未作独立事实核验，存在主观性与幸存者偏差，仅供内部参考。数据由自动化每日刷新。
       </div>
 
@@ -364,10 +364,12 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     return "unk";
   }
 
-  var CATS=["员工关系","薪酬福利","招聘类","人才发展 / 培训","绩效激励"];
+  var CATS=["员工关系","薪酬福利","招聘类","人才发展 / 培训","绩效激励","帮派","小团队"];
   function catOf(it){
     var t=((it.theme||"")+" "+(it.excerpt||"")+" "+(it.platform||"")).toLowerCase();
-    if(/员工关系|劳动关系|劳动|解雇|开除|辞退|投诉|歧视|工会|申诉|反馈|氛围|文化|人情|工作环境|安全|派系|针对|报复|pua|压榨/.test(t)) return "员工关系";
+    if(/帮派|派系|内斗|权斗|山头|拉帮结派|结党|站队|针对报复|整人|搞人|排挤异己/.test(t)) return "帮派";
+    if(/小团队|小团体|小圈子|自己人|亲信|任人唯亲|裙带|关系户|抱团排外|拉小圈子/.test(t)) return "小团队";
+    if(/员工关系|劳动关系|劳动|解雇|开除|辞退|投诉|歧视|工会|申诉|反馈|氛围|文化|人情|工作环境|安全|针对|报复|pua|压榨|排挤/.test(t)) return "员工关系";
     if(/招聘|recruit|hiring|面试|配置|岗位|sponsor|h1b|签证|人才画像|储备站长|站点培训生|站长|规划|编制|headcount/.test(t)) return "招聘类";
     if(/培训|training|培养|轮岗|导师|mentor|onboarding|入职|带教|新手|sop/.test(t)) return "人才发展 / 培训";
     if(/绩效|kpi|考核|晋升|调薪|激励|奖金|评优|目标|过程报表|周报|月报|评审/.test(t)) return "绩效激励";
@@ -379,17 +381,20 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     "薪酬福利":"审计工资、工时与末次工资；统一招聘广告口径与一线实发，建立工资争议快速响应通道。",
     "招聘类":"统一 JD、面试反馈 SLA 与签证支持书面口径；规范招聘话术与预期管理，缩短面试到入职周期。",
     "人才发展 / 培训":"落实储备站长轮岗与 Training Specialist 培养体系；启动站点经理 30-60-90 天管理认证。",
-    "绩效激励":"建立目标、证据、校准与申诉流程；避免「为冲量压价」，将员工体验与质量指标纳入管理者考核。"
+    "绩效激励":"建立目标、证据、校准与申诉流程；避免「为冲量压价」，将员工体验与质量指标纳入管理者考核。",
+    "帮派":"厘清派系与针对报复问题，建立独立举报与反报复机制；对站点与区域管理层开展利益冲突及团队管理专项审查。",
+    "小团队":"治理小团体与任人唯亲，推行公开竞聘与常态化轮岗；将团队包容度与跨组协作纳入管理者考核。"
   };
-  var HRSLA={"员工关系":"7天","薪酬福利":"14天","招聘类":"30天","人才发展 / 培训":"30天","绩效激励":"30天"};
+  var HRSLA={"员工关系":"7天","薪酬福利":"14天","招聘类":"30天","人才发展 / 培训":"30天","绩效激励":"30天","帮派":"7天","小团队":"14天"};
 
   // ---- 打平 ----
   var flat=[];
   RUNS.forEach(function(r){
     (r.items||[]).forEach(function(it){ flat.push({it:it, rt:parseT(r.runTime), base:!!r.isBaseline}); });
   });
-  var emp = flat.filter(function(x){ return isEmp(x.it); });
-  var times = emp.map(function(x){ return x.rt; }).filter(Boolean);
+  var empAll = flat.filter(function(x){ return isEmp(x.it); });
+  var emp = empAll.filter(function(x){ return senOf(x.it)!=="neu"; });
+  var times = empAll.map(function(x){ return x.rt; }).filter(Boolean);
   var ENDD = times.length ? new Date(Math.max.apply(null,times)) : new Date();
 
   var thisS = weekStart(ENDD);
@@ -515,9 +520,9 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     var s=split(items);
     var verdictTxt, cls="summary card"+(isWeek?" week":"");
     if(!items.length){ verdictTxt="<strong>本周期无新增。</strong>所选周期内未捕获符合口径的员工侧新增条目。"; }
-    else if(s.neg.length>s.pos.length){ verdictTxt="<strong>不好。</strong>共 "+items.length+" 条有效条目，其中负面 "+s.neg.length+" 条、正面 "+s.pos.length+" 条、中性 "+s.neu.length+" 条，整体偏负。"; }
+    else if(s.neg.length>s.pos.length){ verdictTxt="<strong>不好。</strong>共 "+items.length+" 条有效条目，其中负面 "+s.neg.length+" 条、正面 "+s.pos.length+" 条，整体偏负。"; }
     else if(s.pos.length>s.neg.length){ verdictTxt="<strong>偏正。</strong>共 "+items.length+" 条有效条目，正面 "+s.pos.length+" 条多于负面 "+s.neg.length+" 条。"; cls+=" ok"; }
-    else { verdictTxt="<strong>以中性信号为主。</strong>共 "+items.length+" 条有效条目（负面 "+s.neg.length+" / 正面 "+s.pos.length+" / 中性 "+s.neu.length+"）。"; cls+=" ok"; }
+    else { verdictTxt="<strong>正负相当。</strong>共 "+items.length+" 条有效条目（负面 "+s.neg.length+" / 正面 "+s.pos.length+"）。"; cls+=" ok"; }
 
     var posTxt = s.pos.length ? s.pos.slice(0,3).map(function(x){return esc(trunc(cleanExcerpt(x.it.excerpt),70));}).join("；") : "未发现可核验的正面自有员工评价。";
     var negTxt = s.neg.length ? s.neg.slice(0,3).map(function(x){return esc(trunc(cleanExcerpt(x.it.excerpt),70));}).join("；") : "未发现新增负面自有员工评价。";
@@ -557,17 +562,13 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
         concl='<p><strong>不好。</strong>本维度是'+(isWeek?"本周":"累计")+'最突出的员工体验风险，共 '+a.length+' 条（负面 '+s.neg.length+'），待内部核验。</p>';
       } else if(s.neg.length>0){
         sig=isWeek?"本周偏负":"累计偏负";
-        concl='<p><strong>偏负。</strong>共 '+a.length+' 条（负面 '+s.neg.length+' / 正面 '+s.pos.length+' / 中性 '+s.neu.length+'）。</p>';
+        concl='<p><strong>偏负。</strong>共 '+a.length+' 条（负面 '+s.neg.length+' / 正面 '+s.pos.length+'）。</p>';
       } else if(s.pos.length>0){
         sig=isWeek?"本周偏正":"累计偏正"; sigCls+=" ok";
         concl='<p><strong>偏正。</strong>共 '+a.length+' 条，未见负面，正面 '+s.pos.length+' 条。</p>';
       } else {
-        sig="中性信号"; sigCls+=" neutral";
-        concl='<p><strong>中性。</strong>共 '+a.length+' 条制度 / 岗位类信号，无明确正负面员工评价。</p>';
-      }
-      if(a.length && s.neu.length){
-        concl+='<p class="neutral-note"><b>'+s.neu.length+' 条中性信号</b>'+neuThemeTags(s.neu)+'</p>';
-        concl+='<div class="post-picker neutral-picker">'+postSelect(s.neu)+'</div>';
+        sig="其他信号"; sigCls+=" neutral";
+        concl='<p>共 '+a.length+' 条，未归入明确正负面。</p>';
       }
 
       h+='<article class="dimension card">';
@@ -605,7 +606,7 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     h+='<section class="section"><h2 class="section-title">'+(isCurrent?"本周":"上周")+' W'+wno+' 结论 <small>'+esc(range)+(isCurrent?" · 采集中":"")+'</small></h2>';
     h+='<div class="summary-grid single">'+summaryCard(items,true,"")+'</div></section>';
     var dim=dimensions(items,true);
-    h+='<section class="section"><h2 class="section-title">细分维度 <small>领导视角 5 类</small></h2>'+dim.html+'</section>';
+    h+='<section class="section"><h2 class="section-title">细分维度 <small>领导视角 7 类</small></h2>'+dim.html+'</section>';
     h+='<section class="section"><h2 class="section-title">HR核心举措</h2>'+coreActions(dim,true)+'</section>';
     return h;
   }
@@ -619,10 +620,9 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
       +'<div class="metric"><span class="number">'+emp.length+'</span><span class="label">累计有效样本</span></div>'
       +'<div class="metric negative"><span class="number">'+s.neg.length+'</span><span class="label">累计负面</span></div>'
       +'<div class="metric positive"><span class="number">'+s.pos.length+'</span><span class="label">累计正面</span></div>'
-      +'<div class="metric"><span class="number">'+s.neu.length+'</span><span class="label">累计中性</span></div>'
       +'</div></section>';
     var dim=dimensions(emp,false);
-    h+='<section class="section"><h2 class="section-title">累计细分维度 <small>领导视角 5 类</small></h2>'+dim.html+'</section>';
+    h+='<section class="section"><h2 class="section-title">累计细分维度 <small>领导视角 7 类</small></h2>'+dim.html+'</section>';
     h+='<section class="section"><h2 class="section-title">HR核心举措</h2>'+coreActions(dim,false)+'</section>';
     h+='<section class="section"><h2 class="section-title">问题优先级矩阵</h2>'+priorityMatrix()+'</section>';
     return h;
@@ -672,7 +672,7 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
       var lvlTxt=lvl(n);
       var cls=lvlTxt==="P0"?"p0":lvlTxt==="P1"?"p1":"p2";
       var pct=allNeg?Math.round(n/allNeg*100):0;
-      var sev='累计 '+tot+' 条（负面 '+n+(allNeg?('，占全部负面 '+pct+'%') : '')+' / 正面 '+p+' / 中性 '+nu+'）';
+      var sev='累计 '+tot+' 条（负面 '+n+(allNeg?('，占全部负面 '+pct+'%') : '')+(nu?(' / 中性 '+nu):'')+' / 正面 '+p+'）';
       var s1=sym(b.neg);
       h+='<tr><td class="'+cls+'">'+lvlTxt+'</td>'
         +'<td><b>'+esc(c)+'</b>'+(s1?'<br><span class="theme-tag">'+s1+'</span>':'')+'</td>'
