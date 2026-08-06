@@ -109,7 +109,7 @@
   .dimension { padding: 0; overflow: hidden; }
   .dimension-head { display: flex; justify-content: space-between; gap: 16px; padding: 17px 21px; border-bottom: 1px solid var(--line); background: linear-gradient(90deg, #f8fbfe, #fff); }
   .dimension-head h3 { margin: 0; font-size: 19px; }
-  .signal { align-self: center; white-space: nowrap; padding: 4px 9px; border-radius: 999px; color: var(--red); background: var(--red-soft); font-size: 12px; font-weight: 800; }
+  .signal { align-self: center; white-space: nowrap; padding: 3px 7px; border-radius: 999px; color: var(--red); background: var(--red-soft); font-size: 12px; font-weight: 800; }
   .signal.ok { color: var(--green); background: var(--green-soft); }
   .signal.none { color: var(--muted); background: #f1f4f8; }
   .signal.neutral { color: var(--gold); background: var(--gold-soft); }
@@ -123,7 +123,7 @@
   .source-links { font-size: 13px; }
   .feedback-block { min-width: 0; }
   .feedback-columns { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; }
-  .feedback-panel { min-width: 0; padding: 9px 10px; }
+  .feedback-panel { min-width: 0; padding: 8px 9px; }
   .feedback-panel + .feedback-panel { border-left: 1px solid var(--line); }
   .feedback-panel.positive { background: #f3faf6; }
   .feedback-panel.negative { background: #fff6f6; }
@@ -150,8 +150,8 @@
   .status-ok { color: var(--green); }
   .muted { color: var(--muted); font-size: 12px; }
   .theme-tag { display: inline-block; margin: 3px 0 0 6px; font-size: 12px; color: var(--navy); background: #eef1f7; padding: 2px 8px; border-radius: 4px; line-height: 1.5; }
-  .priority-table { width:100%; border-collapse:collapse; margin-top:8px; font-size:13px; }
-  .priority-table th,.priority-table td { padding:10px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+  .priority-table { width:100%; border-collapse:collapse; margin-top:6px; font-size:12.5px; }
+  .priority-table th,.priority-table td { padding:8px 10px; border:1px solid var(--line); text-align:left; vertical-align:top; }
   .priority-table th { background:#f5f7fa; color:var(--navy); font-weight:600; white-space:nowrap; }
   .priority-table tr:nth-child(even) td { background:#fafbfc; }
   .priority-table .p0{color:var(--red);font-weight:700;font-size:14px;}
@@ -159,8 +159,8 @@
   .priority-table .p2{color:var(--muted);font-weight:600;}
   .priority-table .impact{color:var(--red);font-size:12px;line-height:1.5;}
 
-  .note { margin-top: 16px; padding: 15px 18px; border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; background: var(--gold-soft); color: #5c4b19; font-size: 13px; }
-  footer { margin-top: 26px; color: var(--muted); font-size: 12px; text-align: center; }
+  .note { margin-top: 12px; padding: 12px 14px; border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; background: var(--gold-soft); color: #5c4b19; font-size: 13px; }
+  footer { margin-top: 20px; color: var(--muted); font-size: 12px; text-align: center; }
 
   @media (max-width: 900px) {
     .metrics, .coverage { grid-template-columns: repeat(2, 1fr); }
@@ -215,29 +215,29 @@
   .time-option strong { display: block; font-size: 13px; line-height: 1.35; }
   .time-option small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; line-height: 1.35; }
   .time-option .live { color: var(--gold); }
-  .wrap { width: 100%; margin: 18px 0 42px; min-width: 0; }
-  .hero { padding: 25px 29px 23px; border-radius: 18px; }
+  .wrap { width: 100%; margin: 14px 0 26px; min-width: 0; }
+  .hero { padding: 16px 20px 14px; border-radius: 14px; }
   h1 { font-size: clamp(30px, 4vw, 44px); }
-  .source-line { margin-top: 9px; font-size: 13px; }
-  .section { margin-top: 16px; }
-  .section-title { margin-bottom: 9px; font-size: 20px; }
-  .summary-grid { gap: 10px; }
+  .source-line { margin-top: 6px; font-size: 13px; }
+  .section { margin-top: 11px; }
+  .section-title { margin-bottom: 6px; font-size: 19px; }
+  .summary-grid { gap: 8px; }
   .summary-grid.single { grid-template-columns: 1fr; }
-  .summary { padding: 17px 18px; }
-  .summary h3 { margin-bottom: 10px; font-size: 17px; }
-  .summary dl { grid-template-columns: 58px 1fr; gap: 6px 5px; font-size: 13px; }
-  .metrics { gap: 8px; margin-top: 9px; }
-  .metric { padding: 11px 13px; }
-  .metric .number { font-size: 22px; }
-  .core-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .core-action { padding: 12px 13px; }
+  .summary { padding: 12px 14px; }
+  .summary h3 { margin-bottom: 7px; font-size: 16px; }
+  .summary dl { grid-template-columns: 58px 1fr; gap: 4px 4px; font-size: 12px; }
+  .metrics { gap: 6px; margin-top: 7px; }
+  .metric { padding: 9px 11px; }
+  .metric .number { font-size: 21px; }
+  .core-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .core-action { padding: 10px 11px; }
   .core-action b { display: block; margin-bottom: 3px; color: var(--navy); font-size: 13px; }
   .core-action p { margin: 0; color: #39475b; font-size: 12px; line-height: 1.5; }
-  .dimension-list { gap: 9px; }
-  .dimension-head { padding: 12px 15px; }
+  .dimension-list { gap: 7px; }
+  .dimension-head { padding: 10px 12px; }
   .dimension-head h3 { font-size: 16px; }
-  .dimension-body > div { padding: 13px 15px 14px; }
-  .dimension p { margin-bottom: 6px; font-size: 13px; }
+  .dimension-body > div { padding: 11px 13px 12px; }
+  .dimension p { margin-bottom: 5px; font-size: 13px; }
   .label { font-size: 11px !important; }
   .empty-week { color: var(--muted); font-weight: 800; }
   [hidden] { display: none !important; }
@@ -587,27 +587,61 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     return h;
   }
 
-  // ---- 问题优先级矩阵 ----
+  // ---- 问题优先级矩阵（按监测实据动态排序） ----
   function priorityMatrix(){
-    var rows=[
-      ["P0","运营体系腐败","留学生运营收黑钱、切线牟利，已形成系统性腐败链","DSP 大规模流失、法律诉讼、DOJ 调查"],
-      ["P0","非法用工","雇佣无工卡人员、现金支付规避监管，员工已直接曝光","ICE 调查、巨额罚款、刑事责任"],
-      ["P0","无偿劳动（理货）","每天 2-5 小时无薪工作，涉及数千名司机 × 每年约 1000 小时","集体诉讼（Wage Theft）、劳工部调查"],
-      ["P1","薪酬拖欠与克扣","离职拖欠工资、篡改工时、80%工资事件（孟菲斯）","员工集体维权、媒体曝光、WREG 级负面报道"],
-      ["P1","管理人才断层","初级管理者零培训、无经验，三个月无人能坚持","运营效率崩溃、服务质量螺旋下降"],
-      ["P2","IT 能力与本地化不足","系统依赖国内远程修复 Bug，\"科技驱动\"名不副实","竞争力下降、客户流失"],
-      ["P2","职场生态环境","帮派文化、脏乱宿舍、无休息室、压抑氛围","雇主品牌崩塌、招聘困难"],
-      ["P2","强制开荒 + DSP 压榨","以威胁切线路为手段逼迫 DSP 去新城市开荒","DSP 合作关系恶化、爆发更多\"起义\""]
+    var NEG_KW=[
+      ["管理不公/派系","(管理差|micromanag|微观管理|不公|unfair|偏心|favoritism|霸凌|bully|辱骂|abuse|威胁|threaten|小团体|帮派|排挤|派系|针对|报复|pua)","i"],
+      ["薪酬/待遇不满","(低薪|欠薪|扣薪|underpaid|low pay|wage theft|unpaid|没给钱|克扣|降薪|cut pay|薪资|薪酬|工资|福利)","i"],
+      ["加班严重/强度大","(加班|overtime|overwork|长时间|long hour|没休息|no break|疲劳|fatigue|累|exhausted|超负荷|overload)","i"],
+      ["沟通不畅/信息闭塞","(沟通差|不沟通|不回应|ignore|无视|信息不通|misinform|误导|隐瞒|不透明|反馈.*差)","i"],
+      ["离职率高/留不住人","(离职|quit|resign|turnover|流失|走人|跑路|留不住|频繁换人)","i"],
+      ["工作条件差","(危险|dangerous|unsafe|没空调|no ac|设备坏|broken|破旧|脏|dirty|宿舍|休息)","i"],
+      ["歧视/骚扰","(歧视|discrim|种族|racial|性别|gender|骚扰|harassment)","i"],
+      ["招聘/入职体验","(面试|interview|入职|onboarding|招聘.*差|offer|骗|虚假|配置.*乱)","i"],
+      ["培训不足","(没培训|no train|缺乏培训|培训.*少|不会|上手难|带教.*差|sop)","i"],
+      ["绩效/考核不公","(绩效.*差|kpi.*不合理|考核.*不公|调薪.*无|晋升.*无|奖金.*少)","i"]
     ];
-    var h='<table class="priority-table"><thead><tr><th>优先级</th><th>问题</th><th>严重程度说明</th><th>可能后果</th></tr></thead><tbody>';
-    rows.forEach(function(r){
-      var cls=r[0]==="P0"?"p0":r[0]==="P1"?"p1":"p2";
-      h+='<tr><td class="'+cls+'">'+esc(r[0])+'</td><td><b>'+esc(r[1])+'</b></td><td>'+esc(r[2])+'</td><td class="impact">'+esc(r[3])+'</td></tr>';
+    var byCat={}; CATS.forEach(function(c){ byCat[c]={neg:[],pos:[],neu:[]}; });
+    emp.forEach(function(x){
+      var c=catOf(x.it), s0=senOf(x.it);
+      var b=byCat[c]||(byCat[c]={neg:[],pos:[],neu:[]}); b[s0].push(x);
+    });
+    var allNeg=emp.filter(function(x){return senOf(x.it)==="neg";}).length;
+    var order=CATS.slice().sort(function(a,b){
+      var na=byCat[a].neg.length, nb=byCat[b].neg.length;
+      if(nb!==na) return nb-na;
+      var ta=byCat[a].neg.length+byCat[a].pos.length+byCat[a].neu.length;
+      var tb=byCat[b].neg.length+byCat[b].pos.length+byCat[b].neu.length;
+      return tb-ta;
+    });
+    function lvl(n){ return n>=10?"P0":n>=3?"P1":"P2"; }
+    function sym(negs){
+      if(!negs.length) return "";
+      var hits={};
+      negs.forEach(function(x){
+        var txt=(x.it.excerpt||"")+" "+(x.it.theme||"");
+        NEG_KW.forEach(function(pr){ if(new RegExp(pr[1],pr[2]).test(txt)) hits[pr[0]]=(hits[pr[0]]||0)+1; });
+      });
+      return Object.keys(hits).sort(function(a,b){return hits[b]-hits[a];}).slice(0,2).map(function(t){return esc(t);}).join("、");
+    }
+    var h='<table class="priority-table"><thead><tr><th>优先级</th><th>问题领域（按监测实据排序）</th><th>严重程度说明</th><th>HR 应对方向</th></tr></thead><tbody>';
+    order.forEach(function(c){
+      var b=byCat[c];
+      var n=b.neg.length, p=b.pos.length, nu=b.neu.length, tot=n+p+nu;
+      var lvlTxt=lvl(n);
+      var cls=lvlTxt==="P0"?"p0":lvlTxt==="P1"?"p1":"p2";
+      var pct=allNeg?Math.round(n/allNeg*100):0;
+      var sev='累计 '+tot+' 条（负面 '+n+(allNeg?('，占全部负面 '+pct+'%') : '')+' / 正面 '+p+' / 中性 '+nu+'）';
+      var s1=sym(b.neg);
+      h+='<tr><td class="'+cls+'">'+lvlTxt+'</td>'
+        +'<td><b>'+esc(c)+'</b>'+(s1?'<br><span class="theme-tag">'+s1+'</span>':'')+'</td>'
+        +'<td>'+sev+'</td>'
+        +'<td class="impact">'+esc(HRTEXT[c]||"")+'</td></tr>';
     });
     h+='</tbody></table>';
+    h+='<p class="muted" style="margin-top:6px;">优先级按监测到的负面条目数自动排序：负面≥10 为 P0，3–9 为 P1，<3 为 P2；领域与排序随累计数据动态变化。</p>';
     return h;
   }
-
   // ---- 调度 ----
   function render(mode){
     var v=document.getElementById("view");
