@@ -150,23 +150,18 @@
   .status-bad { color: var(--red); }
   .status-ok { color: var(--green); }
 
-  .chart-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .chart-box { padding: 14px 16px 12px; }
-  .chart-box h3 { margin: 0 0 8px; font-size: 14px; color: var(--navy); }
-  .chart-canvas { position: relative; height: 190px; }
-
   .note { margin-top: 16px; padding: 15px 18px; border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; background: var(--gold-soft); color: #5c4b19; font-size: 13px; }
   footer { margin-top: 26px; color: var(--muted); font-size: 12px; text-align: center; }
 
   @media (max-width: 900px) {
-    .metrics, .coverage, .chart-grid { grid-template-columns: repeat(2, 1fr); }
+    .metrics, .coverage { grid-template-columns: repeat(2, 1fr); }
     .dimension-body { grid-template-columns: 1fr; }
     .dimension-body > div { border-right: 0; border-bottom: 1px solid var(--line); }
     .dimension-body > div:last-child { border-bottom: 0; }
   }
   @media (max-width: 650px) {
     .hero { padding: 29px 22px; border-radius: 17px; }
-    .summary-grid, .metrics, .miss-grid, .coverage, .chart-grid { grid-template-columns: 1fr; }
+    .summary-grid, .metrics, .miss-grid, .coverage { grid-template-columns: 1fr; }
     .summary dl { grid-template-columns: 62px 1fr; }
     .dimension-head { align-items: flex-start; flex-direction: column; gap: 7px; }
   }
