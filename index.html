@@ -136,6 +136,11 @@
   .sentiment-links a { display: block; }
   .neutral-note { margin-top: 5px !important; padding-top: 4px; border-top: 1px dashed var(--line); color: var(--muted); font-size: 11.5px; }
   .neutral-note a { display: inline; font-size: 11px; }
+  .post-picker { margin-top: 5px; }
+  .post-select { display:block; width:100%; margin-top:3px; padding:4px 6px; font-size:11.5px; line-height:1.45; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:8px; }
+  .post-open { display:inline-block; margin-top:4px; font-size:11.5px; font-weight:800; color:var(--blue); text-decoration:none; }
+  .post-open:hover { text-decoration:underline; }
+  .neutral-picker { padding-top:4px; }
 
   .miss-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .miss { padding: 18px 20px; }
@@ -441,21 +446,7 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     });
     var tops=Object.keys(hits).sort(function(a,b){return hits[b]-hits[a];}).slice(0,3);
     var themeHtml=tops.length?'<span class="theme-tag">主要反映：'+tops.map(function(t){return esc(t);}).join('\u3001')+'</span>':'';
-    var exCount=Math.min(items.length, items.length>3?2:99);
-    var showItems=items.slice(0,exCount);
-    var lines=showItems.map(function(x){
-      var ex=esc(trunc(x.it.excerpt||"",36));
-      var url=x.it.url?' <a target="_blank" rel="noopener" href="'+esc(x.it.url)+'">来源\u2192</a>':'';
-      return ex+'\u2026'+url;
-    }).join(" | ");
-    var moreLinks="";
-    if(items.length>exCount){
-      var rest=items.slice(exCount).map(function(x,i){
-        return x.it.url?'<a target="_blank" rel="noopener" href="'+esc(x.it.url)+'">'+(i+exCount+1)+'</a>':(i+exCount+1);
-      }).join(" ");
-      moreLinks=' <span class="muted">其余：</span>'+rest;
-    }
-    return '<p><b>'+items.length+' \u6761</b>'+themeHtml+'</p><p class="muted">'+lines+moreLinks+'</p>';
+    return '<p><b>'+items.length+' \u6761</b>'+themeHtml+'</p><div class="post-picker">'+postSelect(items)+'</div>';
   }
 
 
@@ -476,6 +467,26 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     var tops=Object.keys(hits).sort(function(a,b){return hits[b]-hits[a];}).slice(0,3);
     return tops.length?'<span class="theme-tag">主要反映：'+tops.map(function(t){return esc(t);}).join('、')+'</span>':'';
   }
+
+  // ---- 帖子链接下拉选择（替代逐条铺链接，避免版面过长） ----
+  function postSelect(items){
+    if(!items.length) return "";
+    var opts=items.map(function(x,i){
+      var sn=esc(trunc(cleanExcerpt(x.it.excerpt)||"帖子",22));
+      var v=x.it.url?esc(x.it.url):"";
+      var tag=v?"":"（无链接）";
+      return '<option value="'+v+'">帖子'+(i+1)+' \u00B7 '+sn+tag+'</option>';
+    }).join("");
+    return '<select class="post-select" onchange="__postSelect(this)">'
+      +'<option value="">\u2014 选择帖子查看链接 \u2014</option>'+opts+'</select>'
+      +'<a class="post-open" target="_blank" rel="noopener" href="#" style="display:none;">查看所选 \u2197</a>';
+  }
+  window.__postSelect=function(sel){
+    var a=sel.parentElement?sel.parentElement.querySelector(".post-open"):null;
+    if(!a) return;
+    if(sel.value){ a.setAttribute("href",sel.value); a.style.display=""; a.textContent="查看所选 \u2197"; }
+    else { a.removeAttribute("href"); a.style.display="none"; }
+  };
 
   // ---- 摘要清洗（去掉作者/平台/日期/评分等元数据，只留关键表达） ----
   function cleanExcerpt(raw){
@@ -555,12 +566,8 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
         concl='<p><strong>中性。</strong>共 '+a.length+' 条制度 / 岗位类信号，无明确正负面员工评价。</p>';
       }
       if(a.length && s.neu.length){
-        var nlines=s.neu.map(function(x){
-          var ex=esc(trunc(x.it.excerpt||"",48));
-          var url=x.it.url?' <a target="_blank" rel="noopener" href="'+esc(x.it.url)+'">来源↗</a>':' <span class="muted">(无链接)</span>';
-          return '<p class="neutral-note">例：'+ex+url+'</p>';
-        }).join("");
-        concl+='<p class="neutral-note"><b>'+s.neu.length+' 条中性信号：</b></p>'+nlines;
+        concl+='<p class="neutral-note"><b>'+s.neu.length+' 条中性信号</b>'+neuThemeTags(s.neu)+'</p>';
+        concl+='<div class="post-picker neutral-picker">'+postSelect(s.neu)+'</div>';
       }
 
       h+='<article class="dimension card">';
