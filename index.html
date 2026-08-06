@@ -481,6 +481,18 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
     ["管理透明公平","(管理好|领导好|沟通好|反馈好|公平|transparent|open door|尊重|respect)","i"],
     ["工作灵活/自主","(flexible|自由|自主|不加班|work life balance|wlb|时间灵活)","i"]
   ];
+  var NEG_KW=[
+    ["管理不公/派系","(管理差|micromanag|微观管理|不公|unfair|偏心|favoritism|霸凌|bully|辱骂|abuse|威胁|threaten|小团体|帮派|排挤|派系|针对|报复|pua)","i"],
+    ["薪酬/待遇不满","(低薪|欠薪|扣薪|underpaid|low pay|wage theft|unpaid|没给钱|克扣|降薪|cut pay|薪资|薪酬|工资|福利)","i"],
+    ["加班严重/强度大","(加班|overtime|overwork|长时间|long hour|没休息|no break|疲劳|fatigue|累|exhausted|超负荷|overload)","i"],
+    ["沟通不畅/信息闭塞","(沟通差|不沟通|不回应|ignore|无视|信息不通|misinform|误导|隐瞒|不透明|反馈.*差)","i"],
+    ["离职率高/留不住人","(离职|quit|resign|turnover|流失|走人|跑路|留不住|频繁换人)","i"],
+    ["工作条件差","(危险|dangerous|unsafe|没空调|no ac|设备坏|broken|破旧|脏|dirty|宿舍|休息)","i"],
+    ["歧视/骚扰","(歧视|discrim|种族|racial|性别|gender|骚扰|harassment)","i"],
+    ["招聘/入职体验","(面试|interview|入职|onboarding|招聘.*差|offer|骗|虚假|配置.*乱)","i"],
+    ["培训不足","(没培训|no train|缺乏培训|培训.*少|不会|上手难|带教.*差|sop)","i"],
+    ["绩效/考核不公","(绩效.*差|kpi.*不合理|考核.*不公|调薪.*无|晋升.*无|奖金.*少)","i"]
+  ];
   function topThemes(items, kwList, maxN){
     maxN=maxN||2;
     var hits={};
@@ -674,18 +686,7 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
 
   // ---- 问题优先级矩阵（按监测实据动态排序） ----
   function priorityMatrix(){
-    var NEG_KW=[
-      ["管理不公/派系","(管理差|micromanag|微观管理|不公|unfair|偏心|favoritism|霸凌|bully|辱骂|abuse|威胁|threaten|小团体|帮派|排挤|派系|针对|报复|pua)","i"],
-      ["薪酬/待遇不满","(低薪|欠薪|扣薪|underpaid|low pay|wage theft|unpaid|没给钱|克扣|降薪|cut pay|薪资|薪酬|工资|福利)","i"],
-      ["加班严重/强度大","(加班|overtime|overwork|长时间|long hour|没休息|no break|疲劳|fatigue|累|exhausted|超负荷|overload)","i"],
-      ["沟通不畅/信息闭塞","(沟通差|不沟通|不回应|ignore|无视|信息不通|misinform|误导|隐瞒|不透明|反馈.*差)","i"],
-      ["离职率高/留不住人","(离职|quit|resign|turnover|流失|走人|跑路|留不住|频繁换人)","i"],
-      ["工作条件差","(危险|dangerous|unsafe|没空调|no ac|设备坏|broken|破旧|脏|dirty|宿舍|休息)","i"],
-      ["歧视/骚扰","(歧视|discrim|种族|racial|性别|gender|骚扰|harassment)","i"],
-      ["招聘/入职体验","(面试|interview|入职|onboarding|招聘.*差|offer|骗|虚假|配置.*乱)","i"],
-      ["培训不足","(没培训|no train|缺乏培训|培训.*少|不会|上手难|带教.*差|sop)","i"],
-      ["绩效/考核不公","(绩效.*差|kpi.*不合理|考核.*不公|调薪.*无|晋升.*无|奖金.*少)","i"]
-    ];
+    // NEG_KW 已在全局定义（供 oneLineVerdict / sym 共用）
     var byCat={}; CATS.forEach(function(c){ byCat[c]={neg:[],pos:[],neu:[]}; });
     emp.forEach(function(x){
       var c=catOf(x.it), s0=senOf(x.it);
