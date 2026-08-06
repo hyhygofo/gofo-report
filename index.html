@@ -414,6 +414,12 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
   function bullets(list, n){
     return list.slice(0,n).map(function(x){ return "<p>"+esc(trunc(x.it.excerpt,90))+"</p>"; }).join("");
   }
+  function sideBrief(items, label){
+    if(!items.length) return '<p class="muted">'+label+'暂无。</p>';
+    var reps=items.slice(0,2).map(function(x){return esc(trunc(x.it.excerpt||"",40));});
+    var link=items[0].it.url?' <a target="_blank" rel="noopener" href="'+esc(items[0].it.url)+'">来源↗</a>':'';
+    return '<p><b>'+items.length+' 条</b>：'+reps.join('；')+(items.length>2?' 等':'')+link+'</p>';
+  }
 
   // ---- summary 卡（周 / 累计） ----
   function summaryCard(items, isWeek, label){
@@ -481,9 +487,9 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
       h+='<header class="dimension-head"><h3>'+(i+1)+'. '+esc(c)+'</h3><span class="'+sigCls+'">'+esc(sig)+'</span></header>';
       h+='<div class="dimension-body">';
       h+='<div><p class="label">'+(isWeek?"本周主要结论":"累计主要结论")+'</p>'+concl+'</div>';
-      h+='<div class="feedback-block"><p class="label">正面 / 负面</p><div class="feedback-columns">';
-      h+='<div class="feedback-panel positive"><b>正面</b>'+(s.pos.length?bullets(s.pos,3)+linkBlock(s.pos,"正面来源"):"<p>"+(a.length?"本维度暂无正面评价。":"无")+"</p>")+'</div>';
-      h+='<div class="feedback-panel negative"><b>负面</b>'+(s.neg.length?bullets(s.neg,3)+linkBlock(s.neg,"负面来源"):"<p>"+(a.length?"本维度暂无负面评价。":"无")+"</p>")+'</div>';
+      h+='<div class="feedback-block"><p class="label">正面 / 负面（概要）</p><div class="feedback-columns">';
+      h+='<div class="feedback-panel positive"><b>正面</b>'+(s.pos.length?sideBrief(s.pos,"正面"):"<p class=\"muted\">本维度暂无正面评价。</p>")+'</div>';
+      h+='<div class="feedback-panel negative"><b>负面</b>'+(s.neg.length?sideBrief(s.neg,"负面"):"<p class=\"muted\">本维度暂无负面评价。</p>")+'</div>';
       h+='</div></div>';
       h+='<div><p class="label">HR改善建议</p>'+(a.length?'<p class="recommend">'+esc(HRTEXT[c]||"")+'</p>':'<p class="empty-week">无</p>')+'</div>';
       h+='</div></article>';
@@ -528,48 +534,20 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
       +'<div class="metric positive"><span class="number">'+s.pos.length+'</span><span class="label">累计正面</span></div>'
       +'<div class="metric"><span class="number">'+s.neu.length+'</span><span class="label">累计中性</span></div>'
       +'</div></section>';
-    h+='<section class="section"><h2 class="section-title">累计分布 <small>情感 / 渠道 / 维度</small></h2><div class="chart-grid">'
-      +'<article class="chart-box card"><h3>情感分布</h3><div class="chart-canvas"><canvas id="chartSent"></canvas></div></article>'
-      +'<article class="chart-box card"><h3>渠道分布（Top 6）</h3><div class="chart-canvas"><canvas id="chartPlat"></canvas></div></article>'
-      +'<article class="chart-box card"><h3>维度分布</h3><div class="chart-canvas"><canvas id="chartCat"></canvas></div></article>'
-      +'</div></section>';
     var dim=dimensions(emp,false);
     h+='<section class="section"><h2 class="section-title">累计细分维度 <small>领导视角 5 类</small></h2>'+dim.html+'</section>';
     h+='<section class="section"><h2 class="section-title">HR核心举措</h2>'+coreActions(dim,false)+'</section>';
     return h;
   }
 
-  // ---- 图表 ----
-  function doughnut(id,labels,data,colors){
-    var el=document.getElementById(id); if(!el||!window.Chart) return;
-    new Chart(el,{type:"doughnut",data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderWidth:0}]},
-      options:{plugins:{legend:{position:"bottom",labels:{font:{size:10},boxWidth:10}}},cutout:"56%",responsive:true,maintainAspectRatio:false}});
-  }
-  function bar(id,labels,data,color){
-    var el=document.getElementById(id); if(!el||!window.Chart) return;
-    new Chart(el,{type:"bar",data:{labels:labels,datasets:[{data:data,backgroundColor:color,borderRadius:4}]},
-      options:{plugins:{legend:{display:false}},scales:{x:{ticks:{font:{size:9}}},y:{beginAtZero:true,ticks:{font:{size:9},precision:0}}},responsive:true,maintainAspectRatio:false}});
-  }
-  function drawCharts(){
-    var s=split(emp);
-    doughnut("chartSent",["正面","负面","中性"],[s.pos.length,s.neg.length,s.neu.length],["#26734d","#a52b2b","#2475b8"]);
-    var pc={}; emp.forEach(function(x){ var p=x.it.platform||"未知"; pc[p]=(pc[p]||0)+1; });
-    var arr=Object.keys(pc).map(function(k){return [k,pc[k]];}).sort(function(a,b){return b[1]-a[1];});
-    var top=arr.slice(0,6), other=arr.slice(6).reduce(function(t,a){return t+a[1];},0);
-    var pl=top.map(function(a){return trunc(a[0],6);}), pd=top.map(function(a){return a[1];});
-    if(other>0){ pl.push("其他"); pd.push(other); }
-    bar("chartPlat",pl,pd,"#2475b8");
-    var cc={}; CATS.forEach(function(c){cc[c]=0;});
-    emp.forEach(function(x){ var c=catOf(x.it); if(cc[c]!==undefined) cc[c]++; });
-    bar("chartCat",CATS.map(function(c){return c.replace(" / ","/").slice(0,5);}),CATS.map(function(c){return cc[c];}),"#0c294f");
-  }
+  // (图表已按需求移除：累计分布 情感/渠道/维度 图不再渲染)
 
   // ---- 调度 ----
   function render(mode){
     var v=document.getElementById("view");
     if(mode==="this") v.innerHTML=weekView(thisWk,W_THIS,rangeThis,true);
     else if(mode==="last") v.innerHTML=weekView(lastWk,W_LAST,rangeLast,false);
-    else { v.innerHTML=summaryView(); drawCharts(); }
+    else { v.innerHTML=summaryView(); }
   }
 
   document.getElementById("optSummary").textContent="累计截至 "+fmt(ENDD);
