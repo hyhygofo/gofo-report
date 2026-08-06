@@ -149,6 +149,8 @@
   .coverage p { margin: 0; color: var(--muted); font-size: 13px; }
   .status-bad { color: var(--red); }
   .status-ok { color: var(--green); }
+  .muted { color: var(--muted); font-size: 12px; }
+  .theme-tag { display: inline-block; margin: 3px 0 0 6px; font-size: 12px; color: var(--navy); background: #eef1f7; padding: 2px 8px; border-radius: 4px; line-height: 1.5; }
 
   .note { margin-top: 16px; padding: 15px 18px; border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; background: var(--gold-soft); color: #5c4b19; font-size: 13px; }
   footer { margin-top: 26px; color: var(--muted); font-size: 12px; text-align: center; }
@@ -411,10 +413,34 @@ const MONITOR_RUNS = [{"id": "run-20260806-1700", "period": "第 33 轮扫描 ·
   }
   function sideBrief(items, label){
     if(!items.length) return '<p class="muted">'+label+'暂无。</p>';
-    var reps=items.slice(0,2).map(function(x){return esc(trunc(x.it.excerpt||"",40));});
-    var link=items[0].it.url?' <a target="_blank" rel="noopener" href="'+esc(items[0].it.url)+'">来源↗</a>':'';
-    return '<p><b>'+items.length+' 条</b>：'+reps.join('；')+(items.length>2?' 等':'')+link+'</p>';
+    var isPos=(label==="正面");
+    var kwList=isPos?[
+      ["薪酬透明/有竞争力","(薪酬|薪资|工资|pay|salary|wage|bonus|福利|benefit|涨薪|加薪|时薪|hourly|OPT|H1B|sponsor)","i"],
+      ["管理友好/支持","(管理.*好|manager.*good|友好|supportive|尊重|respect|沟通.*好|透明|transparent|反馈.*积极)","i"],
+      ["工作环境尚可","(环境.*ok|safe|设备.*够|warehouse.*ok|hub.*ok)","i"],
+      ["培训与发展","(培训|train|发展|develop|成长|grow|learn|学习|career|晋升|promot|SOP)","i"]
+    ]:[
+      ["管理问题/不公平","(管理差|micromanag|微观管理|不公|unfair|偏心|favoritism|霸凌|bully|辱骂|abuse|威胁|threaten|小团体|帮派|排挤)","i"],
+      ["薪酬/待遇不满","(低薪|欠薪|扣薪|underpaid|low pay|wage theft|unpaid|没给钱|克扣|降薪|cut pay)","i"],
+      ["加班严重/强度大","(加班|overtime|overwork|长时间|long hour|没休息|no break|疲劳|fatigue|累|exhausted|超负荷|overload)","i"],
+      ["沟通不畅/信息闭塞","(沟通差|不沟通|不回应|ignore|无视|信息不通|misinform|误导|隐瞒|不透明)","i"],
+      ["离职率高/留不住人","(离职|quit|resign|turnover|流失|走人|跑路|没人留|留不住|频繁换人)","i"],
+      ["工作条件差","(危险|dangerous|unsafe|热|冷|没空调|no AC|设备坏|broken|破旧|脏|dirty)","i"],
+      ["歧视/骚扰","(歧视|discrim|种族|racial|性别|gender|年龄|age|harassment|骚扰)","i"]
+    ];
+    var hits={};
+    items.forEach(function(x){
+      var txt=(x.it.excerpt||"")+" "+(x.it.theme||"");
+      kwList.forEach(function(pair){ if(new RegExp(pair[1],pair[2]).test(txt)) hits[pair[0]]=(hits[pair[0]]||0)+1; });
+    });
+    var tops=Object.keys(hits).sort(function(a,b){return hits[b]-hits[a];}).slice(0,3);
+    var themeHtml=tops.length?'<span class="theme-tag">主要反映：'+tops.map(function(t){return esc(t);}).join('\u3001')+'</span>':'';
+    var rep=esc(trunc((items[0].it.excerpt||""),38));
+    var link=items[0].it.url?' <a target="_blank" rel="noopener" href="'+esc(items[0].it.url)+'">来源\u2192</a>':'';
+    return '<p><b>'+items.length+' \u6761</b>'+themeHtml+'</p>'
+      +(rep?'<p class="muted">\u4F8B\uFF1A'+rep+'…'+link+'</p>':'');
   }
+
 
   // ---- summary 卡（周 / 累计） ----
   function summaryCard(items, isWeek, label){
